@@ -1,0 +1,1449 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Paket Data",
+        "slug": "paket-data",
+        "icon": "mdi-web",
+        "is_active": true
+      },
+      {
+        "id": 2,
+        "name": "Air PDAM",
+        "slug": "air-pdam",
+        "icon": "mdi-water-pump",
+        "is_active": true
+      },
+      {
+        "id": 3,
+        "name": "Uang Elektronik",
+        "slug": "uang-elektronik",
+        "icon": "mdi-wallet-outline",
+        "is_active": true
+      },
+      {
+        "id": 4,
+        "name": "Pulsa",
+        "slug": "pulsa",
+        "icon": "mdi-cellphone-sound",
+        "is_active": false
+      },
+      {
+        "id": 5,
+        "name": "Internet & TV Kabel",
+        "slug": "internet",
+        "icon": "mdi-monitor",
+        "is_active": false
+      }
+    ],
+    "paket-data": [
+      {
+        "id": 1,
+        "group": "Telkomsel",
+        "label": "TELKOMSEL DATA FLASH 500 MB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 1",
+        "stock": 20,
+        "price": 10000,
+        "is_discount": false
+      },
+      {
+        "id": 2,
+        "group": "Telkomsel",
+        "label": "TELKOMSEL DATA FLASH 1GB 3 Hari",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 2",
+        "stock": 0,
+        "price": 15000,
+        "is_discount": false
+      },
+      {
+        "id": 3,
+        "group": "Telkomsel",
+        "label": "TELKOMSEL DATA FLASH 2GB 7 Hari",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 3",
+        "stock": 20,
+        "price": 28000,
+        "is_discount": true
+      },
+      {
+        "id": 4,
+        "group": "Xl-Axiata",
+        "label": "Hotrod 2GB, 7hr",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 21000,
+        "is_discount": false
+      },
+      {
+        "id": 5,
+        "group": "Xl-Axiata",
+        "label": "Xtra ON 2GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 25000,
+        "is_discount": false
+      },
+      {
+        "id": 6,
+        "group": "Xl-Axiata",
+        "label": "XL DATA KUOTA FIX 3 GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 32000,
+        "is_discount": false
+      },
+      {
+        "id": 7,
+        "group": "Axis",
+        "label": "BRONET 24Jam 2GB 60hr",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 29400,
+        "is_discount": false
+      },
+      {
+        "id": 8,
+        "group": "Axis",
+        "label": "BRONET 24Jam 5GB 60hr",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 54900,
+        "is_discount": false
+      },
+      {
+        "id": 9,
+        "group": "Axis",
+        "label": "BRONET 24Jam 10GB 60d + Sosmed 2GB 30d",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 87900,
+        "is_discount": false
+      },
+      {
+        "id": 10,
+        "group": "Im3",
+        "label": "Freedom Combo 6GB / 30 Hari",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 28000,
+        "is_discount": false
+      },
+      {
+        "id": 11,
+        "group": "Im3",
+        "label": "Freedom Combo 10GB / 30 Hari",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 38000,
+        "is_discount": false
+      },
+      {
+        "id": 12,
+        "group": "Im3",
+        "label": "Freedom Combo 30GB / 30 Hari",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 78000,
+        "is_discount": false
+      },
+      {
+        "id": 13,
+        "group": "Smartfren",
+        "label": "AIGO Bronet 24Jam 8GB 30hr",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 64900,
+        "is_discount": false
+      },
+      {
+        "id": 14,
+        "group": "Smartfren",
+        "label": "Internet Volume 60 GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 100000,
+        "is_discount": false
+      },
+      {
+        "id": 15,
+        "group": "Smartfren",
+        "label": "Super 4G Unlimited Bulanan 200K",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 200000,
+        "is_discount": false
+      },
+      {
+        "id": 16,
+        "group": "Three",
+        "label": "TRI AON 50GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 199000,
+        "is_discount": false
+      },
+      {
+        "id": 17,
+        "group": "Three",
+        "label": "TRI AON 80GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 299000,
+        "is_discount": false
+      },
+      {
+        "id": 18,
+        "group": "Three",
+        "label": "TRI AON 150GB",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 499000,
+        "is_discount": false
+      }
+    ],
+    "uang-elektronik-group": [
+      {
+        "id": 1,
+        "group": "Brizzi",
+        "type": "cardNumber"
+      },
+      {
+        "id": 2,
+        "group": "LinkAja",
+        "type": "phoneNumber"
+      },
+      {
+        "id": 3,
+        "group": "ShopeePay",
+        "type": "phoneNumber"
+      },
+      {
+        "id": 4,
+        "group": "Dana",
+        "type": "phoneNumber"
+      },
+      {
+        "id": 5,
+        "group": "GoPay",
+        "type": "phoneNumber"
+      },
+      {
+        "id": 6,
+        "group": "OVO",
+        "type": "phoneNumber"
+      }
+    ],
+    "uang-elektronik": [
+      {
+        "id": 1,
+        "group": "Brizzi",
+        "label": "BRIZZI 25",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 26500,
+        "is_discount": false
+      },
+      {
+        "id": 2,
+        "group": "Brizzi",
+        "label": "BRIZZI 50",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51000,
+        "is_discount": false
+      },
+      {
+        "id": 3,
+        "group": "Brizzi",
+        "label": "BRIZZI 75",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 76000,
+        "is_discount": false
+      },
+      {
+        "id": 4,
+        "group": "Brizzi",
+        "label": "BRIZZI 100",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 101000,
+        "is_discount": false
+      },
+      {
+        "id": 5,
+        "group": "Brizzi",
+        "label": "BRIZZI 200",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 201500,
+        "is_discount": false
+      },
+      {
+        "id": 6,
+        "group": "Brizzi",
+        "label": "BRIZZI 250",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 251000,
+        "is_discount": false
+      },
+      {
+        "id": 7,
+        "group": "LinkAja",
+        "label": "LINKAJA 20",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 21000,
+        "is_discount": false
+      },
+      {
+        "id": 8,
+        "group": "LinkAja",
+        "label": "LINKAJA 50",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51000,
+        "is_discount": false
+      },
+      {
+        "id": 9,
+        "group": "LinkAja",
+        "label": "LINKAJA 100",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 101000,
+        "is_discount": false
+      },
+      {
+        "id": 10,
+        "group": "LinkAja",
+        "label": "LINKAJA 200",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 201000,
+        "is_discount": false
+      },
+      {
+        "id": 11,
+        "group": "LinkAja",
+        "label": "LINKAJA 250",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 251000,
+        "is_discount": false
+      },
+      {
+        "id": 12,
+        "group": "LinkAja",
+        "label": "LINKAJA 500",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 501000,
+        "is_discount": false
+      },
+      {
+        "id": 13,
+        "group": "ShopeePay",
+        "label": "ShopeePay 20.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 21500,
+        "is_discount": false
+      },
+      {
+        "id": 14,
+        "group": "ShopeePay",
+        "label": "ShopeePay 30.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 31500,
+        "is_discount": false
+      },
+      {
+        "id": 15,
+        "group": "ShopeePay",
+        "label": "ShopeePay 40.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 41500,
+        "is_discount": false
+      },
+      {
+        "id": 16,
+        "group": "ShopeePay",
+        "label": "ShopeePay 50.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51500,
+        "is_discount": false
+      },
+      {
+        "id": 17,
+        "group": "ShopeePay",
+        "label": "ShopeePay 60.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 61500,
+        "is_discount": false
+      },
+      {
+        "id": 18,
+        "group": "ShopeePay",
+        "label": "ShopeePay 70.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 71500,
+        "is_discount": false
+      },
+      {
+        "id": 19,
+        "group": "Dana",
+        "label": "DANA 10",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 11500,
+        "is_discount": false
+      },
+      {
+        "id": 20,
+        "group": "Dana",
+        "label": "DANA 20",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 21000,
+        "is_discount": false
+      },
+      {
+        "id": 21,
+        "group": "Dana",
+        "label": "DANA 25",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 26000,
+        "is_discount": false
+      },
+      {
+        "id": 22,
+        "group": "Dana",
+        "label": "DANA 50",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51000,
+        "is_discount": false
+      },
+      {
+        "id": 23,
+        "group": "Dana",
+        "label": "DANA 100",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 101000,
+        "is_discount": false
+      },
+      {
+        "id": 24,
+        "group": "Dana",
+        "label": "DANA 150",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 151000,
+        "is_discount": false
+      },
+      {
+        "id": 25,
+        "group": "GoPay",
+        "label": "GOPAY 25.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 26000,
+        "is_discount": false
+      },
+      {
+        "id": 26,
+        "group": "GoPay",
+        "label": "GOPAY 50.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51000,
+        "is_discount": false
+      },
+      {
+        "id": 27,
+        "group": "GoPay",
+        "label": "GOPAY 75.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 0,
+        "price": 76000,
+        "is_discount": false
+      },
+      {
+        "id": 28,
+        "group": "GoPay",
+        "label": "GOPAY 100.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 101000,
+        "is_discount": false
+      },
+      {
+        "id": 29,
+        "group": "GoPay",
+        "label": "GOPAY 150.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 151000,
+        "is_discount": false
+      },
+      {
+        "id": 30,
+        "group": "GoPay",
+        "label": "GOPAY 200.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 201000,
+        "is_discount": false
+      },
+      {
+        "id": 31,
+        "group": "OVO",
+        "label": "OVO 20.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 21500,
+        "is_discount": false
+      },
+      {
+        "id": 32,
+        "group": "OVO",
+        "label": "OVO 25.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 26500,
+        "is_discount": false
+      },
+      {
+        "id": 33,
+        "group": "OVO",
+        "label": "OVO 40.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 41500,
+        "is_discount": false
+      },
+      {
+        "id": 34,
+        "group": "OVO",
+        "label": "OVO 50.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 51500,
+        "is_discount": false
+      },
+      {
+        "id": 35,
+        "group": "OVO",
+        "label": "OVO 100.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 101500,
+        "is_discount": false
+      },
+      {
+        "id": 36,
+        "group": "OVO",
+        "label": "OVO 200.000",
+        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        "stock": 20,
+        "price": 201500,
+        "is_discount": false
+      }
+    ],
+    "air-pdam": [
+      {
+        "id": 903,
+        "product_label": "PDAM AETRA JAKARTA"
+      },
+      {
+        "id": 905,
+        "product_label": "SPAM BATAM"
+      },
+      {
+        "id": 908,
+        "product_label": "PDAM KAB SUKABUMI"
+      },
+      {
+        "id": 906,
+        "product_label": "PDAM KOTA MALANG (JATIM)"
+      },
+      {
+        "id": 909,
+        "product_label": "PDAM KOTA BOGOR (JABAR)"
+      },
+      {
+        "id": 910,
+        "product_label": "PDAM KAB. BOGOR (JABAR)"
+      },
+      {
+        "id": 911,
+        "product_label": "PDAM TIRTA MERANGIN JAMBI"
+      },
+      {
+        "id": 912,
+        "product_label": "PDAM TIRTA MUARO JAMBI"
+      },
+      {
+        "id": 913,
+        "product_label": "PDAM KAB. BULELENG (BALI)"
+      },
+      {
+        "id": 914,
+        "product_label": "PDAM KOTA DENPASAR (BALI)"
+      },
+      {
+        "id": 915,
+        "product_label": "PDAM KOTA DEPOK (JABAR)"
+      },
+      {
+        "id": 916,
+        "product_label": "PDAM INTAN BANJAR (KALSEL)"
+      },
+      {
+        "id": 917,
+        "product_label": "PDAM KAB. BANDUNG (JABAR)"
+      },
+      {
+        "id": 918,
+        "product_label": "PDAM KAB. BANDUNG BARAT"
+      },
+      {
+        "id": 919,
+        "product_label": "PDAM KOTA BANDUNG (JABAR)"
+      },
+      {
+        "id": 920,
+        "product_label": "PDAM PALYJA JAKARTA"
+      },
+      {
+        "id": 921,
+        "product_label": "PDAM KOTA BEKASI (JABAR)"
+      },
+      {
+        "id": 922,
+        "product_label": "PDAM KOTA MEDAN (SUMUT)"
+      },
+      {
+        "id": 923,
+        "product_label": "PDAM KOTA SURABAYA (JATIM)"
+      },
+      {
+        "id": 929,
+        "product_label": "PDAM BUKITTINGGI"
+      },
+      {
+        "id": 930,
+        "product_label": "PDAM TANGERANG KOTA"
+      },
+      {
+        "id": 966,
+        "product_label": "PDAM KOTA SEMARANG (JATENG)"
+      },
+      {
+        "id": 967,
+        "product_label": "PDAM KOTA SURAKARTA (JATENG)"
+      },
+      {
+        "id": 968,
+        "product_label": "PDAM KOTA SOLO (JATENG)"
+      },
+      {
+        "id": 969,
+        "product_label": "PDAM KOTA MAKASSAR"
+      },
+      {
+        "id": 970,
+        "product_label": "PDAM KOTA PADANG"
+      },
+      {
+        "id": 971,
+        "product_label": "PDAM PADANG PARIAMAN"
+      },
+      {
+        "id": 972,
+        "product_label": "PDAM KAB SINJAI"
+      },
+      {
+        "id": 973,
+        "product_label": "PDAM KOTA PALEMBANG (SUMSEL)"
+      },
+      {
+        "id": 974,
+        "product_label": "PAM ATS PALEMBANG"
+      },
+      {
+        "id": 975,
+        "product_label": "PDAM KOTA YOGYAKARTA"
+      },
+      {
+        "id": 980,
+        "product_label": "PDAM KOTA BANDAR LAMPUNG"
+      },
+      {
+        "id": 981,
+        "product_label": "PDAM KAB. SLEMAN (DIY)"
+      },
+      {
+        "id": 982,
+        "product_label": "PDAM KAB. SIDOARJO (JATIM)"
+      },
+      {
+        "id": 983,
+        "product_label": "PDAM KAB. SEMARANG (JATENG)"
+      },
+      {
+        "id": 984,
+        "product_label": "PDAM KOTA TEGAL"
+      },
+      {
+        "id": 985,
+        "product_label": "PDAM KAB. TEGAL"
+      },
+      {
+        "id": 986,
+        "product_label": "PDAM Kota Manado"
+      },
+      {
+        "id": 987,
+        "product_label": "PDAM KOTA SUKABUMI"
+      },
+      {
+        "id": 1022,
+        "product_label": "PDAM KAB. BALANGAN (KALSEL)"
+      },
+      {
+        "id": 1023,
+        "product_label": "PDAM KAB. BANGKALAN (JATIM)"
+      },
+      {
+        "id": 1024,
+        "product_label": "PDAM KAB. BANYUMAS (JATENG)"
+      },
+      {
+        "id": 1025,
+        "product_label": "PDAM KAB. BATANG (JATENG)"
+      },
+      {
+        "id": 1026,
+        "product_label": "PDAM KAB. BLORA (JATENG)"
+      },
+      {
+        "id": 1027,
+        "product_label": "PDAM KAB. BOJONEGORO (JATIM)"
+      },
+      {
+        "id": 1028,
+        "product_label": "PDAM KAB. BONDOWOSO (JATIM)"
+      },
+      {
+        "id": 1029,
+        "product_label": "PDAM KAB. BOYOLALI (JATENG)"
+      },
+      {
+        "id": 1030,
+        "product_label": "PDAM KAB. BREBES (JATENG)"
+      },
+      {
+        "id": 1031,
+        "product_label": "PDAM KAB. CIAMIS"
+      },
+      {
+        "id": 1032,
+        "product_label": "PDAM KAB. CILACAP (JATENG)"
+      },
+      {
+        "id": 1033,
+        "product_label": "PDAM KAB. GARUT"
+      },
+      {
+        "id": 1034,
+        "product_label": "PDAM KAB. JEMBER (JATIM)"
+      },
+      {
+        "id": 1035,
+        "product_label": "PDAM KAB. JEPARA (JATENG)"
+      },
+      {
+        "id": 1036,
+        "product_label": "PDAM KAB. JOMBANG"
+      },
+      {
+        "id": 1037,
+        "product_label": "PDAM KAB. KARANGANYAR (JATENG)"
+      },
+      {
+        "id": 1038,
+        "product_label": "PDAM KAB. KEBUMEN (JATENG)"
+      },
+      {
+        "id": 1039,
+        "product_label": "PDAM KAB. KLUNGKUNG"
+      },
+      {
+        "id": 1040,
+        "product_label": "PDAM KAB. KULON PROGO"
+      },
+      {
+        "id": 1041,
+        "product_label": "PDAM KAB. LUMAJANG (JATIM)"
+      },
+      {
+        "id": 1042,
+        "product_label": "PDAM KAB. MOJOKERTO (JATIM)"
+      },
+      {
+        "id": 1043,
+        "product_label": "PDAM KAB. NIAS"
+      },
+      {
+        "id": 1044,
+        "product_label": "PDAM KAB. PASURUAN (JATIM)"
+      },
+      {
+        "id": 1046,
+        "product_label": "PDAM KAB. PEKALONGAN (JATENG)"
+      },
+      {
+        "id": 1047,
+        "product_label": "PDAM KAB. PROBOLINGGO (JATIM)"
+      },
+      {
+        "id": 1048,
+        "product_label": "PDAM KAB. PURBALINGGA (JATENG)"
+      },
+      {
+        "id": 1049,
+        "product_label": "PDAM KAB. REMBANG (JATENG)"
+      },
+      {
+        "id": 1050,
+        "product_label": "PDAM KAB. SAMPANG (JATIM)"
+      },
+      {
+        "id": 1051,
+        "product_label": "PDAM KAB. SITUBONDO (JATIM)"
+      },
+      {
+        "id": 1052,
+        "product_label": "PDAM KAB. SUKOHARJO (JATENG)"
+      },
+      {
+        "id": 1053,
+        "product_label": "PDAM KAB. TAPIN (KALSEL)"
+      },
+      {
+        "id": 1054,
+        "product_label": "PDAM KAB. TEMANGGUNG (JATENG)"
+      },
+      {
+        "id": 1056,
+        "product_label": "PDAM KAB. WONOGIRI (JATENG)"
+      },
+      {
+        "id": 1055,
+        "product_label": "PDAM KAB. WONOSOBO (JATENG)"
+      },
+      {
+        "id": 1058,
+        "product_label": "PDAM KOTA BANJAR (JAWA BARAT)"
+      },
+      {
+        "id": 1057,
+        "product_label": "PDAM KOTA BANJARMASIN (KALSEL)"
+      },
+      {
+        "id": 1060,
+        "product_label": "PDAM KOTA JAYAPURA"
+      },
+      {
+        "id": 1059,
+        "product_label": "PDAM KOTA MADIUN (JATIM)"
+      },
+      {
+        "id": 1061,
+        "product_label": "PDAM KOTA MATARAM (NTB)"
+      },
+      {
+        "id": 1062,
+        "product_label": "PDAM KOTA PASURUAN (JATIM)"
+      },
+      {
+        "id": 1063,
+        "product_label": "PDAM KOTA PONTIANAK (KALBAR)"
+      },
+      {
+        "id": 1064,
+        "product_label": "PDAM KOTA SALATIGA (JATENG)"
+      },
+      {
+        "id": 1065,
+        "product_label": "PDAM KOTA SAMARINDA (KALTIM)"
+      },
+      {
+        "id": 1066,
+        "product_label": "PDAM PANGKALAN BUN"
+      },
+      {
+        "id": 1067,
+        "product_label": "PDAM POLEWALI MANDAR"
+      },
+      {
+        "id": 1068,
+        "product_label": "PDAM TIRTA KHAYANGAN (KOTA SUNGAI PENUH)"
+      },
+      {
+        "id": 1069,
+        "product_label": "PDAM KAB BADUNG"
+      },
+      {
+        "id": 1071,
+        "product_label": "PDAM KAB CIREBON"
+      },
+      {
+        "id": 1072,
+        "product_label": "PDAM KAB SUMEDANG"
+      },
+      {
+        "id": 1073,
+        "product_label": "PDAM KAB. KLATEN (JATENG)"
+      },
+      {
+        "id": 1070,
+        "product_label": "PDAM KAB PURWOREJO (JATENG)"
+      },
+      {
+        "id": 1076,
+        "product_label": "PDAM KAB GRESIK"
+      },
+      {
+        "id": 1075,
+        "product_label": "PDAM KOTA KEDIRI"
+      },
+      {
+        "id": 1074,
+        "product_label": "PDAM KOTA PROBOLINGGO"
+      },
+      {
+        "id": 1080,
+        "product_label": "PDAM PONOROGO"
+      },
+      {
+        "id": 1079,
+        "product_label": "PDAM SAMPIT"
+      },
+      {
+        "id": 1078,
+        "product_label": "PDAM KAB. LOMBOK TENGAH (NTB)"
+      },
+      {
+        "id": 1077,
+        "product_label": "PDAM KAB. KISARAN"
+      },
+      {
+        "id": 1081,
+        "product_label": "PDAM KAB. KUNINGAN"
+      },
+      {
+        "id": 1082,
+        "product_label": "PDAM KAB. CIANJUR"
+      },
+      {
+        "id": 1083,
+        "product_label": "PDAM KOTA CILEGON"
+      },
+      {
+        "id": 1084,
+        "product_label": "PDAM PANDEGLANG"
+      },
+      {
+        "id": 1085,
+        "product_label": "PDAM KAB. INDRAMAYU"
+      },
+      {
+        "id": 1086,
+        "product_label": "PDAM KOTA CIREBON"
+      },
+      {
+        "id": 1087,
+        "product_label": "PDAM BANTUL"
+      },
+      {
+        "id": 1088,
+        "product_label": "PDAM BARABAI"
+      },
+      {
+        "id": 1089,
+        "product_label": "PDAM MAMUJU"
+      },
+      {
+        "id": 1090,
+        "product_label": "PDAM TIRTA KEPRI"
+      },
+      {
+        "id": 1091,
+        "product_label": "PDAM Kab Belu"
+      },
+      {
+        "id": 1092,
+        "product_label": "PDAM TOMOHON"
+      },
+      {
+        "id": 1093,
+        "product_label": "PDAM WAJO"
+      },
+      {
+        "id": 1094,
+        "product_label": "PDAM PASAMAN"
+      },
+      {
+        "id": 1095,
+        "product_label": "PDAM KAB TEBO"
+      },
+      {
+        "id": 1096,
+        "product_label": "PDAM TIRTA SAKO BATUAH SAROLANGUN"
+      },
+      {
+        "id": 1097,
+        "product_label": "PDAM KEPULAUAN SULA"
+      },
+      {
+        "id": 1098,
+        "product_label": "PDAM MAMUJU TENGAH"
+      },
+      {
+        "id": 1099,
+        "product_label": "PDAM KAB PACITAN"
+      },
+      {
+        "id": 1100,
+        "product_label": "PDAM ENREKANG"
+      },
+      {
+        "id": 1101,
+        "product_label": "PDAM LIMA PULUH KOTA"
+      },
+      {
+        "id": 1102,
+        "product_label": "PDAM KAB SIDRAP"
+      },
+      {
+        "id": 1103,
+        "product_label": "PDAM MAJENE"
+      },
+      {
+        "id": 1104,
+        "product_label": "PDAM TIRTA CENDANA KAB TTU"
+      },
+      {
+        "id": 1105,
+        "product_label": "PDAM WAE MBELILING KAB MANGGARAI BARAT"
+      },
+      {
+        "id": 1106,
+        "product_label": "PDAM MALUKU TENGGARA"
+      },
+      {
+        "id": 1107,
+        "product_label": "PDAM KAB KUBURAYA"
+      },
+      {
+        "id": 1108,
+        "product_label": "PDAM KAB PASER"
+      },
+      {
+        "id": 1109,
+        "product_label": "PDAM KAB TAKALAR"
+      },
+      {
+        "id": 1110,
+        "product_label": "PDAM KOTA BALIKPAPAN"
+      },
+      {
+        "id": 1111,
+        "product_label": "PDAM KAB KARAWANG"
+      },
+      {
+        "id": 1112,
+        "product_label": "PDAM KAB. SRAGEN"
+      },
+      {
+        "id": 1113,
+        "product_label": "PDAM KAB. TULUNGAGUNG"
+      },
+      {
+        "id": 1114,
+        "product_label": "PDAM PAREPARE"
+      },
+      {
+        "id": 1115,
+        "product_label": "PDAM KAB LEBAK"
+      },
+      {
+        "id": 1149,
+        "product_label": "PDAM TIRTA ANTOKAN KAB AGAM"
+      },
+      {
+        "id": 1157,
+        "product_label": "PDAM KOTA BINJAI"
+      },
+      {
+        "id": 1169,
+        "product_label": "PDAM KAB. GUNUNG KIDUL"
+      },
+      {
+        "id": 1170,
+        "product_label": "PDAM KAB. BANYUWANGI"
+      },
+      {
+        "id": 1171,
+        "product_label": "PDAM TIRTA BATANGHARI"
+      },
+      {
+        "id": 1172,
+        "product_label": "PDAM KOTA SOLOK"
+      },
+      {
+        "id": 1173,
+        "product_label": "PERUMDA AIR MINUM SUMBA TIMUR"
+      },
+      {
+        "id": 1174,
+        "product_label": "PDAM KAB. BANGLI"
+      },
+      {
+        "id": 1175,
+        "product_label": "PDAM KAB. BOMBANA"
+      },
+      {
+        "id": 1176,
+        "product_label": "PDAM SUMENEP"
+      },
+      {
+        "id": 1177,
+        "product_label": "PDAM KAB. TRENGGALEK"
+      },
+      {
+        "id": 1178,
+        "product_label": "PDAM KAB. NGAWI"
+      },
+      {
+        "id": 1179,
+        "product_label": "PDAM KAB MALANG REKENING NON AIR"
+      },
+      {
+        "id": 1180,
+        "product_label": "PDAM KAB. HULU SUNGAI UTARA (KALSEL)"
+      },
+      {
+        "id": 1181,
+        "product_label": "PDAM KAB. KUTAI TIMUR"
+      },
+      {
+        "id": 1182,
+        "product_label": "PDAM KENDARI"
+      },
+      {
+        "id": 1183,
+        "product_label": "PDAM PAMEKASAN"
+      },
+      {
+        "id": 1218,
+        "product_label": "PDAM GOWA"
+      },
+      {
+        "id": 1268,
+        "product_label": "PDAM MALUKU TENGAH"
+      },
+      {
+        "id": 1478,
+        "product_label": "PDAM Gianyar"
+      },
+      {
+        "id": 1489,
+        "product_label": "PDAM KAB. PURWAKARTA"
+      },
+      {
+        "id": 1490,
+        "product_label": "PDAM KOTA TASIKMALAYA"
+      },
+      {
+        "id": 1491,
+        "product_label": "PDAM KAB. KENDAL"
+      },
+      {
+        "id": 1492,
+        "product_label": "PDAM KOTA BATU"
+      },
+      {
+        "id": 1493,
+        "product_label": "PDAM Kab Serang"
+      },
+      {
+        "id": 1494,
+        "product_label": "PDAM KAB. BEKASI"
+      },
+      {
+        "id": 1495,
+        "product_label": "PDAM LOMBOK TIMUR KAB"
+      },
+      {
+        "id": 1496,
+        "product_label": "PDAM Subang"
+      },
+      {
+        "id": 1497,
+        "product_label": "PDAM KAB TASIKMALAYA"
+      },
+      {
+        "id": 1498,
+        "product_label": "PDAM SIMALUNGUN"
+      },
+      {
+        "id": 1499,
+        "product_label": "PDAM TIRTA KERTA RAHARJA"
+      },
+      {
+        "id": 1500,
+        "product_label": "PDAM KOTA PEMATANG SIANTAR"
+      },
+      {
+        "id": 1501,
+        "product_label": "PDAM TIRTA RATU SAMBAN ARGA MAKMUR"
+      },
+      {
+        "id": 1502,
+        "product_label": "PDAM TIRTA KOMODO"
+      },
+      {
+        "id": 1503,
+        "product_label": "PDAM KAB.SOLOK"
+      },
+      {
+        "id": 1504,
+        "product_label": "PDAM TIRTA BUANA KAB SIJUNJUNG"
+      },
+      {
+        "id": 1505,
+        "product_label": "PDAM TIRTA ALAMI TANAH DATAR"
+      },
+      {
+        "id": 1506,
+        "product_label": "PDAM KOTA GORONTALO"
+      },
+      {
+        "id": 1507,
+        "product_label": "PDAM KAB GORONTALO"
+      },
+      {
+        "id": 1508,
+        "product_label": "PDAM TIRTA PRABUJAYA PRABUMULIH"
+      },
+      {
+        "id": 1509,
+        "product_label": "PDAM LEMATANG ENIM MUARA ENIM"
+      },
+      {
+        "id": 1510,
+        "product_label": "PDAM TIRTA RANDIK SEKAYU"
+      },
+      {
+        "id": 1511,
+        "product_label": "PDAM KAB BLITAR"
+      },
+      {
+        "id": 1512,
+        "product_label": "PDAM KAB SIKKA"
+      },
+      {
+        "id": 1513,
+        "product_label": "PDAM BENGKULU TIRTA DHARMA"
+      },
+      {
+        "id": 1514,
+        "product_label": "PDAM KAB. BERAU"
+      },
+      {
+        "id": 1515,
+        "product_label": "PDAM KAB. LOTENG"
+      },
+      {
+        "id": 1488,
+        "product_label": "PDAM KAB MAJALENGKA"
+      },
+      {
+        "id": 1726,
+        "product_label": "PDAM KAB. LUWU"
+      },
+      {
+        "id": 2013,
+        "product_label": "PERUMDA AIR MINUM TIRTA LINGGA"
+      },
+      {
+        "id": 2405,
+        "product_label": "PDAM KAB KUPANG"
+      },
+      {
+        "id": 2440,
+        "product_label": "PDAM KAB. SANGIHE (Sulawesi Utara)"
+      },
+      {
+        "id": 2441,
+        "product_label": "PDAM Kab. Rote Ndao"
+      },
+      {
+        "id": 2505,
+        "product_label": "PDAM Aceh Tenggara"
+      },
+      {
+        "id": 2532,
+        "product_label": "PDAM Kota Palopo"
+      },
+      {
+        "id": 2569,
+        "product_label": "PDAM Bangka Barat"
+      },
+      {
+        "id": 2610,
+        "product_label": "PDAM Kota Sabang"
+      }
+    ],
+    "history-transaction": [
+      {
+        "id": 1,
+        "product_name": "Paket Data",
+        "product_slug": "paket-data",
+        "product_icon": "mdi-web",
+        "product_transaction": [
+          {
+            "id": 6120383535860,
+            "status": "Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0878555725",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 8688441224082,
+            "status": "Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0896555320",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 7635560861015,
+            "status": "Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0838555592",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 6668090648357,
+            "status": "Pending",
+            "label": "Indosat 25.000",
+            "phone_number": "0852555059",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 2843048210160,
+            "status": "Pending",
+            "label": "Indosat 25.000",
+            "phone_number": "0878555111",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 5664255443346,
+            "status": "Pending",
+            "label": "Indosat 25.000",
+            "phone_number": "0899555281",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 8388935978751,
+            "status": "Tidak Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0838555769",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 6344575153981,
+            "status": "Tidak Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0898555159",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 3361305858273,
+            "status": "Tidak Berhasil",
+            "label": "Indosat 25.000",
+            "phone_number": "0818555267",
+            "price": 26500,
+            "created_at": "2022-05-18T01:57:03Z"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "product_name": "Uang Elektronik",
+        "product_slug": "uang-elektronik",
+        "product_icon": "mdi-wallet-outline",
+        "product_transaction": [
+          {
+            "id": 6120383535860,
+            "status": "Berhasil",
+            "label": "ShopeePay 75",
+            "phone_number": "0878555725",
+            "price": 76000,
+            "created_at": "2022-05-18T01:57:03Z"
+          },
+          {
+            "id": 8688441224082,
+            "status": "Berhasil",
+            "label": "GoPay 25",
+            "phone_number": "0896555320",
+            "price": 26000,
+            "created_at": "2022-05-18T01:57:03Z"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "product_name": "PDAM",
+        "product_slug": "air-pdam",
+        "product_icon": "mdi-water-pump",
+        "product_transaction": [
+        {
+            "id": 6120383535860,
+            "status": "Berhasil",
+            "label": "Tagihan PDAM",
+            "phone_number": "864546563514654",
+            "price": 75000,
+            "created_at": "2022-05-18T01:57:03Z"
+        },
+        {
+            "id": 8688441224082,
+            "status": "Berhasil",
+            "label": "Tagihan PDAM",
+            "phone_number": "123135498745638",
+            "price": 850000,
+            "created_at": "2022-05-18T01:57:03Z"
+        }
+        ]
+    }
+    ]
+}
