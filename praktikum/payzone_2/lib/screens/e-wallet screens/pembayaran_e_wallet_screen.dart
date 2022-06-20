@@ -208,7 +208,9 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
             Divider(color: Colors.grey, thickness: 1),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/metodePembayaranEWallet");
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),

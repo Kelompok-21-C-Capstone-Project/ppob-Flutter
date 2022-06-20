@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 
-class PembayaranEWalletScreen extends StatefulWidget {
-  const PembayaranEWalletScreen({Key? key}) : super(key: key);
+class PembayaranPdamScreen extends StatefulWidget {
+  const PembayaranPdamScreen({Key? key}) : super(key: key);
 
   @override
-  State<PembayaranEWalletScreen> createState() =>
-      _PembayaranEWalletScreenState();
+  State<PembayaranPdamScreen> createState() => _PembayaranPdamScreenState();
 }
 
-class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
+class _PembayaranPdamScreenState extends State<PembayaranPdamScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   dynamic val = -1;
 
@@ -30,6 +29,57 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 20),
+            Text(
+              "Informasi Pelanggan",
+              style: title3Sans,
+            ),
+            const SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Nomor Pelanggan",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Nama Pelanggan",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Lokasi",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "061200",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "Reza Hadi",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      "PDAM AETRA JAKARTA",
+                      style: title1Sans,
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ],
+            ),
             Text(
               "Detail Pembayaran",
               style: title3Sans,
@@ -42,17 +92,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Nama Produk",
-                      style: title1Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Nomor Handphone",
-                      style: title1Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Harga",
+                      "Jumlah Tagihan",
                       style: title1Sans,
                     ),
                     const SizedBox(height: 5),
@@ -67,22 +107,12 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "OVO 25",
+                      "Rp. 50.000",
                       style: title1Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
-                      "08xxxxxxxxx",
-                      style: title1Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Rp. 21.500",
-                      style: title1Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "RP. 2500",
+                      "Rp. 2.500",
                       style: title1Sans,
                     ),
                     const SizedBox(height: 20),
@@ -208,7 +238,9 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
             Divider(color: Colors.grey, thickness: 1),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/metodePembayaranPDAM");
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),

@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/screens/daftar_produk_screens.dart';
 import 'package:payzone_2/screens/e-wallet%20screens/daftar_produk_e_wallet_screen.dart';
-import 'package:payzone_2/screens/e-wallet%20screens/metode_pembayaran_screen.dart';
+import 'package:payzone_2/screens/e-wallet%20screens/metode_pembayaran_e_wallet_screen.dart';
 import 'package:payzone_2/screens/e-wallet%20screens/ovo_screen.dart';
 import 'package:payzone_2/screens/e-wallet%20screens/pembayaran_e_wallet_screen.dart';
 import 'package:payzone_2/screens/home_page_screens.dart';
+import 'package:payzone_2/screens/paket%20data%20screens/daftar_produk_paket_data_screen.dart';
+import 'package:payzone_2/screens/paket%20data%20screens/metode_pembayaran_paket_data_screen.dart';
+import 'package:payzone_2/screens/paket%20data%20screens/pembayaran_paket_data_screen.dart';
+import 'package:payzone_2/screens/pdam%20screens/daftar_produk_pdam_screen.dart';
+import 'package:payzone_2/screens/pdam%20screens/metode_pembayaran_pdam_screen.dart';
+import 'package:payzone_2/screens/pdam%20screens/pembayaran_pdam_screen.dart';
+import 'package:payzone_2/screens/profile_detail_screen.dart';
+import 'package:payzone_2/screens/profile_screens.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +26,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Payzone',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      // ),
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
       routes: {
         "/home": (context) => HomePageScreens(),
         "/daftarProduk": (context) => DaftarProdukScreens(),
@@ -28,8 +36,17 @@ class MyApp extends StatelessWidget {
         "/ovoScreen": (context) => OVOScreen(),
         "/pembayaranEWallet": (context) => PembayaranEWalletScreen(),
         "/metodePembayaranEWallet": (context) => MetodePembayaranScreen(),
+        "/produkPDAM": (context) => DaftarProdukPdamScreen(),
+        "/pembayaranPdam": (context) => PembayaranPdamScreen(),
+        "/metodePembayaranPDAM": (context) => MetodePembayaranPdamScreen(),
+        "/produkPaketData": (context) => DaftarProdukPaketDataScreen(),
+        "/pembayaranPaketData": (context) => PembayaranPaketDataScreen(),
+        "/metodePembayaranPaketData": (context) =>
+            MetodePembayaranPaketDataScreen(),
+        "/profile": (context) => ProfileScreen(),
+        "/profileDetail": (context) => ProfileDetail(),
       },
-      initialRoute: "/metodePembayaranEWallet",
+      initialRoute: "/home",
     );
   }
 }

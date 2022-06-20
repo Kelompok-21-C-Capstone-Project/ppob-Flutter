@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:payzone_2/components/constant.dart';
 
-class MetodePembayaranScreen extends StatefulWidget {
-  const MetodePembayaranScreen({Key? key}) : super(key: key);
+class MetodePembayaranPdamScreen extends StatefulWidget {
+  const MetodePembayaranPdamScreen({Key? key}) : super(key: key);
 
   @override
-  State<MetodePembayaranScreen> createState() => _MetodePembayaranScreenState();
+  State<MetodePembayaranPdamScreen> createState() =>
+      _MetodePembayaranPdamScreenState();
 }
 
-class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
+class _MetodePembayaranPdamScreenState
+    extends State<MetodePembayaranPdamScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +62,33 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(
+                              "Pembayaran Berhasil",
+                              style: title1Ubuntu,
+                            ),
+                            content: Text(
+                                "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
+                                style: title3Ubuntu),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  primary: primaryKuning1,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      104, 12, 104, 12),
+                                ),
+                                child: Text("Lihat History Transaksi",
+                                    style: title3Sans),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
@@ -109,7 +136,9 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/home");
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
@@ -122,7 +151,6 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
           ],
         ),
       ),
-
     );
   }
 }

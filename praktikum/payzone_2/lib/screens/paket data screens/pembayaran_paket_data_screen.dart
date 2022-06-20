@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 
-class PembayaranEWalletScreen extends StatefulWidget {
-  const PembayaranEWalletScreen({Key? key}) : super(key: key);
+class PembayaranPaketDataScreen extends StatefulWidget {
+  const PembayaranPaketDataScreen({Key? key}) : super(key: key);
 
   @override
-  State<PembayaranEWalletScreen> createState() =>
-      _PembayaranEWalletScreenState();
+  State<PembayaranPaketDataScreen> createState() =>
+      _PembayaranPaketDataScreenState();
 }
 
-class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
+class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   dynamic val = -1;
 
@@ -208,7 +208,9 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
             Divider(color: Colors.grey, thickness: 1),
             Center(
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/metodePembayaranPaketData");
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
