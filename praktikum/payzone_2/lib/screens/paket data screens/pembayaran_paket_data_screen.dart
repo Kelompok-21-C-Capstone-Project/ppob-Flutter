@@ -18,7 +18,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
+        backgroundColor: putih,
         title: Text(
           'Pembayaran',
           style: appBar,

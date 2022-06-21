@@ -17,7 +17,7 @@ class _PembayaranPdamScreenState extends State<PembayaranPdamScreen> {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
+        backgroundColor: putih,
         title: Text(
           'Pembayaran',
           style: appBar,

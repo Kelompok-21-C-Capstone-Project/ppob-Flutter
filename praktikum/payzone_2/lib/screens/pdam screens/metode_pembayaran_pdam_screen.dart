@@ -16,7 +16,7 @@ class _MetodePembayaranPdamScreenState
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning2,
+        backgroundColor: putih,
         title: Text("Pembayaran", style: appBar),
         centerTitle: true,
       ),
@@ -33,9 +33,19 @@ class _MetodePembayaranPdamScreenState
               "Nomor Virtual Account",
               style: title4Ubuntu,
             ),
-            const SizedBox(height: 10),
-            Text("123456789012345", style: title4Ubuntu),
-            const SizedBox(height: 10),
+            // const SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("123456789012345", style: title4Ubuntu),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.copy),
+                  iconSize: 12,
+                ),
+              ],
+            ),
+            // const SizedBox(height: 10),
             Text("Dicek dalam 10 menit setelah pembayaran berhasil",
                 style: title5Ubuntu),
             const SizedBox(height: 10),

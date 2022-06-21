@@ -13,6 +13,8 @@ import 'package:payzone_2/screens/pdam%20screens/metode_pembayaran_pdam_screen.d
 import 'package:payzone_2/screens/pdam%20screens/pembayaran_pdam_screen.dart';
 import 'package:payzone_2/screens/profile_detail_screen.dart';
 import 'package:payzone_2/screens/profile_screens.dart';
+import 'package:payzone_2/view%20model/payzone_view_model.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,30 +25,36 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Payzone',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<PayzoneViewModel>(
+            create: (context) => PayzoneViewModel())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Payzone',
+        theme: ThemeData(
+          primarySwatch: Colors.amber,
+        ),
+        routes: {
+          "/home": (context) => HomePageScreens(),
+          "/daftarProduk": (context) => DaftarProdukScreens(),
+          "/produkEWallet": (context) => DaftarProdukEWalletScreen(),
+          "/ovoScreen": (context) => OVOScreen(),
+          "/pembayaranEWallet": (context) => PembayaranEWalletScreen(),
+          "/metodePembayaranEWallet": (context) => MetodePembayaranScreen(),
+          "/produkPDAM": (context) => DaftarProdukPdamScreen(),
+          "/pembayaranPdam": (context) => PembayaranPdamScreen(),
+          "/metodePembayaranPDAM": (context) => MetodePembayaranPdamScreen(),
+          "/produkPaketData": (context) => DaftarProdukPaketDataScreen(),
+          "/pembayaranPaketData": (context) => PembayaranPaketDataScreen(),
+          "/metodePembayaranPaketData": (context) =>
+              MetodePembayaranPaketDataScreen(),
+          "/profile": (context) => ProfileScreen(),
+          "/profileDetail": (context) => ProfileDetail(),
+        },
+        initialRoute: "/home",
       ),
-      routes: {
-        "/home": (context) => HomePageScreens(),
-        "/daftarProduk": (context) => DaftarProdukScreens(),
-        "/produkEWallet": (context) => DaftarProdukEWalletScreen(),
-        "/ovoScreen": (context) => OVOScreen(),
-        "/pembayaranEWallet": (context) => PembayaranEWalletScreen(),
-        "/metodePembayaranEWallet": (context) => MetodePembayaranScreen(),
-        "/produkPDAM": (context) => DaftarProdukPdamScreen(),
-        "/pembayaranPdam": (context) => PembayaranPdamScreen(),
-        "/metodePembayaranPDAM": (context) => MetodePembayaranPdamScreen(),
-        "/produkPaketData": (context) => DaftarProdukPaketDataScreen(),
-        "/pembayaranPaketData": (context) => PembayaranPaketDataScreen(),
-        "/metodePembayaranPaketData": (context) =>
-            MetodePembayaranPaketDataScreen(),
-        "/profile": (context) => ProfileScreen(),
-        "/profileDetail": (context) => ProfileDetail(),
-      },
-      initialRoute: "/home",
     );
   }
 }
