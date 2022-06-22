@@ -10,7 +10,7 @@ class HomePageScreens extends StatefulWidget {
 }
 
 class _HomePageScreensState extends State<HomePageScreens> {
-  int _currentIndex = 0;
+  // int _currentIndex = 0;
 
   final screen = [
     // DaftarProdukScreens(),

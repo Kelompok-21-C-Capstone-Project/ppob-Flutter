@@ -209,6 +209,8 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
             Center(
               child: ElevatedButton(
                   onPressed: () {
+                    //cek di shared apakah ada data user, jika tidak ada lanjutkan ke laman login, jika ada lanjutkan ke pembayaran metode
+                    //get visit
                     Navigator.pushNamed(context, "/metodePembayaranEWallet");
                   },
                   style: ElevatedButton.styleFrom(

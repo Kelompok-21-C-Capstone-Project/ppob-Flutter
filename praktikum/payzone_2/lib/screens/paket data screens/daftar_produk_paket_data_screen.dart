@@ -178,6 +178,39 @@ class CardItemTelkomsel extends StatelessWidget {
                   "${produkTelkomsel.harga}",
                   style: title2Ubuntu,
                 ),
+                const SizedBox(height: 5),
+                InkWell(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(
+                              "Detail Paket",
+                              style: title1Ubuntu,
+                            ),
+                            content: Text("Penjelasan Paket yang dipilih",
+                                style: title3Ubuntu),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  primary: primaryKuning1,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      104, 12, 104, 12),
+                                ),
+                                child: Text("Lanjut ke Pembayaran",
+                                    style: title3Sans),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  child: Text(
+                    "Selengkapnya",
+                    style: title8Sans,
+                  ),
+                )
               ],
             ),
           ),

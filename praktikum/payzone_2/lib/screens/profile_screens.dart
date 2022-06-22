@@ -24,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Column(
             children: [
               Container(
-                height: 100,
+                height: 165,
                 decoration: BoxDecoration(color: primaryKuning1),
               ),
               Expanded(
@@ -36,77 +36,75 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-          ListView(
-            children: [
-              Positioned(
-                left: 30,
-                right: 30,
-                top: 32,
-                child: Container(
-                  margin: EdgeInsets.all(20),
-                  height: 150,
-                  width: 100,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(15),
-                      boxShadow: const [
-                        BoxShadow(color: Colors.grey, blurRadius: 5)
-                      ]),
-                  child: _profileName(),
-                ),
-              ),
-            ],
+          Positioned(
+            left: 10,
+            right: 10,
+            top: 12,
+            child: Container(
+              margin: EdgeInsets.all(20),
+              height: 150,
+              width: 100,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5),
+                  boxShadow: const [
+                    BoxShadow(color: Colors.grey, blurRadius: 5)
+                  ]),
+              child: _profileName(),
+            ),
           ),
+          // Positioned(
+          //   left: 30,
+          //   right: 30,
+          //   top: 32,
+          //   child: _menuDanInfo(),
+          // ),
         ],
       ),
     );
   }
 
   Widget _profileName() {
-    return Container(
-      child: Column(
-        children: [
-          SizedBox(height: 15),
-          Icon(
-            Icons.account_circle,
-            color: onPrimary,
-            size: 60.0,
-          ),
-          SizedBox(height: 10),
-          Text(
-            "Bangun Akmalu Hakim",
-            style: TextStyle(
-                fontFamily: GoogleFonts.ubuntu().fontFamily,
-                fontWeight: FontWeight.w500,
-                fontSize: 15,
-                color: onSurface),
-          ),
-          SizedBox(height: 5),
-          Text(
-            "087864420972",
-            style: TextStyle(
-                fontFamily: GoogleFonts.ptSans().fontFamily,
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: onSurface),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        SizedBox(height: 15),
+        Icon(
+          Icons.account_circle,
+          color: onPrimary,
+          size: 60.0,
+        ),
+        SizedBox(height: 10),
+        Text(
+          "Bangun Akmalu Hakim",
+          style: TextStyle(
+              fontFamily: GoogleFonts.ubuntu().fontFamily,
+              fontWeight: FontWeight.w500,
+              fontSize: 15,
+              color: onSurface),
+        ),
+        SizedBox(height: 5),
+        Text(
+          "087864420972",
+          style: TextStyle(
+              fontFamily: GoogleFonts.ptSans().fontFamily,
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+              color: onSurface),
+        ),
+      ],
     );
   }
 
   Widget _menuDanInfo() {
-    return Container(
-      child: ListView.builder(
-        itemCount: customIcon.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-              leading: CircleAvatar(
-                  backgroundImage: NetworkImage("${customIcon[index].icon}")),
-              title: Text("${customIcon[index].nama}"),
-              trailing: Icon(Icons.arrow_forward_ios));
-        },
-      ),
+    return ListView.builder(
+      itemCount: customIcon.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+            leading: CircleAvatar(
+                backgroundImage: NetworkImage("${customIcon[index].icon}")),
+            title: Text("${customIcon[index].nama}"),
+            trailing: Icon(Icons.arrow_forward_ios));
+      },
     );
   }
 }

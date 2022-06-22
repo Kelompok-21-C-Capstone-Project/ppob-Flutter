@@ -3,8 +3,19 @@ import 'package:payzone_2/model/all_product_model.dart' as allProduct;
 import 'package:payzone_2/model/get_user_by_id_model.dart' as getUserById;
 import 'package:payzone_2/model/get_user_transaction_id.dart'
     as getUserTransactionId;
+import 'package:payzone_2/model/user_model.dart';
 
 class PayzoneApiServices {
+  Future<UserModel> login() async {
+    final response = await Dio()
+        .get("https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/auth");
+    print("hasil : ${response.data}");
+    final res = UserModel.fromJson(response.data);
+    // harus save shared pref var res (data user), mini project set visit
+    // result = res.
+    return res;
+  }
+
   Future<List<allProduct.AllProductModel>?> getAllProduct() async {
     final response = await Dio().get(
         "https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/products/searchProduct");
