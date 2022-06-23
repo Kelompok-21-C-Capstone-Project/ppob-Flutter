@@ -10,7 +10,7 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
+        backgroundColor: putih,
         title: Text(
           "Topup E-Wallet",
           style: appBar,

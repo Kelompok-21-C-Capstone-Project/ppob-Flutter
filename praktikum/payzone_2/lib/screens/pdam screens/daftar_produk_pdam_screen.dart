@@ -18,7 +18,7 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
+        backgroundColor: putih,
         title: Text(
           "Tagihan PDAM",
           style: appBar,

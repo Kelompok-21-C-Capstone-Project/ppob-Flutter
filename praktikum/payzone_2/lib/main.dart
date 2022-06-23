@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
           "/profile": (context) => ProfileScreen(),
           "/profileDetail": (context) => ProfileDetail(),
         },
-        initialRoute: "/home",
+        initialRoute: "/metodePembayaranEWallet",
       ),
     );
   }

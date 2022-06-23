@@ -191,21 +191,31 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Total Pembayaran"),
-                Text("Total"),
-
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     IconButton(
-                //       onPressed: () {},
-                //       icon: Icon(Icons.keyboard_arrow_down),
-                //     ),
-                //   ],
-                // )
+                Text(
+                  "Total Pembayaran",
+                  style: title4Sans,
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "Total",
+                      style: title4Sans,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) => _buildBottomSheet());
+                      },
+                      icon: const Icon(Icons.keyboard_arrow_down),
+                      iconSize: 20,
+                    ),
+                  ],
+                ),
               ],
             ),
-            Divider(color: Colors.grey, thickness: 1),
+            const Divider(color: Colors.grey, thickness: 1),
+            const SizedBox(height: 10),
             Center(
               child: ElevatedButton(
                   onPressed: () {
@@ -213,7 +223,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
-                    padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
+                    padding: const EdgeInsets.fromLTRB(120, 12, 120, 12),
                   ),
                   child: Text("Bayar Sekarang", style: title3Sans)),
             )

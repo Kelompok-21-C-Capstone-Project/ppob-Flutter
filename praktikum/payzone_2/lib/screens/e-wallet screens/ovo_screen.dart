@@ -26,18 +26,19 @@ class _OVOScreenState extends State<OVOScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(10),
         child: Column(
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               decoration: BoxDecoration(color: putih),
-              padding: EdgeInsets.all(10),
+              // padding: EdgeInsets.all(10),
               margin: EdgeInsets.all(20),
               height: 80,
               width: 600,
               child: Form(
                   key: formKey,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
                         decoration: const InputDecoration(
@@ -65,12 +66,60 @@ class _OVOScreenState extends State<OVOScreen> {
 
   Widget _buildDropDownText() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           "Keuntungan Bertransaksi di Payzone Online",
           style: title2Sans,
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
+        ExpansionTile(
+          title: Text(
+              "Tentang, Kelebihan, Penggunaan, Cara Isi Saldo, Cara Cek Saldo OVO",
+              style: title1Sans),
+          subtitle: Text(
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            style: title8Sans,
+          ),
+          children: <Widget>[
+            ListTile(
+                title: Text('Kelebihan dan Keuntungan OVO', style: title1Sans)),
+          ],
+        ),
+        ExpansionTile(
+          title: Text("Kelebihan dan Keuntungan OVO", style: title1Sans),
+          children: <Widget>[
+            ListTile(
+                title: Text('Kelebihan dan Keuntungan OVO', style: title1Sans)),
+          ],
+        ),
+        ExpansionTile(
+          title: Text("Cara Penggunaan OVO", style: title1Sans),
+          children: <Widget>[
+            ListTile(title: Text("Cara Penggunaan OVO", style: title1Sans)),
+          ],
+        ),
+        ExpansionTile(
+          title: Text("Cara Mengisi Saldo OVO", style: title1Sans),
+          children: <Widget>[
+            ListTile(title: Text("Cara Mengisi Saldo OVO", style: title1Sans)),
+          ],
+        ),
+        ExpansionTile(
+          title: Text("Cara Cek Isi Saldo OVO", style: title1Sans),
+          children: <Widget>[
+            ListTile(title: Text("Cara Cek Isi Saldo OVO", style: title1Sans)),
+          ],
+        ),
+        ExpansionTile(
+          title: Text("Ketentuan Isi Saldo OVO di Payzone", style: title1Sans),
+          children: <Widget>[
+            ListTile(
+                title: Text("Ketentuan Isi Saldo OVO di Payzone",
+                    style: title1Sans)),
+          ],
+        ),
+        const SizedBox(height: 10),
         Text(
           "Beli Produk Lainnya",
           style: title2Sans,

@@ -99,15 +99,16 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                               style: title1Ubuntu,
                             ),
                             content: Text(
-                                "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
-                                style: title3Ubuntu),
+                              "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
+                              style: title3Ubuntu,
+                            ),
                             actions: [
                               ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   primary: primaryKuning1,
-                                  padding: const EdgeInsets.fromLTRB(
-                                      104, 12, 104, 12),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(87, 15, 90, 15),
                                 ),
                                 child: Text("Lihat History Transaksi",
                                     style: title3Sans),
@@ -131,35 +132,58 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
               style: title4Ubuntu,
             ),
             const SizedBox(height: 10),
-            Text(
-              "ATM BCA",
-              style: title3Ubuntu,
+            ExpansionTile(
+              title: Text(
+                'ATM BCA',
+                style: title3Ubuntu,
+              ),
+              children: <Widget>[
+                ListTile(
+                    title: Text(
+                  'ATM BCA Tutorial ',
+                  style: title3Ubuntu,
+                )),
+              ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              "M-BCA (BCA Mobile)",
-              style: title3Ubuntu,
+            ExpansionTile(
+              title: Text(
+                'M-BCA (BCA Mobile)',
+                style: title3Ubuntu,
+              ),
+              children: <Widget>[
+                ListTile(
+                    title: Text(
+                  'M-BCA (BCA Mobile) Tutorial',
+                  style: title3Ubuntu,
+                )),
+              ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              "Internet Banking BCA",
-              style: title3Ubuntu,
+            ExpansionTile(
+              title: Text(
+                'Internet Banking BCA',
+                style: title3Ubuntu,
+              ),
+              children: <Widget>[
+                ListTile(
+                    title: Text(
+                  'Internet Banking BCA Tutorial',
+                  style: title3Ubuntu,
+                )),
+              ],
             ),
-            const SizedBox(height: 10),
-            Text(
-              "Kantor Bank BCA",
-              style: title3Ubuntu,
+            ExpansionTile(
+              title: Text(
+                'Kantor Bank BCA',
+                style: title3Ubuntu,
+              ),
+              children: <Widget>[
+                ListTile(
+                    title: Text(
+                  'Kantor Bank BCA Tutorial',
+                  style: title3Ubuntu,
+                )),
+              ],
             ),
-            // const ExpansionTile(
-            //   title: Text(
-            //     'ATM BCA',
-            //     style: TextStyle(fontSize: 10),
-            //   ),
-            //   subtitle: Text('Trailing expansion arrow icon'),
-            //   children: <Widget>[
-            //     ListTile(title: Text('This is tile number 1')),
-            //   ],
-            // ),
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
@@ -170,7 +194,7 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
-                    padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
+                    padding: const EdgeInsets.fromLTRB(155, 12, 155, 12),
                   ),
                   child: Text(
                     "OK",
