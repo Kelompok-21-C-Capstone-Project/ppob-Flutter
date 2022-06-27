@@ -39,10 +39,15 @@ class _MetodePembayaranPaketDataScreenState
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("123456789012345", style: title4Ubuntu),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.copy),
-                  iconSize: 12,
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.copy),
+                      iconSize: 12,
+                    ),
+                    Text("Salin", style: title4Ubuntu)
+                  ],
                 ),
               ],
             ),

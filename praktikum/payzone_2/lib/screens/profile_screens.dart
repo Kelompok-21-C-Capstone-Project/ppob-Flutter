@@ -50,15 +50,44 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   boxShadow: const [
                     BoxShadow(color: Colors.grey, blurRadius: 5)
                   ]),
-              child: _profileName(),
+              child: Column(
+                children: [
+                  SizedBox(height: 15),
+                  Icon(
+                    Icons.account_circle,
+                    color: onPrimary,
+                    size: 60.0,
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "Bangun Akmalu Hakim",
+                    style: TextStyle(
+                        fontFamily: GoogleFonts.ubuntu().fontFamily,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: onSurface),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    "087864420972",
+                    style: TextStyle(
+                        fontFamily: GoogleFonts.ptSans().fontFamily,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: onSurface),
+                  ),
+                ],
+              ),
             ),
           ),
-          // Positioned(
-          //   left: 30,
-          //   right: 30,
-          //   top: 32,
-          //   child: _menuDanInfo(),
-          // ),
+          Positioned(
+            left: 4,
+            right: 4,
+            top: 200,
+            child: Column(
+              children: [_menuDanInfo()],
+            ),
+          ),
         ],
       ),
     );
@@ -96,15 +125,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _menuDanInfo() {
-    return ListView.builder(
-      itemCount: customIcon.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-            leading: CircleAvatar(
-                backgroundImage: NetworkImage("${customIcon[index].icon}")),
-            title: Text("${customIcon[index].nama}"),
-            trailing: Icon(Icons.arrow_forward_ios));
-      },
+    return Container(
+      height: 200,
+      child: ListView.builder(
+        itemCount: customIcon.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            // leading: CircleAvatar(
+            //     radius: 15,
+            //     backgroundImage: NetworkImage("${customIcon[index].icon}")),
+            title: Text("${customIcon[index].nama}", style: title1Sans),
+            trailing: Icon(Icons.arrow_forward_ios, size: 13),
+            onTap: () {
+              Navigator.pushNamed(context, "/profileDetail");
+            },
+          );
+        },
+      ),
     );
   }
 }

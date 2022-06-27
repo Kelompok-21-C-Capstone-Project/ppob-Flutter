@@ -256,11 +256,6 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                   Text("Nomor Handphone", style: title1Sans),
                   Text("Harga", style: title1Sans),
                   Text("Biaya Admin", style: title1Sans),
-                  const SizedBox(height: 10),
-                  Text(
-                    "Total Pembayaran",
-                    style: title4Sans,
-                  ),
                 ],
               ),
               Column(
@@ -270,14 +265,28 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                   Text("08xxxxxxxxx", style: title1Sans),
                   Text("Rp. 21.500", style: title1Sans),
                   Text("RP. 2500", style: title1Sans),
-                  SizedBox(height: 10),
-                  Text(
-                    "Total ",
-                    style: title4Sans,
-                  ),
                 ],
               ),
             ],
+          ),
+          const SizedBox(height: 15),
+          Container(
+            height: 35,
+            width: 400,
+            color: primaryKuning2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Total Pembayaran",
+                  style: title4Sans,
+                ),
+                Text(
+                  "Total",
+                  style: title4Sans,
+                ),
+              ],
+            ),
           ),
         ],
       ),

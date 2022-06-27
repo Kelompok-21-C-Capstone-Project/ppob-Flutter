@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PembayaranEWalletScreen extends StatefulWidget {
   const PembayaranEWalletScreen({Key? key}) : super(key: key);
@@ -221,6 +222,14 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   onPressed: () {
                     //cek di shared apakah ada data user, jika tidak ada lanjutkan ke laman login, jika ada lanjutkan ke pembayaran metode
                     //get visit
+                    getVisit() async {
+                      SharedPreferences visit =
+                          await SharedPreferences.getInstance();
+                      bool? alreadyVisit =
+                          visit.getBool("alreadyVisit") ?? false;
+                      return alreadyVisit;
+                    }
+
                     Navigator.pushNamed(context, "/metodePembayaranEWallet");
                   },
                   style: ElevatedButton.styleFrom(
@@ -258,11 +267,6 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   Text("Nomor Handphone", style: title1Sans),
                   Text("Harga", style: title1Sans),
                   Text("Biaya Admin", style: title1Sans),
-                  const SizedBox(height: 10),
-                  Text(
-                    "Total Pembayaran",
-                    style: title4Sans,
-                  ),
                 ],
               ),
               Column(
@@ -272,14 +276,28 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   Text("08xxxxxxxxx", style: title1Sans),
                   Text("Rp. 21.500", style: title1Sans),
                   Text("RP. 2500", style: title1Sans),
-                  SizedBox(height: 10),
-                  Text(
-                    "Total ",
-                    style: title4Sans,
-                  ),
                 ],
               ),
             ],
+          ),
+          const SizedBox(height: 15),
+          Container(
+            height: 35,
+            width: 400,
+            color: primaryKuning2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Total Pembayaran",
+                  style: title4Sans,
+                ),
+                Text(
+                  "Total",
+                  style: title4Sans,
+                ),
+              ],
+            ),
           ),
         ],
       ),

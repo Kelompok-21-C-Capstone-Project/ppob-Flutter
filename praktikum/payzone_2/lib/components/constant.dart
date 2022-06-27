@@ -31,6 +31,8 @@ TextStyle title7Sans =
     GoogleFonts.ptSans(fontSize: 10, fontWeight: FontWeight.w500);
 TextStyle title8Sans =
     GoogleFonts.ptSans(fontSize: 9, fontWeight: FontWeight.w500);
+TextStyle title9Sans =
+    GoogleFonts.ptSansCaption(fontSize: 12, fontWeight: FontWeight.w400);
 
 // Font Ubuntu
 TextStyle title1Ubuntu =

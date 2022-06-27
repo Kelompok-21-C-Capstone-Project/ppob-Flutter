@@ -18,7 +18,7 @@ class _OVOScreenState extends State<OVOScreen> {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
+        backgroundColor: putih,
         title: Text(
           "OVO",
           style: appBar,

@@ -32,32 +32,21 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
               "Nomor Virtual Account",
               style: title4Ubuntu,
             ),
-            // const SizedBox(height: 10),
-            // Text("123456789012345", style: title4Ubuntu),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     Text("123456789012345", style: title4Ubuntu),
-            //     IconButton(
-            //       onPressed: () {},
-            //       icon: Icon(Icons.copy),
-            //       iconSize: 12,
-            //     ),
-            //     Text(
-            //       "Salin",
-            //       style: title4Ubuntu,
-            //     ),
-            //   ],
-            // ),
+
 
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("123456789012345", style: title4Ubuntu),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.copy),
-                  iconSize: 12,
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.copy),
+                      iconSize: 12,
+                    ),
+                    Text("Salin", style: title4Ubuntu)
+                  ],
                 ),
               ],
             ),

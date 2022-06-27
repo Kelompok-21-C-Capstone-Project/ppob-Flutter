@@ -17,6 +17,13 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: putih,
+      appBar: AppBar(
+        backgroundColor: primaryKuning1,
+        title: Text(
+          "Payzone",
+          style: appBar,
+        ),
+      ),
       body: Stack(
         children: [
           Column(

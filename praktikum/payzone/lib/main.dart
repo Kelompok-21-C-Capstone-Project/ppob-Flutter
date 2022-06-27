@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
         "/profileDetail": (context) => ProfileDetail(),
         "/history": (context) => HistoryScreen(),
       },
-      initialRoute: "/home",
+      initialRoute: "/history",
     );
   }
 }
