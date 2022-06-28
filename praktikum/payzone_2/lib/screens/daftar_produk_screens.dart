@@ -29,7 +29,8 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
           Column(
             children: [
               Container(
-                height: 150,
+                height: 144,
+                width: 360,
                 decoration: BoxDecoration(color: primaryKuning1),
               ),
               Expanded(
@@ -42,16 +43,16 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
             ],
           ),
           Positioned(
-            left: 10,
-            right: 10,
+            left: 5,
+            right: 5,
             top: 10,
             child: Container(
-              margin: EdgeInsets.all(20),
-              height: 250,
-              width: 250,
+              margin: const EdgeInsets.all(20),
+              height: 217,
+              width: 312,
               decoration: BoxDecoration(
                   color: putih,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(10),
                   boxShadow: const [
                     BoxShadow(color: Colors.grey, blurRadius: 5)
                   ]),
@@ -76,7 +77,7 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
           Positioned(
             left: 24,
             right: 24,
-            top: 300,
+            top: 270,
             child: Column(
               children: [
                 _buildPromo(),
@@ -93,7 +94,8 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Promo", style: title2Sans),
+        Text("Promo", style: title10Sans),
+        const SizedBox(height: 15),
         Container(
           margin: const EdgeInsets.all(15),
           child: CarouselSlider.builder(
@@ -120,7 +122,7 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
             },
             options: CarouselOptions(
               // enlargeCenterPage: true,
-              height: 200,
+              height: 155,
               autoPlayInterval: const Duration(seconds: 3),
               aspectRatio: 5.0,
             ),
@@ -134,7 +136,7 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Transaksi Terakhir", style: title2Sans),
+        Text("Transaksi Terakhir", style: title10Sans),
       ],
     );
   }
@@ -147,12 +149,12 @@ class Produk {
 }
 
 List<Produk> produks = <Produk>[
-  Produk(title: 'E-Wallet', icon: Icons.account_balance_wallet),
+  Produk(title: 'E-Wallet', icon: Icons.account_balance_wallet_outlined),
   Produk(title: 'PDAM', icon: Icons.water_drop),
   Produk(title: 'Paket Data', icon: Icons.network_cell),
-  Produk(title: 'Pulsa', icon: Icons.phone),
+  Produk(title: 'Pulsa', icon: Icons.smartphone),
   Produk(title: 'PLN', icon: Icons.storm),
-  Produk(title: 'Internet dan Tv Kabel', icon: Icons.cable),
+  Produk(title: 'Internet dan TV Kabel', icon: Icons.tv),
 ];
 
 class CardItem extends StatelessWidget {
@@ -171,9 +173,15 @@ class CardItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Card(
+        Container(
+          height: 35,
+          width: 35,
           color: primaryKuning1,
+          // decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(10),
+          //     boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 5)]),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               InkWell(
                   onTap: () {
@@ -183,13 +191,14 @@ class CardItem extends StatelessWidget {
                           builder: (context) => _screen[currentIndex]),
                     );
                   },
-                  child: Icon(produk.icon, size: 30, color: onPrimary))
+                  child: Icon(produk.icon, size: 25, color: onPrimary))
             ],
           ),
         ),
+        const SizedBox(height: 11),
         Text(
           "${produk.title}",
-          style: title1Sans,
+          style: title3Sans,
         ),
       ],
     );

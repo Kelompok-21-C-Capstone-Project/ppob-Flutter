@@ -24,14 +24,19 @@ class LoginApiServices {
 
   // google
   Future<UserModel> login(String id, password) async {
+    final _dio = Dio();
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+
     try {
-      final response = await Dio().post(
-          "https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/users/userAuthenctication",
+      final response = await _dio.post(
+          "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/auth",
           data: {
             "id": id,
             "password": password,
           });
-      return response.data;
+      final resLogin = UserModel.fromJson(response.data);
+      return resLogin;
     } on DioError catch (e) {
       return e.response!.data;
     }

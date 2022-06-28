@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController inputPassword = TextEditingController();
 
   bool isLoading = false;
+  late SharedPreferences logindata;
 
   @override
   void dispose() {
@@ -124,10 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
       ));
 
 // get response dari login api services
-      dynamic res =
+      final res =
           await LoginApiServices().login(inputAkunId.text, inputPassword.text);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
-      if (res.statusCode == 200) {
+      if (res.id != null) {
+        logindata.setInt("id", res.id!);
+        logindata.setString("token", res.token!);
         Navigator.pushNamed(context, "/home");
       } else {
         ScaffoldMessenger.of(context)
@@ -148,6 +151,21 @@ class _LoginScreenState extends State<LoginScreen> {
       //     backgroundColor: Colors.red.shade300,
       //   ));
       // }
+    }
+  }
+
+  @override
+  void initState() {
+    checkLogin();
+    super.initState();
+  }
+
+  void checkLogin() async {
+    logindata = await SharedPreferences.getInstance();
+    final id = logindata.getInt("id");
+    if (id != 0 && id != null) {
+      Navigator.pushNamed(context, "/home");
+      print("id : $id");
     }
   }
 
@@ -220,7 +238,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      // loginUsers();
+                      loginUsers();
                       // postLogin();
 
                       bool visit = await getVisit();

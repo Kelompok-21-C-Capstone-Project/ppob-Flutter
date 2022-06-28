@@ -26,36 +26,33 @@ class _OVOScreenState extends State<OVOScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(16),
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              decoration: BoxDecoration(color: putih),
-              // padding: EdgeInsets.all(10),
-              margin: EdgeInsets.all(20),
-              height: 80,
-              width: 600,
-              child: Form(
-                  key: formKey,
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        decoration: const InputDecoration(
-                            labelText: "Nomor Handphone",
-                            hintText: "08xxxx",
-                            border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)))),
-                        keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          FilteringTextInputFormatter.digitsOnly,
-                          // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                        ],
-                      ),
-                    ],
-                  )),
-            ),
+            const SizedBox(height: 20),
+            Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      // maxLength: 14,
+                      decoration: InputDecoration(
+                          hintStyle: title2Robo,
+                          labelStyle: title1Robo,
+                          labelText: "Nomor Handphone",
+                          hintText: "08xxxx",
+                          border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)))),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly,
+                        // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                      ],
+                    ),
+                  ],
+                )),
             _buildDropDownText(),
             _buildPaket(),
           ],
@@ -68,62 +65,70 @@ class _OVOScreenState extends State<OVOScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const SizedBox(height: 14),
         Text(
           "Keuntungan Bertransaksi di Payzone Online",
-          style: title2Sans,
+          style: title10Sans,
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 13),
         ExpansionTile(
           title: Text(
               "Tentang, Kelebihan, Penggunaan, Cara Isi Saldo, Cara Cek Saldo OVO",
-              style: title1Sans),
+              style: title3Sans),
           subtitle: Text(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            style: title8Sans,
+            style: title3Sans,
           ),
           children: <Widget>[
             ListTile(
-                title: Text('Kelebihan dan Keuntungan OVO', style: title1Sans)),
+                title: Text('Kelebihan dan Keuntungan OVO', style: title3Sans)),
           ],
         ),
+        const SizedBox(height: 7),
         ExpansionTile(
-          title: Text("Kelebihan dan Keuntungan OVO", style: title1Sans),
+          title: Text("Kelebihan dan Keuntungan OVO", style: title3Sans),
           children: <Widget>[
             ListTile(
-                title: Text('Kelebihan dan Keuntungan OVO', style: title1Sans)),
+                title: Text('Kelebihan dan Keuntungan OVO', style: title3Sans)),
           ],
         ),
+        const SizedBox(height: 7),
         ExpansionTile(
-          title: Text("Cara Penggunaan OVO", style: title1Sans),
+          title: Text("Cara Penggunaan OVO", style: title3Sans),
           children: <Widget>[
-            ListTile(title: Text("Cara Penggunaan OVO", style: title1Sans)),
+            ListTile(title: Text("Cara Penggunaan OVO", style: title3Sans)),
           ],
         ),
+        const SizedBox(height: 7),
         ExpansionTile(
-          title: Text("Cara Mengisi Saldo OVO", style: title1Sans),
+          title: Text("Cara Mengisi Saldo OVO", style: title3Sans),
           children: <Widget>[
-            ListTile(title: Text("Cara Mengisi Saldo OVO", style: title1Sans)),
+            ListTile(title: Text("Cara Mengisi Saldo OVO", style: title3Sans)),
           ],
         ),
+        const SizedBox(height: 7),
         ExpansionTile(
-          title: Text("Cara Cek Isi Saldo OVO", style: title1Sans),
+          title: Text("Cara Cek Isi Saldo OVO", style: title3Sans),
           children: <Widget>[
-            ListTile(title: Text("Cara Cek Isi Saldo OVO", style: title1Sans)),
+            ListTile(title: Text("Cara Cek Isi Saldo OVO", style: title3Sans)),
           ],
         ),
+        const SizedBox(height: 7),
         ExpansionTile(
-          title: Text("Ketentuan Isi Saldo OVO di Payzone", style: title1Sans),
+          title: Text("Ketentuan Isi Saldo OVO di Payzone", style: title3Sans),
           children: <Widget>[
             ListTile(
                 title: Text("Ketentuan Isi Saldo OVO di Payzone",
-                    style: title1Sans)),
+                    style: title3Sans)),
           ],
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
         Text(
           "Beli Produk Lainnya",
-          style: title2Sans,
+          style: title10Sans,
         ),
+        const SizedBox(height: 15),
+        // _buildProdukLain(),
       ],
     );
   }
@@ -131,22 +136,63 @@ class _OVOScreenState extends State<OVOScreen> {
   Widget _buildPaket() {
 // Container yang menampung opsi Voucher
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      // padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 41),
           Text(
             "Pilih Nominal Voucher : OVO",
-            style: title2Sans,
+            style: title10Sans,
           ),
-          const SizedBox(height: 5),
           const Divider(
             color: Colors.grey,
             thickness: 1,
           ),
+          const SizedBox(height: 13),
           Container(
-            height: 400,
-            width: 4500,
+            height: 500,
+            width: 4600,
+            decoration: BoxDecoration(color: putih),
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(
+                produksOvo.length,
+                (index) {
+                  return Center(
+                    child: CardItemOVO(
+                      produkOvo: produksOvo[index],
+                      index: index,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildProdukLain() {
+    return SingleChildScrollView(
+      // padding: const EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // const SizedBox(height: 41),
+          Text(
+            "Pilih Nominal Voucher : OVO",
+            style: title2Sans,
+          ),
+          const Divider(
+            color: Colors.grey,
+            thickness: 1,
+          ),
+          const SizedBox(height: 13),
+          Container(
+            height: 500,
+            width: 4600,
             decoration: BoxDecoration(color: putih),
             child: GridView.count(
               crossAxisCount: 2,
@@ -193,7 +239,7 @@ class CardItemOVO extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InkWell(
           onTap: () {
@@ -208,15 +254,16 @@ class CardItemOVO extends StatelessWidget {
                 ));
           },
           child: Container(
-            padding: EdgeInsets.all(10),
-            height: 150,
-            width: 150,
+            padding:
+                const EdgeInsets.only(top: 32, left: 12, bottom: 32, right: 12),
+            height: 130,
+            width: 130,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "${produkOvo.title}",
-                  style: title1Ubuntu,
+                  style: title4Ubuntu,
                 ),
                 const Divider(
                   color: Colors.grey,
@@ -224,11 +271,11 @@ class CardItemOVO extends StatelessWidget {
                 ),
                 Text(
                   "Harga",
-                  style: title1Sans,
+                  style: title3Sans,
                 ),
                 Text(
                   "${produkOvo.harga}",
-                  style: title2Ubuntu,
+                  style: title5Ubuntu,
                 ),
               ],
             ),

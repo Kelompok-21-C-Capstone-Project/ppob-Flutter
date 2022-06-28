@@ -10,7 +10,7 @@ class LoginViewModel extends ChangeNotifier {
 
     try {
       final newResultUser = await getAllUser.login(id, password);
-      _resultUser = newResultUser!;
+      _resultUser = newResultUser;
       print("hasil sukses all product : $_resultUser");
     } catch (e) {
       print("hasil eror all product : $e");

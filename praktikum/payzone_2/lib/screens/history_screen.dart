@@ -66,7 +66,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       // padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       margin: EdgeInsets.symmetric(vertical: 12),
       height: 30,
-      width: 300,
+      width: 200,
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [

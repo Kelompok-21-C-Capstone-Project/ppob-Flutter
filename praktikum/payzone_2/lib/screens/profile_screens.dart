@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -10,13 +11,30 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late SharedPreferences logindata;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: putih,
         title: Text("Profile", style: appBar),
+        // actions: [
+        //   IconButton(
+        //       onPressed: () {
+        //         // logindata.remove(username);
+
+        //         Navigator.pushNamed(context, "/login");
+        //       },
+        //       icon: Icon(Icons.logout)),
+        // ],
         centerTitle: true,
       ),
       body: Stack(
@@ -24,7 +42,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           Column(
             children: [
               Container(
-                height: 165,
+                height: 144,
+                width: 360,
                 decoration: BoxDecoration(color: primaryKuning1),
               ),
               Expanded(
@@ -37,37 +56,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
           Positioned(
-            left: 10,
-            right: 10,
-            top: 12,
+            left: 5,
+            right: 5,
+            top: 5,
             child: Container(
-              margin: EdgeInsets.all(20),
-              height: 150,
-              width: 100,
+              margin: const EdgeInsets.all(20),
+              height: 133,
+              width: 312,
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: putih,
                   borderRadius: BorderRadius.circular(5),
                   boxShadow: const [
                     BoxShadow(color: Colors.grey, blurRadius: 5)
                   ]),
               child: Column(
                 children: [
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   Icon(
                     Icons.account_circle,
                     color: onPrimary,
-                    size: 60.0,
+                    size: 40.0,
                   ),
-                  SizedBox(height: 10),
-                  Text(
-                    "Bangun Akmalu Hakim",
-                    style: TextStyle(
-                        fontFamily: GoogleFonts.ubuntu().fontFamily,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15,
-                        color: onSurface),
-                  ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 10),
+                  Text("Bangun Akmalu Hakim", style: title8Ubuntu),
+                  const SizedBox(height: 5),
                   Text(
                     "087864420972",
                     style: TextStyle(
@@ -81,11 +93,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           Positioned(
-            left: 4,
-            right: 4,
+            left: 5,
+            right: 5,
             top: 200,
             child: Column(
-              children: [_menuDanInfo()],
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Menu & Informasi", style: title10Sans),
+                _menuDanInfo(),
+                ListTile(
+                  onTap: () {
+                    //         logindata.remove(username);
+                    //         Navigator.pushNamed(context, "/login");
+                  },
+                  leading: Icon(
+                    Icons.logout,
+                    color: onSurface,
+                  ),
+                  title: Text("Keluar", style: title3Sans),
+                  trailing:
+                      Icon(Icons.arrow_forward_ios, color: onSurface, size: 12),
+                ),
+              ],
             ),
           ),
         ],
@@ -131,11 +160,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
         itemCount: customIcon.length,
         itemBuilder: (context, index) {
           return ListTile(
-            // leading: CircleAvatar(
-            //     radius: 15,
-            //     backgroundImage: NetworkImage("${customIcon[index].icon}")),
-            title: Text("${customIcon[index].nama}", style: title1Sans),
-            trailing: Icon(Icons.arrow_forward_ios, size: 13),
+            leading: Icon(customIcon[index].icon, color: onSurface),
+            title: Text("${customIcon[index].nama}", style: title3Sans),
+            trailing: Icon(Icons.arrow_forward_ios, color: onSurface, size: 12),
             onTap: () {
               Navigator.pushNamed(context, "/profileDetail");
             },
@@ -166,8 +193,8 @@ List<CustomIcon> customIcon = [
     nama: "Kebijakan dan Privasi",
     icon: Icons.account_circle,
   ),
-  CustomIcon(
-    nama: "Keluar",
-    icon: Icons.logout,
-  ),
+  // CustomIcon(
+  //   nama: "Keluar",
+  //   icon: Icons.logout,
+  // ),
 ];

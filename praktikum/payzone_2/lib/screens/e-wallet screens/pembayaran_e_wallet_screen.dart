@@ -31,11 +31,12 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 20),
             Text(
               "Detail Pembayaran",
-              style: title3Sans,
+              style: title9Sans,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -44,67 +45,88 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                   children: [
                     Text(
                       "Nama Produk",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "Nomor Handphone",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "Harga",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "Biaya Admin",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                   ],
                 ),
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
                       "OVO 25",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "08xxxxxxxxx",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "Rp. 21.500",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       "RP. 2500",
-                      style: title1Sans,
+                      style: title3Sans,
                     ),
                     const SizedBox(height: 20),
                   ],
                 ),
               ],
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 15),
+            Container(
+              padding:
+                  EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
+              height: 35,
+              // width: 360,
+              color: bgTotal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total Pembayaran",
+                    style: title5Sans,
+                  ),
+                  Text(
+                    "Total",
+                    style: title5Sans,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
             Text(
               "Pilih Metode Pembayaran",
-              style: title4Sans,
+              style: title9Sans,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 18),
             Text(
               "Virtual Account",
-              style: title3Sans,
+              style: title9Sans,
             ),
             const SizedBox(height: 10),
             RadioListTile(
-              // contentPadding: EdgeInsets.all(10),
-              // dense: true,
+              contentPadding: const EdgeInsets.all(0),
+              dense: true,
               value: 1,
               groupValue: val,
               onChanged: (value) {
@@ -114,18 +136,20 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               },
               title: Text(
                 "BCA Virtual Account",
-                style: title5Sans,
+                style: title6Ubuntu,
                 // overflow: TextOverflow.ellipsis,
               ),
               secondary: Image.asset(
                 "assets/images/bca.png",
                 width: 50,
               ),
-              // toggleable: true,
+              toggleable: true,
               controlAffinity: ListTileControlAffinity.trailing,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             RadioListTile(
+              contentPadding: const EdgeInsets.all(0),
+              dense: true,
               value: 2,
               groupValue: val,
               onChanged: (value) {
@@ -135,21 +159,24 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               },
               title: Text(
                 "Mandiri Virtual Account",
-                style: title5Sans,
+                style: title6Ubuntu,
               ),
               secondary: Image.asset(
                 "assets/images/mandiri.png",
                 width: 50,
               ),
-              // toggleable: true,
+              toggleable: true,
               controlAffinity: ListTileControlAffinity.trailing,
             ),
+            const SizedBox(height: 30),
             Text(
               "Cashless E-Money",
-              style: title3Sans,
+              style: title9Sans,
             ),
             const SizedBox(height: 10),
             RadioListTile(
+              contentPadding: const EdgeInsets.all(0),
+              dense: true,
               value: 3,
               groupValue: val,
               onChanged: (value) {
@@ -159,17 +186,19 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               },
               title: Text(
                 "Gopay",
-                style: title5Sans,
+                style: title6Ubuntu,
               ),
               secondary: Image.asset(
                 "assets/images/gopay.png",
                 width: 50,
               ),
-              // toggleable: true,
+              toggleable: true,
               controlAffinity: ListTileControlAffinity.trailing,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 6),
             RadioListTile(
+              contentPadding: const EdgeInsets.all(0),
+              dense: true,
               value: 4,
               groupValue: val,
               onChanged: (value) {
@@ -179,28 +208,28 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               },
               title: Text(
                 "OVO",
-                style: title5Sans,
+                style: title6Ubuntu,
               ),
               secondary: Image.asset(
                 "assets/images/ovo.png",
                 width: 50,
               ),
-              // toggleable: true,
+              toggleable: true,
               controlAffinity: ListTileControlAffinity.trailing,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 31),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Total Pembayaran",
-                  style: title4Sans,
+                  style: title5Sans,
                 ),
                 Row(
                   children: [
                     Text(
                       "Total",
-                      style: title4Sans,
+                      style: title5Sans,
                     ),
                     IconButton(
                       onPressed: () {
@@ -209,14 +238,14 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                             builder: (context) => _buildBottomSheet());
                       },
                       icon: const Icon(Icons.keyboard_arrow_down),
-                      iconSize: 20,
+                      iconSize: 16,
                     ),
                   ],
                 ),
               ],
             ),
             const Divider(color: Colors.grey, thickness: 1),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
                   onPressed: () {
@@ -236,7 +265,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                     primary: primaryKuning1,
                     padding: const EdgeInsets.fromLTRB(120, 12, 120, 12),
                   ),
-                  child: Text("Bayar Sekarang", style: title3Sans)),
+                  child: Text("Bayar Sekarang", style: buttonText)),
             )
           ],
         ),
@@ -246,55 +275,62 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
 
   Widget _buildBottomSheet() {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(15),
       width: 100,
       height: 300,
       color: putih,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.close)),
-          const SizedBox(height: 10),
-          Text("Detail Pembayaran", style: title3Sans),
           const SizedBox(height: 20),
+          IconButton(
+            alignment: Alignment.topLeft,
+            onPressed: () {},
+            icon: Icon(Icons.close),
+            iconSize: 15,
+          ),
+          const SizedBox(height: 25),
+          Text("Detail Pembayaran", style: title9Sans),
+          const SizedBox(height: 23),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Nama Produk", style: title1Sans),
-                  Text("Nomor Handphone", style: title1Sans),
-                  Text("Harga", style: title1Sans),
-                  Text("Biaya Admin", style: title1Sans),
+                  Text("Nama Produk", style: title3Sans),
+                  Text("Nomor Handphone", style: title3Sans),
+                  Text("Harga", style: title3Sans),
+                  Text("Biaya Admin", style: title3Sans),
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("OVO 25", style: title1Sans),
-                  Text("08xxxxxxxxx", style: title1Sans),
-                  Text("Rp. 21.500", style: title1Sans),
-                  Text("RP. 2500", style: title1Sans),
+                  Text("OVO 25", style: title3Sans),
+                  Text("08xxxxxxxxx", style: title3Sans),
+                  Text("Rp. 21.500", style: title3Sans),
+                  Text("RP. 2500", style: title3Sans),
                 ],
               ),
             ],
           ),
           const SizedBox(height: 15),
           Container(
+            padding: EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
             height: 35,
-            width: 400,
-            color: primaryKuning2,
+            // width: 360,
+            color: bgTotal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Total Pembayaran",
-                  style: title4Sans,
+                  style: title5Sans,
                 ),
                 Text(
                   "Total",
-                  style: title4Sans,
+                  style: title5Sans,
                 ),
               ],
             ),
@@ -304,28 +340,3 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
     );
   }
 }
-
-class MetodePembayaran {
-  String? nama;
-  String? gambar;
-  MetodePembayaran({this.nama, this.gambar});
-}
-
-List<MetodePembayaran> metodePembayarans = [
-  MetodePembayaran(
-    nama: "BCA",
-    gambar: "assets/images/bca.png",
-  ),
-  MetodePembayaran(
-    nama: "Mandiri",
-    gambar: "assets/images/mandiri.png",
-  ),
-  MetodePembayaran(
-    nama: "OVO",
-    gambar: "assets/images/ovo.png",
-  ),
-  MetodePembayaran(
-    nama: "Gopay",
-    gambar: "assets/images/gopay.png",
-  ),
-];

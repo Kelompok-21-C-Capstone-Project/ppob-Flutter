@@ -17,20 +17,23 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: GridView.count(
-        crossAxisCount: 3,
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        children: List.generate(
-          produks.length,
-          (index) {
-            return Center(
-              child: CardItem(
-                produk: produks[index],
-                currentIndex: index,
-              ),
-            );
-          },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.count(
+          crossAxisCount: 3,
+          // crossAxisSpacing: 5,
+          // mainAxisSpacing: 5,
+          children: List.generate(
+            produks.length,
+            (index) {
+              return Center(
+                child: CardItem(
+                  produk: produks[index],
+                  currentIndex: index,
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
@@ -39,17 +42,17 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
 
 class Produk {
   final String title;
-  final IconData icon;
-  const Produk({required this.title, required this.icon});
+  final String img;
+  const Produk({required this.title, required this.img});
 }
 
 List<Produk> produks = <Produk>[
-  Produk(title: 'Brizzi', icon: Icons.account_balance_wallet),
-  Produk(title: 'E-Money', icon: Icons.water_drop),
-  Produk(title: 'Link Aja', icon: Icons.network_cell),
-  Produk(title: 'DANA', icon: Icons.phone),
-  Produk(title: 'Go-Pay', icon: Icons.storm),
-  Produk(title: 'OVO', icon: Icons.cable),
+  Produk(title: 'E-Wallet', img: "assets/images/brizzi.png"),
+  Produk(title: 'Link Aja', img: "assets/images/link.png"),
+  Produk(title: 'ShopeePay', img: "assets/images/shopeePay.png"),
+  Produk(title: 'DANA', img: "assets/images/dana.png"),
+  Produk(title: 'Go-Pay', img: "assets/images/gopay.png"),
+  Produk(title: 'OVO', img: "assets/images/ovo.png"),
 ];
 
 class CardItem extends StatelessWidget {
@@ -64,25 +67,35 @@ class CardItem extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Card(
+        const SizedBox(height: 20),
+        Container(
+          height: 35,
+          width: 35,
           color: Colors.white,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => _screen[currentIndex]),
-                    );
-                  },
-                  child: Icon(produk.icon, size: 30, color: onPrimary))
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => _screen[currentIndex]),
+                  );
+                },
+                child: Image.asset(
+                  "${produk.img}",
+                  width: 29,
+                  height: 29,
+                ),
+              )
             ],
           ),
         ),
+        const SizedBox(height: 11),
         Text(
           "${produk.title}",
-          style: title1Sans,
+          style: title3Sans,
         ),
       ],
     );
