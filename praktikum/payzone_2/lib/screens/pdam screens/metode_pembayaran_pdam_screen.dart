@@ -21,160 +21,174 @@ class _MetodePembayaranPdamScreenState
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("BCA Virtual Account", style: title1Ubuntu),
+            const SizedBox(height: 16),
+            Text("BCA Virtual Account", style: title4Ubuntu),
             const Divider(
               color: Colors.grey,
+              height: 0,
             ),
+            const SizedBox(height: 12),
             Text(
               "Nomor Virtual Account",
-              style: title4Ubuntu,
+              style: title3Ubuntu,
             ),
-            // const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // const SizedBox(height: 5),
                 Text("123456789012345", style: title4Ubuntu),
                 Row(
                   children: [
                     IconButton(
                       onPressed: () {},
                       icon: Icon(Icons.copy),
-                      iconSize: 12,
+                      iconSize: 9,
                     ),
-                    Text("Salin", style: title4Ubuntu)
+                    Text("Salin", style: title3Sans)
                   ],
                 ),
               ],
             ),
-            // const SizedBox(height: 10),
+            const SizedBox(height: 5),
             Text("Dicek dalam 10 menit setelah pembayaran berhasil",
-                style: title5Ubuntu),
+                style: title7Ubuntu),
+            const SizedBox(height: 5),
+            Text("Hanya menerima dari Bank BCA", style: title3Ubuntu),
             const SizedBox(height: 10),
-            Text("Hanya menerima dari Bank BCA", style: title4Ubuntu),
-            const SizedBox(height: 16),
             Container(
-              height: 35,
-              width: 400,
-              color: primaryKuning2,
+              height: 36,
+              width: 360,
+              color: bgTotal,
+              padding:
+                  EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Total Pembayaran",
-                    style: title4Sans,
+                    style: title5Sans,
                   ),
                   Text(
                     "Total",
-                    style: title4Sans,
+                    style: title5Sans,
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 20),
-            Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text(
-                              "Pembayaran Berhasil",
-                              style: title1Ubuntu,
-                            ),
-                            content: Text(
-                                "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
-                                style: title3Ubuntu),
-                            actions: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  primary: primaryKuning1,
-                                  padding:
-                                      const EdgeInsets.fromLTRB(87, 15, 90, 15),
-                                ),
-                                child: Text("Lihat History Transaksi",
-                                    style: title3Sans),
+            ElevatedButton(
+                onPressed: () {
+                  // masuk link show dialog cek history
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(
+                            //tengah
+                            "Pembayaran Berhasil",
+                            style: title4Ubuntu,
+                          ),
+                          content: Text(
+                            "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
+                            style: title2Ubuntu,
+                          ),
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, "/history");
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: primaryKuning1,
+                                padding:
+                                    const EdgeInsets.fromLTRB(53, 15, 90, 15),
                               ),
-                            ],
-                          );
-                        });
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: primaryKuning1,
-                    padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
-                  ),
-                  child: Text(
-                    "Cek Status Pembayaran",
-                    style: title3Sans,
-                  )),
-            ),
-            const SizedBox(height: 30),
+                              child: Text("Lihat History Transaksi",
+                                  style: buttonText),
+                            ),
+                          ],
+                        );
+                      });
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: primaryKuning1,
+                  padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
+                ),
+                child: Text(
+                  "Cek Status Pembayaran",
+                  style: buttonText,
+                )),
+            const SizedBox(height: 45),
             Text(
               "Cara Pembayaran",
-              style: title4Ubuntu,
+              style: title3Ubuntu,
             ),
             const SizedBox(height: 10),
             ExpansionTile(
               title: Text(
                 'ATM BCA',
-                style: title3Ubuntu,
+                style: title1Ubuntu,
               ),
               children: <Widget>[
                 ListTile(
+                    dense: true,
                     title: Text(
-                  'ATM BCA Tutorial ',
-                  style: title3Ubuntu,
-                )),
+                      'ATM BCA Tutorial ',
+                      style: title1Ubuntu,
+                    )),
               ],
             ),
             ExpansionTile(
               title: Text(
                 'M-BCA (BCA Mobile)',
-                style: title3Ubuntu,
+                style: title1Ubuntu,
               ),
               children: <Widget>[
                 ListTile(
+                    dense: true,
                     title: Text(
-                  'M-BCA (BCA Mobile) Tutorial',
-                  style: title3Ubuntu,
-                )),
+                      'M-BCA (BCA Mobile) Tutorial',
+                      style: title1Ubuntu,
+                    )),
               ],
             ),
             ExpansionTile(
               title: Text(
                 'Internet Banking BCA',
-                style: title3Ubuntu,
+                style: title1Ubuntu,
               ),
               children: <Widget>[
                 ListTile(
+                    dense: true,
                     title: Text(
-                  'Internet Banking BCA Tutorial',
-                  style: title3Ubuntu,
-                )),
+                      'Internet Banking BCA Tutorial',
+                      style: title1Ubuntu,
+                    )),
               ],
             ),
             ExpansionTile(
               title: Text(
                 'Kantor Bank BCA',
-                style: title3Ubuntu,
+                style: title1Ubuntu,
               ),
               children: <Widget>[
                 ListTile(
+                    dense: true,
                     title: Text(
-                  'Kantor Bank BCA Tutorial',
-                  style: title3Ubuntu,
-                )),
+                      'Kantor Bank BCA Tutorial',
+                      style: title1Ubuntu,
+                    )),
               ],
             ),
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
                   onPressed: () {
+                    // kembali ke home page
+                    // masih eror di bagian ke home page muncul panah kembali
                     Navigator.pushNamed(context, "/home");
                   },
                   style: ElevatedButton.styleFrom(
@@ -183,7 +197,7 @@ class _MetodePembayaranPdamScreenState
                   ),
                   child: Text(
                     "OK",
-                    style: title3Sans,
+                    style: buttonText,
                   )),
             ),
           ],

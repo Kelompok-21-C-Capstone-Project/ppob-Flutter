@@ -20,22 +20,25 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 16),
             Text("BCA Virtual Account", style: title4Ubuntu),
             const Divider(
               color: Colors.grey,
+              height: 0,
             ),
+            const SizedBox(height: 12),
             Text(
               "Nomor Virtual Account",
               style: title3Ubuntu,
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // const SizedBox(height: 5),
                 Text("123456789012345", style: title4Ubuntu),
                 Row(
                   children: [
@@ -49,15 +52,15 @@ class _MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                 ),
               ],
             ),
-            // const SizedBox(height: 10),
+            const SizedBox(height: 5),
             Text("Dicek dalam 10 menit setelah pembayaran berhasil",
                 style: title7Ubuntu),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             Text("Hanya menerima dari Bank BCA", style: title3Ubuntu),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             Container(
-              height: 35,
-              width: 400,
+              height: 36,
+              width: 360,
               color: bgTotal,
               padding:
                   EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),

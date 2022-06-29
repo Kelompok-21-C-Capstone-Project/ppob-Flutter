@@ -102,23 +102,23 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
             itemCount: 4,
             itemBuilder: (context, index, id) {
               return GestureDetector(
-                onTap: () {},
-                child: Container(
-                  margin: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: putih),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                  onTap: () {},
+                  child: Container(
+                    margin: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: putih),
                     ),
-                  ),
-                ),
-              );
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                      // child: Image.asset("assets/images/bca.png")),
+                    ),
+                  ));
             },
             options: CarouselOptions(
               // enlargeCenterPage: true,
@@ -137,6 +137,26 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text("Transaksi Terakhir", style: title10Sans),
+        const SizedBox(height: 20),
+        Container(
+          margin: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
+          height: 100,
+          width: 400,
+          decoration: BoxDecoration(
+              color: putih,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 3)]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("30/MEI/2022  19.40 WIB", style: title3Ubuntu),
+              Text("OVO 20.000 (08313298343)", style: title9Sans),
+              Text("Order ID : Payzone_71203829", style: title1Sans),
+              Text("Rp. 21.500", style: title9Sans),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -176,10 +196,10 @@ class CardItem extends StatelessWidget {
         Container(
           height: 35,
           width: 35,
-          color: primaryKuning1,
-          // decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(10),
-          //     boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 5)]),
+          decoration: BoxDecoration(
+              color: primaryKuning1,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 2)]),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

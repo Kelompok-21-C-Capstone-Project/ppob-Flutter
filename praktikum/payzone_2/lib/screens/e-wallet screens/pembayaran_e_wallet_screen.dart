@@ -96,8 +96,8 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
             Container(
               padding:
                   EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
-              height: 35,
-              // width: 360,
+              height: 36,
+              width: 312,
               color: bgTotal,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,7 +123,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               "Virtual Account",
               style: title9Sans,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 11),
             RadioListTile(
               contentPadding: const EdgeInsets.all(0),
               dense: true,
@@ -173,7 +173,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               "Cashless E-Money",
               style: title9Sans,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 11),
             RadioListTile(
               contentPadding: const EdgeInsets.all(0),
               dense: true,
@@ -244,20 +244,24 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                 ),
               ],
             ),
-            const Divider(color: Colors.grey, thickness: 1),
+            const Divider(
+              color: Colors.grey,
+              thickness: 1,
+              height: 0,
+            ),
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
                   onPressed: () {
                     //cek di shared apakah ada data user, jika tidak ada lanjutkan ke laman login, jika ada lanjutkan ke pembayaran metode
                     //get visit
-                    getVisit() async {
-                      SharedPreferences visit =
-                          await SharedPreferences.getInstance();
-                      bool? alreadyVisit =
-                          visit.getBool("alreadyVisit") ?? false;
-                      return alreadyVisit;
-                    }
+                    // getVisit() async {
+                    //   SharedPreferences visit =
+                    //       await SharedPreferences.getInstance();
+                    //   bool? alreadyVisit =
+                    //       visit.getBool("alreadyVisit") ?? false;
+                    //   return alreadyVisit;
+                    // }
 
                     Navigator.pushNamed(context, "/metodePembayaranEWallet");
                   },
@@ -275,23 +279,27 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
 
   Widget _buildBottomSheet() {
     return Container(
-      padding: const EdgeInsets.all(15),
-      width: 100,
-      height: 300,
-      color: putih,
+      padding: const EdgeInsets.all(10),
+      width: 360,
+      height: 240,
+      decoration: BoxDecoration(
+        color: putih,
+        borderRadius: BorderRadius.circular(50),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          // const SizedBox(height: 20),
           IconButton(
+            padding: const EdgeInsets.all(0),
             alignment: Alignment.topLeft,
             onPressed: () {},
             icon: Icon(Icons.close),
             iconSize: 15,
           ),
-          const SizedBox(height: 25),
+          // const SizedBox(height: 25),
           Text("Detail Pembayaran", style: title9Sans),
-          const SizedBox(height: 23),
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -299,18 +307,26 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Nama Produk", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("Nomor Handphone", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("Harga", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("Biaya Admin", style: title3Sans),
+                  // const SizedBox(height: 10),
                 ],
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text("OVO 25", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("08xxxxxxxxx", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("Rp. 21.500", style: title3Sans),
+                  const SizedBox(height: 5),
                   Text("RP. 2500", style: title3Sans),
+                  // const SizedBox(height: 10),
                 ],
               ),
             ],
@@ -318,8 +334,8 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
           const SizedBox(height: 15),
           Container(
             padding: EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
-            height: 35,
-            // width: 360,
+            height: 36,
+            width: 360,
             color: bgTotal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -335,6 +351,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
               ],
             ),
           ),
+          const SizedBox(height: 20),
         ],
       ),
     );

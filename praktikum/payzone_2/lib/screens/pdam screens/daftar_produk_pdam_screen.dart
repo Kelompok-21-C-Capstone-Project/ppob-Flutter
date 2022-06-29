@@ -26,91 +26,110 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
           child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(color: putih),
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(20),
-            height: 600,
-            width: 600,
-            child: Form(
-                key: formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextFormField(
-                      decoration: const InputDecoration(
-                          labelText: "Nomor Pelanggan",
-                          hintText: "061200",
-                          border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)))),
-                      keyboardType: TextInputType.number,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly,
-                        // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
-                    Text(
-                      "Wilayah",
-                      style: title4Ubuntu,
-                    ),
-                    DropdownButtonFormField(
-                      items: const [
-                        DropdownMenuItem(
-                          value: 0,
-                          child: Text("Pilih Wilayah"),
-                        ),
-                        DropdownMenuItem(
-                          value: 1,
-                          child: Text("PDAM AETRA JAKARTA"),
-                        ),
-                        DropdownMenuItem(
-                          value: 2,
-                          child: Text("SPAM BATAM"),
-                        ),
-                        DropdownMenuItem(
-                          value: 3,
-                          child: Text("PDAM KAB SUKABUMI"),
-                        ),
-                        DropdownMenuItem(
-                          value: 4,
-                          child: Text("PDAM KOTA MALANG (JATIM)"),
-                        ),
-                        DropdownMenuItem(
-                          value: 5,
-                          child: Text("PDAM KOTA BOGOR (JABAR)"),
-                        ),
-                        DropdownMenuItem(
-                          value: 6,
-                          child: Text("PDAM KAB BOGOR (JABAR)"),
-                        ),
-                      ],
-                      value: dropDownValue,
-                      onChanged: (int? value) {
-                        dropDownValue = value ?? 0;
-                      },
-                    ),
-                    const SizedBox(height: 20),
-                    Center(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, "/pembayaranPdam");
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: primaryKuning1,
-                          padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
-                        ),
-                        child: Text("Cek Tagihan", style: title3Sans),
+            children: [
+              const SizedBox(height: 10),
+              Form(
+                  key: formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(
+                            hintStyle: title2Robo,
+                            labelStyle: title1Robo,
+                            labelText: "Nomor Pelanggan",
+                            hintText: "061200",
+                            border: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)))),
+                        keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                          // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                        ],
                       ),
-                    ),
-                  ],
-                )),
-          ),
-        ],
-      )),
+                      const SizedBox(height: 20),
+                      Text(
+                        "Wilayah",
+                        style: title3Ubuntu,
+                      ),
+                      DropdownButtonFormField(
+                        items: [
+                          DropdownMenuItem(
+                            value: 0,
+                            child: Text(
+                              "Pilih Wilayah",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 1,
+                            child: Text(
+                              "PDAM AETRA JAKARTA",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 2,
+                            child: Text(
+                              "SPAM BATAM",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 3,
+                            child: Text(
+                              "PDAM KAB SUKABUMI",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 4,
+                            child: Text(
+                              "PDAM KOTA MALANG (JATIM)",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 5,
+                            child: Text(
+                              "PDAM KOTA BOGOR (JABAR)",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                          DropdownMenuItem(
+                            value: 6,
+                            child: Text(
+                              "PDAM KAB BOGOR (JABAR)",
+                              style: title9Ubuntu,
+                            ),
+                          ),
+                        ],
+                        value: dropDownValue,
+                        onChanged: (int? value) {
+                          dropDownValue = value ?? 0;
+                        },
+                      ),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/pembayaranPdam");
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: primaryKuning1,
+                            padding:
+                                const EdgeInsets.fromLTRB(104, 12, 104, 12),
+                          ),
+                          child: Text("Cek Tagihan", style: buttonText),
+                        ),
+                      ),
+                    ],
+                  )),
+            ],
+          )),
     );
   }
 }

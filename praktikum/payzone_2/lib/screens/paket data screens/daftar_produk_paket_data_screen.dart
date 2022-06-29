@@ -26,37 +26,34 @@ class _DaftarProdukPaketDataScreenState
         ),
       ),
       body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
         child: Stack(
           children: [
             Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(color: putih),
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.all(20),
-                  height: 80,
-                  width: 600,
-                  child: Form(
-                      key: formKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextFormField(
-                            decoration: const InputDecoration(
-                                labelText: "Nomor Handphone",
-                                hintText: "08xxxx",
-                                border: OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)))),
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly,
-                              // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                            ],
-                          ),
-                        ],
-                      )),
-                ),
+                const SizedBox(height: 10),
+                Form(
+                    key: formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextFormField(
+                          decoration: InputDecoration(
+                              hintStyle: title2Robo,
+                              labelStyle: title1Robo,
+                              labelText: "Nomor Handphone",
+                              hintText: "08xxxx",
+                              border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5)))),
+                          keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                            // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          ],
+                        ),
+                      ],
+                    )),
                 _buildPaket(),
               ],
             )
@@ -68,54 +65,48 @@ class _DaftarProdukPaketDataScreenState
 
   Widget _buildPaket() {
 // Container yang menampung opsi Voucher
-    return Container(
-      decoration: BoxDecoration(color: putih),
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(20),
-      height: 480,
-      width: 600,
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Pilih Nominal Voucher : Telkomsel",
-              style: title2Sans,
-            ),
-            const SizedBox(height: 5),
-            const Divider(
-              color: Colors.grey,
-              thickness: 1,
-            ),
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 41),
+          Text(
+            "Pilih Nominal Voucher : Telkomsel",
+            style: title10Sans,
+          ),
+          const SizedBox(height: 5),
+          const Divider(
+            color: Colors.grey,
+            thickness: 1,
+          ),
 
-            // sebelumnya disini container
-            Column(
-              children: [
-                Container(
-                  height: 400,
-                  width: 4500,
-                  decoration: BoxDecoration(color: putih),
-                  child: GridView.count(
-                    crossAxisCount: 2,
-                    // crossAxisSpacing: 5,
-                    // mainAxisSpacing: 5,
-                    children: List.generate(
-                      produksTelkomsels.length,
-                      (index) {
-                        return Center(
-                          child: CardItemTelkomsel(
-                            produkTelkomsel: produksTelkomsels[index],
-                            currentIndex: index,
-                          ),
-                        );
-                      },
-                    ),
+          // sebelumnya disini container
+          Column(
+            children: [
+              Container(
+                height: 550,
+                width: 4600,
+                decoration: BoxDecoration(color: putih),
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 14,
+                  crossAxisSpacing: 10,
+                  children: List.generate(
+                    produksTelkomsels.length,
+                    (index) {
+                      return Center(
+                        child: CardItemTelkomsel(
+                          produkTelkomsel: produksTelkomsels[index],
+                          currentIndex: index,
+                        ),
+                      );
+                    },
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -145,7 +136,7 @@ class CardItemTelkomsel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      // mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InkWell(
           onTap: () {
@@ -156,15 +147,22 @@ class CardItemTelkomsel extends StatelessWidget {
                 ));
           },
           child: Container(
-            padding: EdgeInsets.all(10),
-            height: 150,
-            width: 150,
+            padding:
+                const EdgeInsets.only(top: 32, left: 12, bottom: 32, right: 12),
+            height: 145,
+            width: 145,
+            decoration: BoxDecoration(
+                color: putih,
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: const [
+                  BoxShadow(color: Colors.grey, blurRadius: 1)
+                ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "${produkTelkomsel.title}",
-                  style: title1Ubuntu,
+                  style: title4Ubuntu,
                 ),
                 const Divider(
                   color: Colors.grey,
@@ -172,11 +170,11 @@ class CardItemTelkomsel extends StatelessWidget {
                 ),
                 Text(
                   "Harga",
-                  style: title1Sans,
+                  style: title3Sans,
                 ),
                 Text(
                   "${produkTelkomsel.harga}",
-                  style: title2Ubuntu,
+                  style: title5Ubuntu,
                 ),
                 const SizedBox(height: 5),
                 InkWell(
@@ -187,20 +185,21 @@ class CardItemTelkomsel extends StatelessWidget {
                           return AlertDialog(
                             title: Text(
                               "Detail Paket",
-                              style: title1Ubuntu,
+                              style: title9Sans,
                             ),
-                            content: Text("Penjelasan Paket yang dipilih",
-                                style: title3Ubuntu),
+                            content: Text(
+                                "Kuota utama 2GB, dapat digunakan di jaringan 2G/3G/4G dari jam 00.00-24.00 WIB, Kuota dapat digunakan untuk mengakses rumah belajar kemendikbud, spada indonesia kemendikbud, ruang guru, zenius, sekolahmu, dan website lembaga pendidikan dan universitas. Daftar website dan aplikasi lengkap cek www.xl.co.id, Masa aktif 1 hari",
+                                style: title3Sans),
                             actions: [
                               ElevatedButton(
                                 onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   primary: primaryKuning1,
-                                  padding: const EdgeInsets.fromLTRB(
-                                      104, 12, 104, 12),
+                                  padding:
+                                      const EdgeInsets.fromLTRB(85, 12, 65, 12),
                                 ),
                                 child: Text("Lanjut ke Pembayaran",
-                                    style: title3Sans),
+                                    style: buttonText),
                               ),
                             ],
                           );
@@ -208,7 +207,7 @@ class CardItemTelkomsel extends StatelessWidget {
                   },
                   child: Text(
                     "Selengkapnya",
-                    style: title8Sans,
+                    style: title1Sans,
                   ),
                 )
               ],

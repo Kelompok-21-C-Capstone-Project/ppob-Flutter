@@ -22,7 +22,7 @@ TextStyle appBar = GoogleFonts.ptSans(
 
 // Font ptSans
 TextStyle title1Sans = GoogleFonts.ptSans(
-    fontSize: 8, fontWeight: FontWeight.w400, color: fontColor);
+    fontSize: 8, fontWeight: FontWeight.w400, color: primaryKuning1);
 TextStyle title2Sans = GoogleFonts.ptSans(
     fontSize: 9, fontWeight: FontWeight.w500, color: fontColor);
 TextStyle title3Sans = GoogleFonts.ptSans(
@@ -49,8 +49,8 @@ TextStyle title1Ubuntu =
     GoogleFonts.ubuntu(fontSize: 9, fontWeight: FontWeight.w500);
 TextStyle title2Ubuntu =
     GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w400);
-TextStyle title3Ubuntu =
-    GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w500);
+TextStyle title3Ubuntu = GoogleFonts.ubuntu(
+    fontSize: 10, fontWeight: FontWeight.w500, color: namaProduk);
 TextStyle title4Ubuntu = GoogleFonts.ubuntu(
     fontSize: 12, fontWeight: FontWeight.w500, color: namaProduk);
 TextStyle title5Ubuntu = GoogleFonts.ubuntu(
@@ -61,6 +61,8 @@ TextStyle title7Ubuntu = GoogleFonts.ubuntu(
     fontSize: 9, fontWeight: FontWeight.w500, color: onPrimary);
 TextStyle title8Ubuntu = GoogleFonts.ubuntu(
     fontSize: 15, fontWeight: FontWeight.w500, color: onSurface);
+TextStyle title9Ubuntu = GoogleFonts.ubuntu(
+    fontSize: 12, fontWeight: FontWeight.w400, color: namaProduk);
 
 // font roboto
 
@@ -75,3 +77,22 @@ TextStyle buttonText = GoogleFonts.ptSans(
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: onPrimary);
+
+// font status
+TextStyle selesai = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: variant);
+
+TextStyle pending = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: primaryKuning1);
+
+TextStyle gagal = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: eror);

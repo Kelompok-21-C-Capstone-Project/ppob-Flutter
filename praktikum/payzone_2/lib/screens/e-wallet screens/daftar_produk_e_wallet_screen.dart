@@ -18,7 +18,7 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: GridView.count(
           crossAxisCount: 3,
           // crossAxisSpacing: 5,
@@ -26,11 +26,9 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
           children: List.generate(
             produks.length,
             (index) {
-              return Center(
-                child: CardItem(
-                  produk: produks[index],
-                  currentIndex: index,
-                ),
+              return CardItem(
+                produk: produks[index],
+                currentIndex: index,
               );
             },
           ),
@@ -71,7 +69,10 @@ class CardItem extends StatelessWidget {
         Container(
           height: 35,
           width: 35,
-          color: Colors.white,
+          decoration: BoxDecoration(
+              color: putih,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 1)]),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

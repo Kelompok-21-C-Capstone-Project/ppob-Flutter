@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
           "/history": (context) => HistoryScreen(),
           "/historyDetail": (context) => HistoryDetailScreen(),
         },
-        initialRoute: "/home",
+        initialRoute: "/history",
       ),
     );
   }

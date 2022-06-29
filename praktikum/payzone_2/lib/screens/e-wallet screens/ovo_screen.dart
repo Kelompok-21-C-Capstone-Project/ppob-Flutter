@@ -30,13 +30,13 @@ class _OVOScreenState extends State<OVOScreen> {
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
+            //buat snackbar
+            const SizedBox(height: 10),
             Form(
                 key: formKey,
                 child: Column(
                   children: [
                     TextFormField(
-                      // maxLength: 14,
                       decoration: InputDecoration(
                           hintStyle: title2Robo,
                           labelStyle: title1Robo,
@@ -70,7 +70,7 @@ class _OVOScreenState extends State<OVOScreen> {
           "Keuntungan Bertransaksi di Payzone Online",
           style: title10Sans,
         ),
-        const SizedBox(height: 13),
+        const SizedBox(height: 23),
         ExpansionTile(
           title: Text(
               "Tentang, Kelebihan, Penggunaan, Cara Isi Saldo, Cara Cek Saldo OVO",
@@ -146,16 +146,19 @@ class _OVOScreenState extends State<OVOScreen> {
             style: title10Sans,
           ),
           const Divider(
+            height: 0,
             color: Colors.grey,
             thickness: 1,
           ),
           const SizedBox(height: 13),
           Container(
-            height: 500,
+            height: 550,
             width: 4600,
             decoration: BoxDecoration(color: putih),
             child: GridView.count(
               crossAxisCount: 2,
+              mainAxisSpacing: 14,
+              crossAxisSpacing: 10,
               children: List.generate(
                 produksOvo.length,
                 (index) {
@@ -256,8 +259,15 @@ class CardItemOVO extends StatelessWidget {
           child: Container(
             padding:
                 const EdgeInsets.only(top: 32, left: 12, bottom: 32, right: 12),
-            height: 130,
-            width: 130,
+            //130x130
+            height: 145,
+            width: 145,
+            decoration: BoxDecoration(
+                color: putih,
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: const [
+                  BoxShadow(color: Colors.grey, blurRadius: 1)
+                ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
