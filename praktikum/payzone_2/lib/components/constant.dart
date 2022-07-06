@@ -12,6 +12,7 @@ Color eror = const Color.fromARGB(255, 176, 0, 32);
 Color fontColor = const Color.fromARGB(255, 29, 29, 29);
 Color namaProduk = const Color.fromARGB(255, 0, 0, 0);
 Color bgTotal = const Color.fromARGB(255, 252, 235, 195);
+Color icon = const Color.fromARGB(153, 25, 25, 25);
 
 // Const Font
 TextStyle appBar = GoogleFonts.ptSans(
@@ -43,6 +44,10 @@ TextStyle title10Sans = GoogleFonts.ptSans(
     fontSize: 13, fontWeight: FontWeight.w700, color: fontColor);
 TextStyle title11Sans = GoogleFonts.ptSansCaption(
     fontSize: 12, fontWeight: FontWeight.w400, color: fontColor);
+TextStyle title12Sans = GoogleFonts.ptSans(
+    fontSize: 13, fontWeight: FontWeight.w400, color: fontColor);
+TextStyle title13Sans =
+    GoogleFonts.ptSans(fontSize: 8, fontWeight: FontWeight.w400);
 
 // Font Ubuntu
 TextStyle title1Ubuntu =
@@ -96,3 +101,8 @@ TextStyle gagal = GoogleFonts.ptSans(
     fontSize: 10,
     fontWeight: FontWeight.w400,
     color: eror);
+
+TextStyle unactive =
+    GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w500, color: icon);
+TextStyle unactive2 =
+    GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w400, color: icon);

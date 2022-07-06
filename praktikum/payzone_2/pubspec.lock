@@ -364,6 +364,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.8"
+  top_alert_notification:
+    dependency: "direct main"
+    description:
+      name: top_alert_notification
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   typed_data:
     dependency: transitive
     description:

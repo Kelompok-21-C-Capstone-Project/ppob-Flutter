@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/screens/paket%20data%20screens/pembayaran_paket_data_screen.dart';
+import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
+import 'package:provider/provider.dart';
 
 class DaftarProdukPaketDataScreen extends StatefulWidget {
   const DaftarProdukPaketDataScreen({Key? key}) : super(key: key);
@@ -26,7 +28,7 @@ class _DaftarProdukPaketDataScreenState
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Stack(
           children: [
             Column(
@@ -46,6 +48,14 @@ class _DaftarProdukPaketDataScreenState
                               border: const OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5)))),
+                          validator: (value) {
+                            // if (value!.isEmpty) {
+                            //   return "Nomor Handphone tidak boleh kosong";
+                            // }
+                            if (value!.length != 12) {
+                              return "phone number must be in 12 digit";
+                            }
+                          },
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             FilteringTextInputFormatter.digitsOnly,
@@ -64,6 +74,8 @@ class _DaftarProdukPaketDataScreenState
   }
 
   Widget _buildPaket() {
+    final result =
+        Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
 // Container yang menampung opsi Voucher
     return SingleChildScrollView(
       child: Column(
@@ -135,6 +147,18 @@ class CardItemTelkomsel extends StatelessWidget {
   final int currentIndex;
   @override
   Widget build(BuildContext context) {
+    // return FutureBuilder<void>(
+    //     future: Provider.of<DaftarProdukViewModel>(context, listen: false)
+    //         .getAllDaftarProdukPaketData(),
+    //     builder: (context, AsyncSnapshot<void> snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.waiting) {
+    //         return const Center(
+    //           child: CircularProgressIndicator(),
+    //         );
+    //       } else {
+    //         final result =
+    //             Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
+
     return Column(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -161,6 +185,7 @@ class CardItemTelkomsel extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  // "${result.products![currentIndex].label}",
                   "${produkTelkomsel.title}",
                   style: title4Ubuntu,
                 ),
@@ -173,6 +198,7 @@ class CardItemTelkomsel extends StatelessWidget {
                   style: title3Sans,
                 ),
                 Text(
+                  // "${result.products![currentIndex].price}",
                   "${produkTelkomsel.harga}",
                   style: title5Ubuntu,
                 ),
@@ -188,18 +214,22 @@ class CardItemTelkomsel extends StatelessWidget {
                               style: title9Sans,
                             ),
                             content: Text(
-                                "Kuota utama 2GB, dapat digunakan di jaringan 2G/3G/4G dari jam 00.00-24.00 WIB, Kuota dapat digunakan untuk mengakses rumah belajar kemendikbud, spada indonesia kemendikbud, ruang guru, zenius, sekolahmu, dan website lembaga pendidikan dan universitas. Daftar website dan aplikasi lengkap cek www.xl.co.id, Masa aktif 1 hari",
-                                style: title3Sans),
+                              "deskripsi produk",
+                              style: title3Sans,
+                              textAlign: TextAlign.justify,
+                            ),
                             actions: [
-                              ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  primary: primaryKuning1,
-                                  padding:
-                                      const EdgeInsets.fromLTRB(85, 12, 65, 12),
+                              Center(
+                                child: ElevatedButton(
+                                  onPressed: () {},
+                                  style: ElevatedButton.styleFrom(
+                                    primary: primaryKuning1,
+                                    padding: const EdgeInsets.fromLTRB(
+                                        70, 12, 70, 12),
+                                  ),
+                                  child: Text("Lanjut ke Pembayaran",
+                                      style: buttonText),
                                 ),
-                                child: Text("Lanjut ke Pembayaran",
-                                    style: buttonText),
                               ),
                             ],
                           );
@@ -218,3 +248,6 @@ class CardItemTelkomsel extends StatelessWidget {
     );
   }
 }
+//         );
+//   }
+// }

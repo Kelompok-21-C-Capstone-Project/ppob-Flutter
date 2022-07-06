@@ -18,11 +18,11 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: GridView.count(
-          crossAxisCount: 3,
-          // crossAxisSpacing: 5,
-          // mainAxisSpacing: 5,
+          crossAxisCount: 2,
+          mainAxisSpacing: 14,
+          crossAxisSpacing: 10,
           children: List.generate(
             produks.length,
             (index) {

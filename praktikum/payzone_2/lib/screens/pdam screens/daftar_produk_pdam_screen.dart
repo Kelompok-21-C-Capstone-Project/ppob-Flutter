@@ -26,7 +26,7 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(24),
           child: Column(
             children: [
               const SizedBox(height: 10),
@@ -44,6 +44,11 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
                             border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5)))),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Nomor Pelanggan tidak boleh kosong";
+                          }
+                        },
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.digitsOnly,

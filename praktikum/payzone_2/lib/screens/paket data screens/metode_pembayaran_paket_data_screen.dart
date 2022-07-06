@@ -21,7 +21,7 @@ class _MetodePembayaranPaketDataScreenState
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,6 +36,7 @@ class _MetodePembayaranPaketDataScreenState
               "Nomor Virtual Account",
               style: title3Ubuntu,
             ),
+            const SizedBox(height: 5),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -43,10 +44,12 @@ class _MetodePembayaranPaketDataScreenState
                 Text("123456789012345", style: title4Ubuntu),
                 Row(
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.copy),
-                      iconSize: 9,
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Icon(
+                        Icons.copy,
+                        size: 10,
+                      ),
                     ),
                     Text("Salin", style: title3Sans)
                   ],
@@ -80,46 +83,50 @@ class _MetodePembayaranPaketDataScreenState
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text(
-                            //tengah
-                            "Pembayaran Berhasil",
-                            style: title4Ubuntu,
-                          ),
-                          content: Text(
-                            "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
-                            style: title2Ubuntu,
-                          ),
-                          actions: [
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, "/history");
-                              },
-                              style: ElevatedButton.styleFrom(
-                                primary: primaryKuning1,
-                                padding:
-                                    const EdgeInsets.fromLTRB(53, 15, 90, 15),
-                              ),
-                              child: Text("Lihat History Transaksi",
-                                  style: buttonText),
+            Center(
+              child: ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text(
+                              //tengah
+                              "Pembayaran Berhasil",
+                              style: title4Ubuntu,
                             ),
-                          ],
-                        );
-                      });
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: primaryKuning1,
-                  padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
-                ),
-                child: Text(
-                  "Cek Status Pembayaran",
-                  style: buttonText,
-                )),
+                            content: Text(
+                              "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",
+                              style: title2Ubuntu,
+                            ),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  // Navigator.pushNamed(context, "/history");
+                                  Navigator.pushReplacementNamed(
+                                      context, "/history");
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  primary: primaryKuning1,
+                                  padding:
+                                      const EdgeInsets.fromLTRB(72, 12, 72, 12),
+                                ),
+                                child: Text("Lihat History Transaksi",
+                                    style: buttonText),
+                              ),
+                            ],
+                          );
+                        });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: primaryKuning1,
+                    padding: const EdgeInsets.fromLTRB(84, 12, 84, 12),
+                  ),
+                  child: Text(
+                    "Cek Status Pembayaran",
+                    style: buttonText,
+                  )),
+            ),
             const SizedBox(height: 45),
             Text(
               "Cara Pembayaran",
@@ -190,7 +197,7 @@ class _MetodePembayaranPaketDataScreenState
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
-                    padding: const EdgeInsets.fromLTRB(155, 12, 155, 12),
+                    padding: const EdgeInsets.fromLTRB(136, 12, 136, 12),
                   ),
                   child: Text("OK", style: buttonText)),
             ),

@@ -3,38 +3,65 @@ import 'package:payzone_2/model/all_product_model.dart' as allProduct;
 import 'package:payzone_2/model/get_user_by_id_model.dart' as getUserById;
 import 'package:payzone_2/model/get_user_transaction_id.dart'
     as getUserTransactionId;
-import 'package:payzone_2/model/user_model.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PayzoneApiServices {
-  Future<List<allProduct.AllProductModel>?> getAllProduct() async {
-    final response = await Dio().get(
-        "https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/products/searchProduct");
-    print("hasil : ${response.data}");
-    final res = allProduct.AllProductModel.fromJson(response.data);
-    // List<allProduct.AllProductModel>? result = res.results;
-    // return result;
+  Future<allProduct.AllProductModel> getAllProduct(int idProduct) async {
+    final _dio = Dio();
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+
+    try {
+      final response = await Dio().get(
+          "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/users/$idProduct");
+      print("ini adalah eror : $idProduct");
+      final resAllProduct = allProduct.AllProductModel.fromJson(response.data);
+      return resAllProduct;
+    } on DioError catch (e) {
+      return e.response!.data;
+    }
   }
 
-  Future<List<getUserById.GetUserByIdModel>?> getAllUserById(int userId) async {
-    //tambah user id di url
-    final response = await Dio().get(
-        "https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/users/getUserDataById");
-    // print("hasil : ${response.data}");
-    final res = getUserById.GetUserByIdModel.fromJson(response.data);
-    // List<getUserById.GetUserByIdModel>? result = res.results;
-    // return result;
+  Future<getUserById.GetUserByIdModel> getAllUserById(int userId) async {
+    final _dio = Dio();
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+
+    try {
+      final response = await _dio.get(
+          "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/users/$userId");
+      print("ini adalah eror : $userId");
+      final resAllUserId = getUserById.GetUserByIdModel.fromJson(response.data);
+      return resAllUserId;
+    } on DioError catch (e) {
+      return e.response!.data;
+    }
   }
 
-  Future<List<getUserTransactionId.GetUserTransactionIdModel>?>
-      getAllTransactionById(int userTransactionId) async {
-    //tambah user id di url
-    final response = await Dio().get(
-        "https://app.swaggerhub.com/apis/ixtza/payzone/1.0.0#/users/getUserTransactionDataById");
-    // print("hasil : ${response.data}");
-    final res =
-        getUserTransactionId.GetUserTransactionIdModel.fromJson(response.data);
-    // List<getUserTransactionId.GetUserTransactionIdModel>? result = res.results;
-    // return result;
+  Future<getUserTransactionId.GetUserTransactionIdModel> getAllTransaction(
+      int userTransactionId) async {
+    final _dio = Dio();
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+
+    try {
+      final response = await _dio.get(
+          "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/users/$userTransactionId/transaction");
+      print("ini adalah eror : $userTransactionId");
+      final resTransaction =
+          getUserTransactionId.GetUserTransactionIdModel.fromJson(
+              response.data);
+      return resTransaction;
+    } on DioError catch (e) {
+      return e.response!.data;
+    }
   }
 }
+
+  // Future<List<allProduct.AllProductModel>?> getAllProduct(int idProduct) async {
+  //   final response = await Dio().get(
+  //       "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/users/$idProduct");
+  //   print("hasil : ${response.data}");
+  //   final res = allProduct.AllProductModel.fromJson(response.data);
+  //   // List<allProduct.AllProductModel>? result = res.results;
+  //   // return result;
+  // }

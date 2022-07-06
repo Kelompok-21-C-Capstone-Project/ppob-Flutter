@@ -12,11 +12,36 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   late SharedPreferences logindata;
+  // int idPengguna = 0;
+  String email = "";
+  String pass = "";
 
   @override
   void initState() {
-    // TODO: implement initState
+    // logout();
+    getData();
     super.initState();
+  }
+
+  // void logout() async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   setState(() {
+  //     idPengguna = logindata.getInt("id")!;
+  //   });
+  // }
+
+  getData() async {
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      email = logindata.getString("username")!;
+      pass = logindata.getString("password")!;
+    });
+  }
+
+  deleteData() async {
+    logindata = await SharedPreferences.getInstance();
+    logindata.remove("username");
+    logindata.remove("password");
   }
 
   @override
@@ -26,15 +51,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         backgroundColor: putih,
         title: Text("Profile", style: appBar),
-        // actions: [
-        //   IconButton(
-        //       onPressed: () {
-        //         // logindata.remove(username);
-
-        //         Navigator.pushNamed(context, "/login");
-        //       },
-        //       icon: Icon(Icons.logout)),
-        // ],
         centerTitle: true,
       ),
       body: Stack(
@@ -78,16 +94,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     size: 40.0,
                   ),
                   const SizedBox(height: 10),
-                  Text("Bangun Akmalu Hakim", style: title8Ubuntu),
+                  Text("${email}", style: title8Ubuntu),
                   const SizedBox(height: 5),
-                  Text(
-                    "087864420972",
-                    style: TextStyle(
-                        fontFamily: GoogleFonts.ptSans().fontFamily,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12,
-                        color: onSurface),
-                  ),
+                  // Text(
+                  //   "087864420972",
+                  //   style: TextStyle(
+                  //       fontFamily: GoogleFonts.ptSans().fontFamily,
+                  //       fontWeight: FontWeight.w400,
+                  //       fontSize: 12,
+                  //       color: onSurface),
+                  // ),
                 ],
               ),
             ),
@@ -103,8 +119,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _menuDanInfo(),
                 ListTile(
                   onTap: () {
-                    //         logindata.remove(username);
-                    //         Navigator.pushNamed(context, "/login");
+                    logindata.remove("username");
+                    logindata.remove("password");
+                    // logindata.clear();
+                    Navigator.pushNamed(context, "/login");
                   },
                   leading: Icon(
                     Icons.logout,
@@ -113,6 +131,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   title: Text("Keluar", style: title3Sans),
                   trailing:
                       Icon(Icons.arrow_forward_ios, color: onSurface, size: 12),
+                ),
+                Center(
+                  child: Image.asset(
+                    "assets/images/logo.png",
+                    fit: BoxFit.fill,
+                    height: 39,
+                    width: 75,
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Created By",
+                      style: title3Sans,
+                    ),
+                    const Text(" | "),
+                    Text("Cinema 21", style: title3Sans),
+                  ],
                 ),
               ],
             ),

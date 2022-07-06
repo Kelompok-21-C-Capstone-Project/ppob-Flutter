@@ -26,7 +26,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -35,66 +35,78 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
               "Detail Pembayaran",
               style: title9Sans,
             ),
-            const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Nama Produk",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Nomor Handphone",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Harga",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Biaya Admin",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "OVO 25",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "08xxxxxxxxx",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "Rp. 21.500",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      "RP. 2500",
-                      style: title3Sans,
-                    ),
-                    const SizedBox(height: 20),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 15),
+            // const SizedBox(height: 12),
             Container(
-              padding:
-                  EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
+              padding: const EdgeInsets.only(
+                  left: 5, top: 12, bottom: 12, right: 10),
+              width: 340,
+              height: 80,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Nama Produk",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "Nomor Handphone",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "Harga",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "Biaya Admin",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "OVO 25",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "08xxxxxxxxx",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "Rp. 21.500",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 5),
+                          Text(
+                            "RP. 2500",
+                            style: title3Sans,
+                          ),
+                          // const SizedBox(height: 20),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+
+            // const SizedBox(height: 15),
+            Container(
+              padding: const EdgeInsets.only(
+                  left: 12, top: 12, bottom: 12, right: 12),
               height: 36,
               width: 312,
               color: bgTotal,
@@ -256,7 +268,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,
-                    padding: const EdgeInsets.fromLTRB(120, 12, 120, 12),
+                    padding: const EdgeInsets.fromLTRB(104, 12, 104, 12),
                   ),
                   child: Text("Bayar Sekarang", style: buttonText)),
             )
@@ -268,25 +280,27 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
 
   Widget _buildBottomSheet() {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(top: 20, bottom: 20, left: 23, right: 23),
       width: 360,
       height: 240,
       decoration: BoxDecoration(
         color: putih,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // const SizedBox(height: 20),
-          IconButton(
-            padding: const EdgeInsets.all(0),
-            alignment: Alignment.topLeft,
-            onPressed: () {},
-            icon: Icon(Icons.close),
-            iconSize: 15,
+          GestureDetector(
+            onTap: () {},
+            child: const Icon(
+              Icons.close,
+              size: 15,
+            ),
           ),
-          // const SizedBox(height: 25),
+          const SizedBox(
+            height: 25,
+          ),
           Text("Detail Pembayaran", style: title9Sans),
           const SizedBox(height: 15),
           Row(
@@ -296,11 +310,11 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Nama Produk", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("Nomor Handphone", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("Harga", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("Biaya Admin", style: title3Sans),
                   // const SizedBox(height: 10),
                 ],
@@ -309,22 +323,23 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text("OVO 25", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("08xxxxxxxxx", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("Rp. 21.500", style: title3Sans),
-                  const SizedBox(height: 5),
+                  // const SizedBox(height: 5),
                   Text("RP. 2500", style: title3Sans),
                   // const SizedBox(height: 10),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 12),
           Container(
-            padding: EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
+            padding:
+                const EdgeInsets.only(left: 12, top: 12, bottom: 12, right: 12),
             height: 36,
-            width: 360,
+            // width: 360,
             color: bgTotal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -340,7 +355,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          // const SizedBox(height: 20),
         ],
       ),
     );

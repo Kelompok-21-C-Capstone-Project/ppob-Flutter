@@ -5,15 +5,15 @@ import 'package:payzone_2/service/login_api_services.dart';
 class LoginViewModel extends ChangeNotifier {
   UserModel _resultUser = UserModel();
   UserModel get resultUser => _resultUser;
-  Future<void> login(String id, password) async {
+  Future<void> login(String email, String password) async {
     final getAllUser = LoginApiServices();
 
     try {
-      final newResultUser = await getAllUser.login(id, password);
+      final newResultUser = await getAllUser.login(email, password);
       _resultUser = newResultUser;
-      print("hasil sukses all product : $_resultUser");
+      print("hasil sukses login : $_resultUser");
     } catch (e) {
-      print("hasil eror all product : $e");
+      print("hasil eror login : $e");
     }
     notifyListeners();
   }

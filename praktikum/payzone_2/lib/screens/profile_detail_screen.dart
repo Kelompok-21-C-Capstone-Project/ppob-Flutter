@@ -34,11 +34,11 @@ class _ProfileDetailState extends State<ProfileDetail> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(24),
         child: Form(
             child: Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               decoration: const InputDecoration(
                   labelText: "Username",

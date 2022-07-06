@@ -18,12 +18,17 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
-        backgroundColor: primaryKuning1,
-        title: Text(
-          "Payzone",
-          style: appBar,
-        ),
-      ),
+          backgroundColor: primaryKuning1,
+          // title: Text(
+          //   "Payzone",
+          //   style: appBar,
+          // ),
+          title: Image.asset(
+            "assets/images/logo.png",
+            fit: BoxFit.fill,
+            height: 39,
+            width: 75,
+          )),
       body: Stack(
         children: [
           Column(
@@ -138,23 +143,66 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
       children: [
         Text("Transaksi Terakhir", style: title10Sans),
         const SizedBox(height: 20),
-        Container(
-          margin: EdgeInsets.all(20),
-          padding: EdgeInsets.all(10),
-          height: 100,
-          width: 400,
-          decoration: BoxDecoration(
-              color: putih,
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 3)]),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text("30/MEI/2022  19.40 WIB", style: title3Ubuntu),
-              Text("OVO 20.000 (08313298343)", style: title9Sans),
-              Text("Order ID : Payzone_71203829", style: title1Sans),
-              Text("Rp. 21.500", style: title9Sans),
-            ],
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, "/historyDetail");
+          },
+          child: Container(
+            height: 98,
+            width: 312,
+            decoration: BoxDecoration(
+                color: putih,
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: const [
+                  BoxShadow(color: Colors.grey, blurRadius: 3)
+                ]),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  width: 41,
+                  height: 41,
+                  decoration: BoxDecoration(
+                      color: primaryKuning1,
+                      borderRadius: BorderRadius.circular(3),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.grey, blurRadius: 2)
+                      ]),
+                  child: Icon(
+                    Icons.account_balance_wallet_outlined,
+                    size: 25,
+                    color: onPrimary,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 7),
+                    Container(
+                      width: 61,
+                      height: 21,
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: variant),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        "Selesai",
+                        style: selesai,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    SizedBox(height: 2),
+                    Text("30/MEI/2022  19.40 WIB", style: title3Sans),
+                    Text("OVO 20.000 (08313298343)", style: title11Sans),
+                    Text("Order ID : Payzone_71203829", style: title3Sans),
+                    Text("Rp. 21.500", style: title11Sans),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ],

@@ -23,7 +23,7 @@ class LoginApiServices {
   // }
 
   // google
-  Future<UserModel> login(String id, password) async {
+  Future<UserModel> login(String email, String password) async {
     final _dio = Dio();
     _dio.interceptors
         .add(LogInterceptor(responseBody: true, requestBody: true));
@@ -32,7 +32,7 @@ class LoginApiServices {
       final response = await _dio.post(
           "https://virtserver.swaggerhub.com/ixtza/payzone/1.0.0/auth",
           data: {
-            "id": id,
+            "email": email,
             "password": password,
           });
       final resLogin = UserModel.fromJson(response.data);
@@ -42,3 +42,6 @@ class LoginApiServices {
     }
   }
 }
+
+ 
+// https://payzone.herokuapp.com/v1/auth
