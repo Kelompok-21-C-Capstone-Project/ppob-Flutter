@@ -40,6 +40,7 @@ class _DaftarProdukPaketDataScreenState
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
+                          controller: inputNomorHp,
                           decoration: InputDecoration(
                               hintStyle: title2Robo,
                               labelStyle: title1Robo,
@@ -48,17 +49,18 @@ class _DaftarProdukPaketDataScreenState
                               border: const OutlineInputBorder(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5)))),
-                          validator: (value) {
-                            // if (value!.isEmpty) {
-                            //   return "Nomor Handphone tidak boleh kosong";
-                            // }
-                            if (value!.length != 12) {
-                              return "phone number must be in 12 digit";
-                            }
-                          },
+                          // validator: (value) {
+                          // if (value!.isEmpty) {
+                          //   return "Nomor Handphone tidak boleh kosong";
+                          // }
+                          //   // if (value!.length != 12) {
+                          //   //   return "phone number must be in 12 digit";
+                          //   // }
+                          // },
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             FilteringTextInputFormatter.digitsOnly,
+                            // LengthLimitingTextInputFormatter(12),
                             // FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
                           ],
                         ),
@@ -74,8 +76,8 @@ class _DaftarProdukPaketDataScreenState
   }
 
   Widget _buildPaket() {
-    final result =
-        Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
+    // final result =
+    //     Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
 // Container yang menampung opsi Voucher
     return SingleChildScrollView(
       child: Column(
@@ -140,114 +142,116 @@ class ProdukTelkomsel {
 }
 
 class CardItemTelkomsel extends StatelessWidget {
-  const CardItemTelkomsel(
-      {Key? key, required this.produkTelkomsel, required this.currentIndex})
-      : super(key: key);
+  const CardItemTelkomsel({
+    Key? key,
+    required this.produkTelkomsel,
+    required this.currentIndex,
+  }) : super(key: key);
   final ProdukTelkomsel produkTelkomsel;
   final int currentIndex;
+
   @override
   Widget build(BuildContext context) {
-    // return FutureBuilder<void>(
-    //     future: Provider.of<DaftarProdukViewModel>(context, listen: false)
-    //         .getAllDaftarProdukPaketData(),
-    //     builder: (context, AsyncSnapshot<void> snapshot) {
-    //       if (snapshot.connectionState == ConnectionState.waiting) {
-    //         return const Center(
-    //           child: CircularProgressIndicator(),
-    //         );
-    //       } else {
-    //         final result =
-    //             Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
+    return FutureBuilder<void>(
+        future: Provider.of<DaftarProdukViewModel>(context, listen: false)
+            .getAllDaftarProdukPaketData(),
+        builder: (context, AsyncSnapshot<void> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            final result =
+                Provider.of<DaftarProdukViewModel>(context).listProdukPaketData;
 
-    return Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        InkWell(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => PembayaranPaketDataScreen(),
-                ));
-          },
-          child: Container(
-            padding:
-                const EdgeInsets.only(top: 32, left: 12, bottom: 32, right: 12),
-            height: 145,
-            width: 145,
-            decoration: BoxDecoration(
-                color: putih,
-                borderRadius: BorderRadius.circular(5),
-                boxShadow: const [
-                  BoxShadow(color: Colors.grey, blurRadius: 1)
-                ]),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            return Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  // "${result.products![currentIndex].label}",
-                  "${produkTelkomsel.title}",
-                  style: title4Ubuntu,
-                ),
-                const Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                ),
-                Text(
-                  "Harga",
-                  style: title3Sans,
-                ),
-                Text(
-                  // "${result.products![currentIndex].price}",
-                  "${produkTelkomsel.harga}",
-                  style: title5Ubuntu,
-                ),
-                const SizedBox(height: 5),
                 InkWell(
                   onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text(
-                              "Detail Paket",
-                              style: title9Sans,
-                            ),
-                            content: Text(
-                              "deskripsi produk",
-                              style: title3Sans,
-                              textAlign: TextAlign.justify,
-                            ),
-                            actions: [
-                              Center(
-                                child: ElevatedButton(
-                                  onPressed: () {},
-                                  style: ElevatedButton.styleFrom(
-                                    primary: primaryKuning1,
-                                    padding: const EdgeInsets.fromLTRB(
-                                        70, 12, 70, 12),
-                                  ),
-                                  child: Text("Lanjut ke Pembayaran",
-                                      style: buttonText),
-                                ),
-                              ),
-                            ],
-                          );
-                        });
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PembayaranPaketDataScreen(),
+                        ));
                   },
-                  child: Text(
-                    "Selengkapnya",
-                    style: title1Sans,
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                        top: 32, left: 12, bottom: 32, right: 12),
+                    height: 145,
+                    width: 145,
+                    decoration: BoxDecoration(
+                        color: putih,
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.grey, blurRadius: 1)
+                        ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "${result.products![currentIndex].label}",
+                          // "${produkTelkomsel.title}",
+                          style: title4Ubuntu,
+                        ),
+                        const Divider(
+                          color: Colors.grey,
+                          thickness: 1,
+                        ),
+                        Text(
+                          "Harga",
+                          style: title3Sans,
+                        ),
+                        Text(
+                          "${result.products![currentIndex].price}",
+                          // "${produkTelkomsel.harga}",
+                          style: title5Ubuntu,
+                        ),
+                        const SizedBox(height: 5),
+                        InkWell(
+                          onTap: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      "Detail Paket",
+                                      style: title9Sans,
+                                    ),
+                                    content: Text(
+                                      "deskripsi produk",
+                                      style: title3Sans,
+                                      textAlign: TextAlign.justify,
+                                    ),
+                                    actions: [
+                                      Center(
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          style: ElevatedButton.styleFrom(
+                                            primary: primaryKuning1,
+                                            padding: const EdgeInsets.fromLTRB(
+                                                70, 12, 70, 12),
+                                          ),
+                                          child: Text("Lanjut ke Pembayaran",
+                                              style: buttonText),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                });
+                          },
+                          child: Text(
+                            "Selengkapnya",
+                            style: title1Sans,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                )
+                ),
               ],
-            ),
-          ),
-        ),
-      ],
-    );
+            );
+          }
+        });
   }
 }
-//         );
-//   }
-// }

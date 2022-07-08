@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,6 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
   String email = "";
   String pass = "";
 
+  bool _isloading = false;
+
   @override
   void dispose() {
     inputEmail.dispose();
@@ -33,7 +39,46 @@ class _LoginScreenState extends State<LoginScreen> {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("username", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
+    logindata.setString("status", "status");
+    logindata.setString("token", "token");
   }
+
+  // signIn(String email, String password) async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   Map body = {
+  //     "email": email,
+  //     "password": password,
+  //   };
+  //   var jsonresponse;
+  //   var res =
+  //       await Dio().post("https://payzone.herokuapp.com/v1/auth", data: body);
+
+  //   if (res.statusCode == 200) {
+  //     jsonresponse = json.decode(res.data);
+
+  //     print("Response : ${res.statusCode}");
+  //     print("Response : ${res.data}");
+
+  //     if (jsonresponse != null) {
+  //       setState(() {
+  //         // sharedPreferences.setString("token", jsonresponse["token"]);
+  //         // sharedPreferences.setString("email", jsonresponse["email"]);
+  //         // sharedPreferences.setString("name", jsonresponse["name"]);
+  //         // sharedPreferences.setString("role", jsonresponse["role"]);
+
+  //         _isloading = false;
+  //       });
+
+  //       sharedPreferences.setString("token", jsonresponse["token"]);
+  //       Navigator.pushNamed(context, "/home");
+  //     } else {
+  //       setState(() {
+  //         _isloading = false;
+  //       });
+  //       print("Response : ${res.data}");
+  //     }
+  //   }
+  // }
 
   @override
   void initState() {
@@ -52,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<LoginViewModel>(context);
+    final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
         backgroundColor: putih,
         body: SingleChildScrollView(
@@ -124,30 +169,100 @@ class _LoginScreenState extends State<LoginScreen> {
                         // loginUsers();
                         // postLogin();
 
+                        // inputEmail.text == "" || inputPassword.text == ""
+                        //     ? null
+                        //     : () {
+                        //         setState(() {
+                        //           _isloading = true;
+                        //         });
+                        //         signIn(inputEmail.text, inputPassword.text);
+                        //       }();
+
+                        // if (formKey.currentState!.validate()) {
+                        //   setState(() {
+                        //     _isloading = true;
+                        //   });
+                        //   viewModel.loginUser(
+                        //       inputEmail.text, inputPassword.text);
+                        // }
+
+                        // if (formKey.currentState!.validate()) {
+                        //   // snack bar loading
+                        //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        //     content: const Text('Processing Data'),
+                        //     backgroundColor: Colors.green.shade300,
+                        //   ));
+
+                        //   final res = await viewModel.loginUser(
+                        //       inputEmail.text, inputPassword.text);
+                        //   ScaffoldMessenger.of(context).hideCurrentSnackBar();
+
+                        //   // //if there is no error, get the user's accesstoken and pass it to HomeScreen
+                        //   // if (res. == null) {
+                        //   //   String accessToken = res['token'];
+                        //   //   Navigator.push(
+                        //   //       context,
+                        //   //       MaterialPageRoute(
+                        //   //           builder: (context) =>
+                        //   //               HomeScreen(accesstoken: accessToken)));
+                        //   // } else {
+                        //   //   //if an error occurs, show snackbar with error message
+                        //   //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        //   //     content: Text('Error: ${res['Message']}'),
+                        //   //     backgroundColor: Colors.red.shade300,
+                        //   //   ));
+                        //   // }
+                        // }
+
                         if (formKey.currentState!.validate()) {
-                          await viewModel.login(
+                          await viewModel.loginUser(
                               inputEmail.text, inputPassword.text);
-                          if (viewModel.resultUser.id != null) {
+                          if (viewModel.resultUser.token == true) {
                             saveData();
                             Navigator.pushNamed(context, "/home");
                           } else {
                             showDialog(
-                                context: context,
-                                builder: (context) => const AlertDialog(
-                                      title: Text('Error'),
-                                      content:
-                                          Text('Invalid username or password'),
-                                      actions: [
-                                        // FlatButton(
-                                        //   onPressed: () {
-                                        //     Navigator.pop(context);
-                                        //   },
-                                        //   child: const Text('OK'),
-                                        // )
-                                      ],
-                                    ));
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text("Error"),
+                                content: Text("Coba Lagi!"),
+                                actions: [
+                                  FlatButton(
+                                    child: const Text("OK"),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                ],
+                              ),
+                            );
                           }
                         }
+
+                        // if (formKey.currentState!.validate()) {
+                        //   await viewModel.login(
+                        //       inputEmail.text, inputPassword.text);
+                        //   if (viewModel.resultUser.id != null) {
+                        //     saveData();
+                        //     Navigator.pushNamed(context, "/home");
+                        //   } else {
+                        //     showDialog(
+                        //         context: context,
+                        //         builder: (context) => const AlertDialog(
+                        //               title: Text('Error'),
+                        //               content:
+                        //                   Text('Invalid username or password'),
+                        //               actions: [
+                        //                 // FlatButton(
+                        //                 //   onPressed: () {
+                        //                 //     Navigator.pop(context);
+                        //                 //   },
+                        //                 //   child: const Text('OK'),
+                        //                 // )
+                        //               ],
+                        //             ));
+                        //   }
+                        // }
                         // saveData();
 
                         // bool visit = await getVisit();
@@ -174,7 +289,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         const Text('Not registered yet?'),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/register");
+                          },
                           child: Text('Create an account', style: buttonText),
                         ),
                       ],

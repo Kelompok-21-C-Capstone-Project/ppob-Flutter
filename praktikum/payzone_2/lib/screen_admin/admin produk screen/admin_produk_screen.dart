@@ -17,10 +17,10 @@ class AdminProdukScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            // const SizedBox(height: 20),
             InkWell(
               onTap: () {
                 Navigator.pushNamed(context, "/adminDaftarKategori");
@@ -75,52 +75,111 @@ class AdminProdukScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-            Container(
-              height: 55,
-              width: 312,
-              decoration: BoxDecoration(
-                  color: putih,
-                  borderRadius: BorderRadius.circular(2),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.grey, blurRadius: 3)
-                  ]),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 41,
-                    height: 41,
-                    // padding: const EdgeInsets.all(10),
-                    margin: const EdgeInsets.only(
-                        top: 7, left: 24, bottom: 7, right: 24),
-                    decoration: BoxDecoration(
-                        color: primaryKuning1,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(color: Colors.grey, blurRadius: 2)
-                        ]),
-                    child: Icon(
-                      Icons.account_balance_wallet_outlined,
-                      size: 25,
-                      color: onPrimary,
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/adminDaftarProduk");
+              },
+              child: Container(
+                height: 55,
+                width: 312,
+                decoration: BoxDecoration(
+                    color: putih,
+                    borderRadius: BorderRadius.circular(2),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.grey, blurRadius: 3)
+                    ]),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: 41,
+                      height: 41,
+                      // padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(
+                          top: 7, left: 24, bottom: 7, right: 24),
+                      decoration: BoxDecoration(
+                          color: primaryKuning1,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.grey, blurRadius: 2)
+                          ]),
+                      child: Icon(
+                        Icons.account_balance_wallet_outlined,
+                        size: 25,
+                        color: onPrimary,
+                      ),
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 11),
-                      Text(
-                        "Daftar Produk",
-                        style: title11Sans,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 11),
+                        Text(
+                          "Daftar Produk",
+                          style: title11Sans,
+                        ),
+                        Text(
+                          "Lihat History Daftar Produk",
+                          style: title3Sans,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, "/adminDaftarBrand");
+              },
+              child: Container(
+                height: 55,
+                width: 312,
+                decoration: BoxDecoration(
+                    color: putih,
+                    borderRadius: BorderRadius.circular(2),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.grey, blurRadius: 3)
+                    ]),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      alignment: Alignment.center,
+                      width: 41,
+                      height: 41,
+                      // padding: const EdgeInsets.all(10),
+                      margin: const EdgeInsets.only(
+                          top: 7, left: 24, bottom: 7, right: 24),
+                      decoration: BoxDecoration(
+                          color: primaryKuning1,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.grey, blurRadius: 2)
+                          ]),
+                      child: Icon(
+                        Icons.account_balance_wallet_outlined,
+                        size: 25,
+                        color: onPrimary,
                       ),
-                      Text(
-                        "Lihat History Daftar Produk",
-                        style: title3Sans,
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 11),
+                        Text(
+                          "Daftar Brand",
+                          style: title11Sans,
+                        ),
+                        Text(
+                          "Lihat History Daftar Brand",
+                          style: title3Sans,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

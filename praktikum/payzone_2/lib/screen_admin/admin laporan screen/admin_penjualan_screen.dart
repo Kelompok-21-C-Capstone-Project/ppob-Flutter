@@ -22,12 +22,81 @@ class _AdminPenjualanScreenState extends State<AdminPenjualanScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Periode : ",
-              style: title10Sans,
+            Row(
+              children: [
+                Text(
+                  "Periode : ",
+                  style: title10Sans,
+                ),
+                Row(
+                  children: [
+                    ChoiceChip(
+                      label: Text(
+                        "Harian",
+                        style: title3Sans,
+                      ),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      selected: true,
+                      backgroundColor: putih,
+                    )
+
+                    // Container(
+                    //   height: 36,
+                    //   width: 220,
+                    //   child: ListView.builder(
+                    //       scrollDirection: Axis.horizontal,
+                    //       itemCount: _options.length,
+                    //       itemBuilder: (context, index) {
+                    //         return Container(
+                    //           width: 70,
+                    //           // margin: const EdgeInsets.only(right: 8),
+                    //           decoration: BoxDecoration(
+                    //             borderRadius: BorderRadius.circular(8),
+                    //             border: Border.all(
+                    //               color: Colors.grey,
+                    //             ),
+                    //           ),
+                    //           child: Center(
+                    //             child: Text(
+                    //               _options[index],
+                    //               style: title3Sans,
+                    //             ),
+                    //           ),
+                    //         );
+                    //       }),
+                    // ),
+                    // const SizedBox(width: 15),
+                    // ElevatedButton(
+                    //     onPressed: () {},
+                    //     child: FittedBox(
+                    //         child: Text(
+                    //       "Harian",
+                    //       style: title3Sans,
+                    //     ))),
+                    // const SizedBox(width: 15),
+                    // ElevatedButton(
+                    //     onPressed: () {},
+                    //     child: FittedBox(
+                    //         child: Text(
+                    //       "Mingguan",
+                    //       style: title3Sans,
+                    //     ))),
+                    // const SizedBox(width: 15),
+                    // ElevatedButton(
+                    //     onPressed: () {},
+                    //     child: FittedBox(
+                    //         child: Text(
+                    //       "Bulanan",
+                    //       style: title3Sans,
+                    //     ))),
+                  ],
+                )
+              ],
             ),
             const SizedBox(height: 10),
             Container(
@@ -80,12 +149,54 @@ class _AdminPenjualanScreenState extends State<AdminPenjualanScreen> {
                     "Periode Harian",
                     style: title10Sans,
                   ),
-                  const SizedBox(height: 18),
-                  Text(
-                    "table penjualan",
-                    style: title12Sans,
-                  ),
                   const SizedBox(height: 10),
+                  Divider(color: Colors.grey[200]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Total Penjualan",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Komisi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Transaksi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  // const SizedBox(height: 10),
+                  Divider(color: Colors.grey[200]),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [

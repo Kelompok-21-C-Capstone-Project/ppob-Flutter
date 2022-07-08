@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:payzone_2/screen_admin/admin%20laporan%20screen/admin_detail_penjualan_screen.dart';
 import 'package:payzone_2/screen_admin/admin%20laporan%20screen/admin_penjualan_screen.dart';
 import 'package:payzone_2/screen_admin/admin%20laporan%20screen/admin_stock_screen.dart';
+import 'package:payzone_2/screen_admin/admin%20produk%20screen/admin_daftar_brand_screen.dart';
 import 'package:payzone_2/screen_admin/admin%20produk%20screen/admin_daftar_kategori_screen.dart';
+import 'package:payzone_2/screen_admin/admin%20produk%20screen/admin_daftar_produk_screen.dart';
 import 'package:payzone_2/screen_admin/admin_home_screen.dart.dart';
 import 'package:payzone_2/screen_admin/admin%20laporan%20screen/admin_laporan_screen.dart';
 import 'package:payzone_2/screen_admin/admin%20produk%20screen/admin_produk_screen.dart';
@@ -27,7 +29,10 @@ import 'package:payzone_2/screens/register_screen.dart';
 import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:payzone_2/view%20model/history_view_model.dart';
 import 'package:payzone_2/view%20model/login_view_model.dart';
+import 'package:payzone_2/view%20model/metode_pembayaran_view_model.dart';
 import 'package:payzone_2/view%20model/payzone_view_model.dart';
+import 'package:payzone_2/view%20model/registrasi_view_model.dart';
+import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -49,6 +54,12 @@ class MyApp extends StatelessWidget {
             create: (context) => DaftarProdukViewModel()),
         ChangeNotifierProvider<HistoryViewModel>(
             create: (context) => HistoryViewModel()),
+        ChangeNotifierProvider<RegistrasiViewModel>(
+            create: (context) => RegistrasiViewModel()),
+        ChangeNotifierProvider<UserViewModel>(
+            create: (context) => UserViewModel()),
+        ChangeNotifierProvider<MetodePembayaranViewModel>(
+            create: (context) => MetodePembayaranViewModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -74,7 +85,8 @@ class MyApp extends StatelessWidget {
           "/profile": (context) => ProfileScreen(),
           "/profileDetail": (context) => ProfileDetail(),
           "/login": (context) => LoginScreen(),
-          "registrasi": (context) => RegisterScreen(),
+          "/register": (context) => RegisterScreen(),
+          "/registrasi": (context) => RegisterScreen(),
           "/history": (context) => HistoryScreen(),
           "/historyDetail": (context) => HistoryDetailScreen(),
 
@@ -86,8 +98,10 @@ class MyApp extends StatelessWidget {
           "/adminStock": (context) => AdminStockScreen(),
           "/adminProduk": (context) => AdminProdukScreen(),
           "/adminDaftarKategori": (context) => AdminDaftarKategori(),
+          "/adminDaftarProduk": (context) => AdminDaftarProduk(),
+          "/adminDaftarBrand": (context) => AdminDaftarBrandScreen(),
         },
-        initialRoute: "/history",
+        initialRoute: "/register",
       ),
     );
   }

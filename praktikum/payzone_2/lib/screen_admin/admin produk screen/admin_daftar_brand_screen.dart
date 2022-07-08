@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 
-class AdminDaftarKategori extends StatefulWidget {
-  const AdminDaftarKategori({Key? key}) : super(key: key);
+class AdminDaftarBrandScreen extends StatelessWidget {
+  const AdminDaftarBrandScreen({Key? key}) : super(key: key);
 
-  @override
-  State<AdminDaftarKategori> createState() => _AdminDaftarKategoriState();
-}
-
-class _AdminDaftarKategoriState extends State<AdminDaftarKategori> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +11,7 @@ class _AdminDaftarKategoriState extends State<AdminDaftarKategori> {
       appBar: AppBar(
         backgroundColor: putih,
         title: Text(
-          "Produk",
+          "Daftar Brand",
           style: appBar,
         ),
         centerTitle: true,
@@ -26,15 +21,14 @@ class _AdminDaftarKategoriState extends State<AdminDaftarKategori> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // const SizedBox(height: 18),
             Container(
               padding:
                   const EdgeInsets.only(left: 10, right: 10, top: 2, bottom: 2),
               height: 28,
-              width: 128,
+              width: 118,
               decoration: BoxDecoration(
                 color: primaryKuning1,
-                borderRadius: BorderRadius.circular(2),
+                borderRadius: BorderRadius.circular(4),
               ),
               child: Row(
                 children: [
@@ -44,70 +38,101 @@ class _AdminDaftarKategoriState extends State<AdminDaftarKategori> {
                     color: Colors.black,
                   ),
                   const SizedBox(width: 13),
-                  Text("Tambah Kategori", style: title3Sans)
+                  Text("Tambah Stock", style: title3Sans)
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            Text(
+              "Pengaturan Status",
+              style: title14Sans,
+            ),
             Container(
               width: 312,
               height: 643,
               child: DataTable(columns: <DataColumn>[
                 DataColumn(
                     label: Text(
-                  "NO",
+                  "STATUS",
                   style: title9Sans,
                 )),
                 DataColumn(
                     label: Text(
-                  "NAMA KATEGORI",
+                  "URUTAN",
                   style: title9Sans,
                 )),
               ], rows: <DataRow>[
                 DataRow(
                   cells: <DataCell>[
+                    // Icon(Icons.check, color: primaryKuning1),
+                    DataCell(Icon(
+                      Icons.check,
+                      color: icon,
+                    )),
                     DataCell(
                       Text(
                         "1",
-                        style: title3Sans,
-                      ),
-                    ),
-                    DataCell(
-                      Text(
-                        "Paket Data",
-                        style: title3Sans,
+                        style: title7Sans,
                       ),
                     ),
                   ],
                 ),
                 DataRow(
                   cells: <DataCell>[
+                    // Icon(Icons.check, color: primaryKuning1),
+                    DataCell(Icon(
+                      Icons.check,
+                      color: icon,
+                    )),
                     DataCell(
                       Text(
-                        "2",
-                        style: title3Sans,
-                      ),
-                    ),
-                    DataCell(
-                      Text(
-                        "Paket Data",
-                        style: title3Sans,
+                        "1",
+                        style: title7Sans,
                       ),
                     ),
                   ],
                 ),
                 DataRow(
                   cells: <DataCell>[
+                    // Icon(Icons.check, color: primaryKuning1),
+                    DataCell(Icon(
+                      Icons.check,
+                      color: icon,
+                    )),
                     DataCell(
                       Text(
-                        "3",
-                        style: title3Sans,
+                        "1",
+                        style: title7Sans,
                       ),
                     ),
+                  ],
+                ),
+                DataRow(
+                  cells: <DataCell>[
+                    // Icon(Icons.check, color: primaryKuning1),
+                    DataCell(Icon(
+                      Icons.check,
+                      color: icon,
+                    )),
                     DataCell(
                       Text(
-                        "Paket Data",
-                        style: title3Sans,
+                        "1",
+                        style: title7Sans,
+                      ),
+                    ),
+                  ],
+                ),
+                DataRow(
+                  cells: <DataCell>[
+                    // Icon(Icons.check, color: primaryKuning1),
+                    DataCell(Icon(
+                      Icons.check,
+                      color: icon,
+                    )),
+                    DataCell(
+                      Text(
+                        "1",
+                        style: title7Sans,
                       ),
                     ),
                   ],

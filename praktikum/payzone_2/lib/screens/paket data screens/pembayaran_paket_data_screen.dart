@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/view%20model/metode_pembayaran_view_model.dart';
+import 'package:provider/provider.dart';
 
 class PembayaranPaketDataScreen extends StatefulWidget {
   const PembayaranPaketDataScreen({Key? key}) : super(key: key);
@@ -15,6 +17,8 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // final result =
+    //     Provider.of<MetodePembayaranViewModel>(context).resultMetodePembayaran;
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(

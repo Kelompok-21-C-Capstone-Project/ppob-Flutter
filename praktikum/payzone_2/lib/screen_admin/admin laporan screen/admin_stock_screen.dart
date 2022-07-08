@@ -136,7 +136,54 @@ class _AdminStockScreenState extends State<AdminStockScreen> {
                     "Detail Penjualan",
                     style: title10Sans,
                   ),
-                  Text("Detail Column Penjualan")
+                  Divider(color: Colors.grey[200]),
+                  // const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Total Penjualan",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Komisi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Transaksi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  // const SizedBox(height: 5),
+                  Divider(color: Colors.grey[200]),
                 ],
               ),
             ),

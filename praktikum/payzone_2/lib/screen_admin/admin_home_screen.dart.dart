@@ -70,6 +70,56 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                     "Periode Harian",
                     style: title10Sans,
                   ),
+                  const SizedBox(height: 10),
+                  Divider(color: Colors.grey[200]),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Total Penjualan",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Laba Bersih",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Penerimaan",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Divider(color: Colors.grey[200]),
+                  const SizedBox(height: 6),
                   Text(
                     "Selengkapnya",
                     style: title12Sans,

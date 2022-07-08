@@ -367,6 +367,17 @@ class CardItemOVO extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return FutureBuilder<void>(
+    //     future: Provider.of<DaftarProdukViewModel>(context, listen: false)
+    //         .getAllDaftarProdukEWallet(),
+    //     builder: (context, AsyncSnapshot<void> snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.waiting) {
+    //         return const Center(
+    //           child: CircularProgressIndicator(),
+    //         );
+    //       } else {
+    //         final result =
+    //             Provider.of<DaftarProdukViewModel>(context).listProdukEWallet;
     return Column(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -398,6 +409,7 @@ class CardItemOVO extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  // "${result.products![index].label}",
                   "${produkOvo.title}",
                   style: title4Ubuntu,
                 ),
@@ -410,6 +422,7 @@ class CardItemOVO extends StatelessWidget {
                   style: title3Sans,
                 ),
                 Text(
+                  // "${result.products![index].price}",
                   "${produkOvo.harga}",
                   style: title5Ubuntu,
                 ),
@@ -421,3 +434,6 @@ class CardItemOVO extends StatelessWidget {
     );
   }
 }
+//         );
+//   }
+// }

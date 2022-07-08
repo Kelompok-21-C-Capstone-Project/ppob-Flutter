@@ -24,11 +24,11 @@ class _AdminDetailPenjualanScreenState
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 18),
+            // const SizedBox(height: 18),
             //nanti pasang date pecker
             Container(
               // margin:
@@ -138,7 +138,56 @@ class _AdminDetailPenjualanScreenState
                     "Detail Penjualan",
                     style: title10Sans,
                   ),
-                  Text("Detail Column Penjualan")
+                  // const SizedBox(height: 10),
+                  Divider(color: Colors.grey[200]),
+                  // const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Text(
+                            "Total Penjualan",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Komisi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Total Transaksi",
+                            style: unactive2,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Rp 473.000",
+                            style: title4Ubuntu,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  // const SizedBox(height: 5),
+                  Divider(color: Colors.grey[200]),
+                  // const SizedBox(height: 6),
                 ],
               ),
             ),

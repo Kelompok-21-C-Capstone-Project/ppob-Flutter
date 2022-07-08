@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/view%20model/registrasi_view_model.dart';
+import 'package:payzone_2/view%20model/user_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -10,46 +14,67 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final formKey = GlobalKey<FormState>();
-
-  TextEditingController inputFirstName = TextEditingController();
-  TextEditingController inputLastName = TextEditingController();
   TextEditingController inputNama = TextEditingController();
   TextEditingController inputEmail = TextEditingController();
   TextEditingController inputPassword = TextEditingController();
+  TextEditingController inputUsername = TextEditingController();
+  TextEditingController inputPhone = TextEditingController();
 
   @override
   void dispose() {
-    inputFirstName.dispose();
-    inputLastName.dispose();
     inputEmail.dispose();
     inputPassword.dispose();
     inputNama.dispose();
+    inputPhone.dispose();
+    inputUsername.dispose();
     super.dispose();
   }
 
   late SharedPreferences logindata;
   late bool newUser;
 
+  saveData() async {
+    logindata = await SharedPreferences.getInstance();
+    logindata.setString("email", inputEmail.text.toString());
+    logindata.setString("password", inputPassword.text.toString());
+    logindata.setString("nama", inputNama.text.toString());
+    logindata.setString("phone", inputPhone.text.toString());
+    logindata.setString("username", inputUsername.text.toString());
+    logindata.setString("status", "status");
+    logindata.setString("token", "token");
+  }
+
   @override
   void initState() {
-    checkLogin();
+    // checkLogin();
     super.initState();
   }
 
-  void checkLogin() async {
-    logindata = await SharedPreferences.getInstance();
-    newUser = logindata.getBool("login") ?? true;
+  // void checkLogin() async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   newUser = logindata.getBool("login") ?? true;
 
-    // if (newUser) {
-    //   Navigator.pushNamedAndRemoveUntil(
-    //       context, HomeScreen.route, (route) => false);
-    // }
-  }
+  //   // if (newUser) {
+  //   //   Navigator.pushNamedAndRemoveUntil(
+  //   //       context, HomeScreen.route, (route) => false);
+  //   // }
+  // }
+
+  // checkLogin() async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   String? token = sharedPreferences.getString("token");
+
+  //   print("token $token");
+  //   if (token != null) {
+  //     Navigator.pushNamed(context, "/home");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
-      backgroundColor: Colors.purple[100],
+      backgroundColor: putih,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -73,50 +98,45 @@ class _RegisterScreenState extends State<RegisterScreen> {
               key: formKey,
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: TextFormField(
-                          controller: inputFirstName,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your first name';
-                            }
-                            return null;
-                          },
-                          maxLines: 1,
-                          decoration: InputDecoration(
-                            hintText: 'First name',
-                            prefixIcon: const Icon(Icons.person),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: inputUsername,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your name';
+                      }
+                      return null;
+                    },
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your name',
+                      prefixIcon: const Icon(Icons.person_add),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      const SizedBox(
-                        width: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: inputPhone,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your phone number';
+                      }
+                      return null;
+                    },
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      hintText: 'Enter your phone number',
+                      prefixIcon: const Icon(Icons.phone_android_outlined),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      Expanded(
-                        child: TextFormField(
-                          controller: inputLastName,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Please enter your last name';
-                            }
-                            return null;
-                          },
-                          maxLines: 1,
-                          decoration: InputDecoration(
-                            hintText: 'Last name',
-                            prefixIcon: const Icon(Icons.person),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -131,7 +151,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.person),
-                      hintText: 'Enter your Name',
+                      hintText: 'Enter your Username',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -150,7 +170,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
+                      hintText: 'Enter your Email',
                       prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -164,7 +184,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputPassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your password';
+                        return 'Please enter your Password';
                       }
                       return null;
                     },
@@ -183,21 +203,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      final isValidForm = formKey.currentState!.validate();
-                      // if (_formKey.currentState!.validate()) {}
-                      // Navigator.pushNamed(context, "/hasil");
-                      // String firstName = inputFirstName.text;
-                      // String lastName = inputLastName.text;
-                      // String email = inputEmail.text;
-                      String userName = inputNama.text;
-
-                      if (isValidForm) {
-                        // logindata.setString("namaDepan", firstName);
-                        // logindata.setString("namaBelakang", lastName);
-                        // logindata.setString("email", email);
-                        logindata.setString("username", userName);
-                        // Navigator.pushNamedAndRemoveUntil(
-                        //     context, HomeScreen.route, (route) => false);
+                      if (formKey.currentState!.validate()) {
+                        await viewModel.regisUser(
+                            inputEmail.text,
+                            inputPassword.text,
+                            inputNama.text,
+                            inputPhone.text,
+                            inputUsername.text);
+                        if (viewModel.resultRegis == ['status']) {
+                          saveData();
+                          Navigator.pushNamed(context, "/home");
+                        } else {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text("Error"),
+                              content: Text("Coba Lagi!"),
+                              actions: [
+                                FlatButton(
+                                  child: const Text("OK"),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            ),
+                          );
+                        }
                       }
 
                       // bool visit = await getVisit();
@@ -212,14 +244,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       // }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.purple[300],
+                      primary: primaryKuning1,
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Sign up',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: buttonText,
                     ),
                   ),
                   const SizedBox(
@@ -232,9 +262,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         'Already registered?',
                       ),
                       TextButton(
-                        onPressed: () {},
-                        child: const Text('Sign in',
-                            style: TextStyle(color: Colors.purple)),
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/login");
+                        },
+                        child: Text('Sign in', style: buttonText),
                       ),
                     ],
                   ),

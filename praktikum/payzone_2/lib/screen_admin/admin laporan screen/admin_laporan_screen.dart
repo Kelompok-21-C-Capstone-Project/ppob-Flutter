@@ -17,7 +17,7 @@ class AdminLaporanScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(24),
         child: Column(
           children: [
             const SizedBox(height: 20),
