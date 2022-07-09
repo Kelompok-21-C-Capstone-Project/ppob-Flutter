@@ -101,7 +101,7 @@ class MyApp extends StatelessWidget {
           "/adminDaftarProduk": (context) => AdminDaftarProduk(),
           "/adminDaftarBrand": (context) => AdminDaftarBrandScreen(),
         },
-        initialRoute: "/register",
+        initialRoute: "/produkPaketData",
       ),
     );
   }

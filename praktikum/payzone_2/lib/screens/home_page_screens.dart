@@ -15,9 +15,9 @@ class _HomePageScreensState extends State<HomePageScreens> {
   int _currentIndex = 0;
 
   final screen = [
-    DaftarProdukScreens(),
-    HistoryScreen(),
-    ProfileScreen(),
+    const DaftarProdukScreens(),
+    const HistoryScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
         // selectedItemColor: primaryKuning1,
         // unselectedItemColor: onSurface,
         iconSize: 30,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Home",

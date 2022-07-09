@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:payzone_2/model/client_daftar_produk_e_wallet_model.dart';
 import 'package:payzone_2/model/client_daftar_produk_paket_data_model.dart';
+import 'package:payzone_2/model/client_daftar_produk_pdam_model.dart';
 import 'package:payzone_2/service/client_daftar_produk_api_services.dart';
 
 class DaftarProdukViewModel extends ChangeNotifier {
-  DaftarProdukModel _listProdukEWallet = DaftarProdukModel();
-  DaftarProdukModel get listProdukEWallet => _listProdukEWallet;
+  DaftarProdukEWalletModel _listProdukEWallet = DaftarProdukEWalletModel();
+  DaftarProdukEWalletModel get listProdukEWallet => _listProdukEWallet;
 
   Future<void> getAllDaftarProdukEWallet() async {
     final allDaftarProdukEWallet = DaftarProdukApiServices();
@@ -21,14 +23,14 @@ class DaftarProdukViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  DaftarProdukModel _listProdukPdam = DaftarProdukModel();
-  DaftarProdukModel get listProdukPdam => _listProdukPdam;
+  DaftarProdukPdamModel _listProdukPdam = DaftarProdukPdamModel();
+  DaftarProdukPdamModel get listProdukPdam => _listProdukPdam;
 
   Future<void> getAllDaftarProdukPdam() async {
     final allDaftarProdukPdam = DaftarProdukApiServices();
 
     try {
-      final newAllProdukPdam = await allDaftarProdukPdam.daftarProdukEWallet();
+      final newAllProdukPdam = await allDaftarProdukPdam.daftarProdukPdam();
       _listProdukPdam = newAllProdukPdam;
 
       print("hasilviewmodelSuccess: $_listProdukPdam");
@@ -38,8 +40,9 @@ class DaftarProdukViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  DaftarProdukModel _listProdukPaketData = DaftarProdukModel();
-  DaftarProdukModel get listProdukPaketData => _listProdukPaketData;
+  DaftarProdukPaketDataModel _listProdukPaketData =
+      DaftarProdukPaketDataModel();
+  DaftarProdukPaketDataModel get listProdukPaketData => _listProdukPaketData;
 
   Future<void> getAllDaftarProdukPaketData() async {
     final allDaftarProdukPaketData = DaftarProdukApiServices();

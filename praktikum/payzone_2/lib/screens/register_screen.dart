@@ -210,7 +210,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             inputNama.text,
                             inputPhone.text,
                             inputUsername.text);
-                        if (viewModel.resultRegis == ['status']) {
+                        if (viewModel.resultRegis != null) {
                           saveData();
                           Navigator.pushNamed(context, "/home");
                         } else {

@@ -6,7 +6,7 @@ import '../model/login_model.dart';
 
 class UserApiServices {
   //login
-  Future<LoginModel> login(String email, String password) async {
+  Future<LoginModel> login(String identifier, String password) async {
     final _dio = Dio();
     _dio.interceptors
         .add(LogInterceptor(responseBody: true, requestBody: true));
@@ -14,7 +14,7 @@ class UserApiServices {
     try {
       final response =
           await _dio.post("https://payzone.herokuapp.com/v1/auth", data: {
-        "email": email,
+        "identifier": identifier,
         "password": password,
       });
       final resLogin = LoginModel.fromJson(response.data);
@@ -25,7 +25,7 @@ class UserApiServices {
   }
 
 // regis
-  Future<RegistrasiModel> regis(String email, String nama, String password,
+  Future<RegistrasiModel> regis(String email, String name, String password,
       String phone, String username) async {
     final _dio = Dio();
     _dio.interceptors
@@ -35,7 +35,7 @@ class UserApiServices {
       final response = await _dio
           .post("https://payzone.herokuapp.com/v1/user_register", data: {
         "email": email,
-        "nama": nama,
+        "name": name,
         "password": password,
         "phone": phone,
         "username": username,

@@ -39,9 +39,14 @@ class _LoginScreenState extends State<LoginScreen> {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("username", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
-    logindata.setString("status", "status");
+    logindata.setString("identifier", "identifier");
     logindata.setString("token", "token");
   }
+
+  //         sharedPreferences.setString("token", jsonresponse["token"]);
+  //         sharedPreferences.setString("email", jsonresponse["email"]);
+  //         sharedPreferences.setString("name", jsonresponse["name"]);
+  //         sharedPreferences.setString("role", jsonresponse["role"]);
 
   // signIn(String email, String password) async {
   //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -61,10 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   //     if (jsonresponse != null) {
   //       setState(() {
-  //         // sharedPreferences.setString("token", jsonresponse["token"]);
-  //         // sharedPreferences.setString("email", jsonresponse["email"]);
-  //         // sharedPreferences.setString("name", jsonresponse["name"]);
-  //         // sharedPreferences.setString("role", jsonresponse["role"]);
+  //         sharedPreferences.setString("token", jsonresponse["token"]);
+  //         sharedPreferences.setString("email", jsonresponse["email"]);
+  //         sharedPreferences.setString("name", jsonresponse["name"]);
+  //         sharedPreferences.setString("role", jsonresponse["role"]);
 
   //         _isloading = false;
   //       });
@@ -80,6 +85,14 @@ class _LoginScreenState extends State<LoginScreen> {
   //   }
   // }
 
+  // getLogin() async {
+  //   // logindata = await SharedPreferences.getInstance();
+  //   // email = logindata.getString("username")!;
+  //   // pass = logindata.getString("password")!;
+  //   // print(email);
+  //   // print(pass);
+  // }
+
   @override
   void initState() {
     // checkLogin();
@@ -88,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // void checkLogin() async {
   //   logindata = await SharedPreferences.getInstance();
-  //   final id = logindata.getInt("id");
+  //   final id = logindata.getInt("identifier");
   //   if (id != 0 && id != null) {
   //     Navigator.pushNamed(context, "/home");
   //     print("id : $id");
@@ -169,55 +182,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         // loginUsers();
                         // postLogin();
 
-                        // inputEmail.text == "" || inputPassword.text == ""
-                        //     ? null
-                        //     : () {
-                        //         setState(() {
-                        //           _isloading = true;
-                        //         });
-                        //         signIn(inputEmail.text, inputPassword.text);
-                        //       }();
-
-                        // if (formKey.currentState!.validate()) {
-                        //   setState(() {
-                        //     _isloading = true;
-                        //   });
-                        //   viewModel.loginUser(
-                        //       inputEmail.text, inputPassword.text);
-                        // }
-
-                        // if (formKey.currentState!.validate()) {
-                        //   // snack bar loading
-                        //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        //     content: const Text('Processing Data'),
-                        //     backgroundColor: Colors.green.shade300,
-                        //   ));
-
-                        //   final res = await viewModel.loginUser(
-                        //       inputEmail.text, inputPassword.text);
-                        //   ScaffoldMessenger.of(context).hideCurrentSnackBar();
-
-                        //   // //if there is no error, get the user's accesstoken and pass it to HomeScreen
-                        //   // if (res. == null) {
-                        //   //   String accessToken = res['token'];
-                        //   //   Navigator.push(
-                        //   //       context,
-                        //   //       MaterialPageRoute(
-                        //   //           builder: (context) =>
-                        //   //               HomeScreen(accesstoken: accessToken)));
-                        //   // } else {
-                        //   //   //if an error occurs, show snackbar with error message
-                        //   //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        //   //     content: Text('Error: ${res['Message']}'),
-                        //   //     backgroundColor: Colors.red.shade300,
-                        //   //   ));
-                        //   // }
-                        // }
-
                         if (formKey.currentState!.validate()) {
                           await viewModel.loginUser(
                               inputEmail.text, inputPassword.text);
-                          if (viewModel.resultUser.token == true) {
+                          if (viewModel.resultUser != null) {
                             saveData();
                             Navigator.pushNamed(context, "/home");
                           } else {
@@ -238,6 +206,38 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           }
                         }
+
+                        // if (formKey.currentState!.validate()) {
+                        //   await viewModel.loginUser(
+                        //       inputEmail.text, inputPassword.text);
+
+                        //   SharedPreferences pref =
+                        //       await SharedPreferences.getInstance();
+                        //   String? token = pref.getString("token");
+                        //   saveData();
+                        //   // print(token);
+
+                        //   if (token != null) {
+                        //     Navigator.pushNamed(context, "/home");
+                        //     // ignore: null_aware_in_condition
+                        //   } else {
+                        //     showDialog(
+                        //       context: context,
+                        //       builder: (context) => AlertDialog(
+                        //         title: const Text("Error"),
+                        //         content: Text("Coba Lagi!"),
+                        //         actions: [
+                        //           FlatButton(
+                        //             child: const Text("OK"),
+                        //             onPressed: () {
+                        //               Navigator.pop(context);
+                        //             },
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     );
+                        //   }
+                        // }
 
                         // if (formKey.currentState!.validate()) {
                         //   await viewModel.login(
@@ -305,16 +305,16 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-setVisit() async {
-  SharedPreferences visit = await SharedPreferences.getInstance();
-  visit.setBool("alreadyVisit", true);
-}
+// setVisit() async {
+//   SharedPreferences visit = await SharedPreferences.getInstance();
+//   visit.setBool("alreadyVisit", true);
+// }
 
-getVisit() async {
-  SharedPreferences visit = await SharedPreferences.getInstance();
-  bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
-  return alreadyVisit;
-}
+// getVisit() async {
+//   SharedPreferences visit = await SharedPreferences.getInstance();
+//   bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
+//   return alreadyVisit;
+// }
 
 
   //cara 1 (eror)

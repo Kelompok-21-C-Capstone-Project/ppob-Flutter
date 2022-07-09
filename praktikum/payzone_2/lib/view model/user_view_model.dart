@@ -9,11 +9,11 @@ class UserViewModel extends ChangeNotifier {
   // login
   LoginModel _resultUser = LoginModel();
   LoginModel get resultUser => _resultUser;
-  Future<void> loginUser(String email, String password) async {
+  Future<void> loginUser(String identifier, String password) async {
     final getAllUser = UserApiServices();
 
     try {
-      final newResultUser = await getAllUser.login(email, password);
+      final newResultUser = await getAllUser.login(identifier, password);
       _resultUser = newResultUser;
       print("hasil sukses get user : $_resultUser");
     } catch (e) {
@@ -25,13 +25,13 @@ class UserViewModel extends ChangeNotifier {
   //regis
   RegistrasiModel _resultRegis = RegistrasiModel();
   RegistrasiModel get resultRegis => _resultRegis;
-  Future<void> regisUser(String email, String nama, String password,
+  Future<void> regisUser(String email, String name, String password,
       String phone, String username) async {
     final getAllUserRegis = UserApiServices();
 
     try {
       final newResultRegis =
-          await getAllUserRegis.regis(email, nama, password, phone, username);
+          await getAllUserRegis.regis(email, name, password, phone, username);
       _resultRegis = newResultRegis;
       print("hasil sukses regis : $_resultRegis");
     } catch (e) {

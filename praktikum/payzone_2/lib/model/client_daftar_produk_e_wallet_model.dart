@@ -1,12 +1,12 @@
-class DaftarProdukPaketDataModel {
+class DaftarProdukEWalletModel {
   String? id;
   String? label;
   List<Products>? products;
   String? slug;
 
-  DaftarProdukPaketDataModel({this.id, this.label, this.products, this.slug});
+  DaftarProdukEWalletModel({this.id, this.label, this.products, this.slug});
 
-  DaftarProdukPaketDataModel.fromJson(Map<String, dynamic> json) {
+  DaftarProdukEWalletModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     label = json['label'];
     if (json['products'] != null) {
