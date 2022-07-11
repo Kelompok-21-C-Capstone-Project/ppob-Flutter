@@ -19,7 +19,7 @@ class _DaftarProdukPaketDataScreenState
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<DaftarProdukViewModel>(context);
+    // final viewModel = Provider.of<DaftarProdukViewModel>(context);
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -167,7 +167,7 @@ Widget _buildPaket(context) {
                                               style: title9Sans,
                                             ),
                                             content: Text(
-                                              "deskripsi produk",
+                                              "${result.products![index].description}",
                                               style: title3Sans,
                                               textAlign: TextAlign.justify,
                                             ),

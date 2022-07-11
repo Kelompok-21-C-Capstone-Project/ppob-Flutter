@@ -48,14 +48,15 @@ class UserApiServices {
   }
 
   // get akun
-  Future<AkunModel> akun(String idAkun) async {
+  Future<AkunModel> akun(String idAkun, String token) async {
     final _dio = Dio();
     _dio.interceptors
         .add(LogInterceptor(responseBody: true, requestBody: true));
 
     try {
-      final response =
-          await _dio.get("https://payzone.herokuapp.com/v1/users/$idAkun");
+      final response = await _dio.get(
+          "https://payzone.herokuapp.com/v1/users/$idAkun",
+          options: Options(headers: {"token": token}));
       final resAkun = AkunModel.fromJson(response.data);
       return resAkun;
     } on DioError catch (e) {
@@ -64,14 +65,15 @@ class UserApiServices {
   }
 
   // logout
-  Future<HapusAkunModel> hapusAkun(String idAkun) async {
+  Future<HapusAkunModel> hapusAkun(String akunId, String token) async {
     final _dio = Dio();
     _dio.interceptors
         .add(LogInterceptor(responseBody: true, requestBody: true));
 
     try {
-      final response =
-          await _dio.delete("https://payzone.herokuapp.com/v1/users/$idAkun");
+      final response = await _dio.delete(
+          "https://payzone.herokuapp.com/v1/users/$akunId",
+          options: Options(headers: {"token": token}));
       final resHapusAkun = HapusAkunModel.fromJson(response.data);
       return resHapusAkun;
     } on DioError catch (e) {

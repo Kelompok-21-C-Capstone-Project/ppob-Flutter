@@ -57,18 +57,21 @@ class _HomePageScreensState extends State<HomePageScreens> {
         // onTap: (index) {
         //   switch (index) {
         //     case 0:
-        //       Navigator.pushReplacement(
-        //           context,
-        //           MaterialPageRoute(
-        //               builder: (context) => DaftarProdukScreens()));
+        //       Navigator.pushNamed(context, "/home");
+        //       // Navigator.pushReplacement(
+        //       //     context,
+        //       //     MaterialPageRoute(
+        //       //         builder: (context) => DaftarProdukScreens()));
         //       break;
         //     case 1:
-        //       Navigator.pushReplacement(context,
-        //           MaterialPageRoute(builder: (context) => HistoryScreen()));
+        //       Navigator.pushNamed(context, "/history");
+        //       // Navigator.pushReplacement(context,
+        //       //     MaterialPageRoute(builder: (context) => HistoryScreen()));
         //       break;
         //     case 2:
-        //       Navigator.pushReplacement(context,
-        //           MaterialPageRoute(builder: (context) => ProfileScreen()));
+        //       Navigator.pushNamed(context, "/profile");
+        //     // Navigator.pushReplacement(context,
+        //     //     MaterialPageRoute(builder: (context) => ProfileScreen()));
         //     // default:
         //   }
         // },

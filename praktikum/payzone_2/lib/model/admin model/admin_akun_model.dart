@@ -1,36 +1,36 @@
-class UserModel {
-  int? id;
+class AdminAkunModel {
   String? email;
-  String? username;
+  String? key;
+  String? name;
   String? password;
   String? phone;
-  String? token;
+  String? username;
 
-  UserModel(
-      {this.id,
-      this.email,
-      this.username,
+  AdminAkunModel(
+      {this.email,
+      this.key,
+      this.name,
       this.password,
       this.phone,
-      this.token});
+      this.username});
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+  AdminAkunModel.fromJson(Map<String, dynamic> json) {
     email = json['email'];
-    username = json['username'];
+    key = json['key'];
+    name = json['name'];
     password = json['password'];
     phone = json['phone'];
-    token = json['token'];
+    username = json['username'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
     data['email'] = this.email;
-    data['username'] = this.username;
+    data['key'] = this.key;
+    data['name'] = this.name;
     data['password'] = this.password;
     data['phone'] = this.phone;
-    data['token'] = this.token;
+    data['username'] = this.username;
     return data;
   }
 }

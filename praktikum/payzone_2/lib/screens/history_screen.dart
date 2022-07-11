@@ -2,14 +2,59 @@ import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/view%20model/history_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class HistoryScreen extends StatelessWidget {
-  const HistoryScreen({Key? key, this.historyId}) : super(key: key);
-  final String? historyId;
+class HistoryScreen extends StatefulWidget {
+  final String? userById;
+  final String? token;
+  const HistoryScreen({Key? key, this.userById, this.token}) : super(key: key);
+
+  @override
+  State<HistoryScreen> createState() => _HistoryScreenState();
+}
+
+class _HistoryScreenState extends State<HistoryScreen> {
+  late SharedPreferences logindata;
+
+  @override
+  void initState() {
+    // checkUser("identifier");
+    super.initState();
+  }
+
+  // void checkLogin(String id) async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   final token = logindata.getString('token') ?? 'No token';
+  //   final id = logindata.getString('id') ?? 'No id';
+
+  //   if (id != 0 && id != null) {
+  //     Navigator.pushNamed(context, "/home");
+  //     print("ini id : $id");
+  //   } else {
+  //     Navigator.pushNamed(context, "/login");
+  //   }
+  //   // logindata.getBool("login");
+  //   // final token = logindata.getString("token");
+  //   // Navigator.pushNamed(context, '/history');
+  // }
+
+  // checkUser(String identifier) async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   final token = logindata.getString('token') ?? 'No token';
+  //   final id = logindata.getString('identifier') ?? 'No id';
+
+  //   if (id != 0 && id != null) {
+  //     Navigator.pushNamed(context, "/home");
+  //     print("ini id : $id");
+  //   } else {
+  //     Navigator.pushNamed(context, "/login");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<HistoryViewModel>(context);
+    print("print user id : ${widget.userById}");
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -18,14 +63,17 @@ class HistoryScreen extends StatelessWidget {
           centerTitle: true,
         ),
         body: FutureBuilder<void>(
-            future: viewModel.history(historyId!),
+            future:
+                viewModel.getAllResultHistory(widget.userById!, widget.token!),
             builder: (context, AsyncSnapshot<void> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               } else {
-                final result = viewModel.resultHistory;
+                final result = viewModel.resultsHistoryId;
+                print("print result : $result");
+                var index;
                 return SingleChildScrollView(
                   padding: const EdgeInsets.all(24),
                   child: Column(
@@ -85,7 +133,7 @@ class HistoryScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(5),
                                     ),
                                     child: Text(
-                                      "${result.status}",
+                                      "${result[index].status}",
                                       style: selesai,
                                       textAlign: TextAlign.center,
                                     ),
@@ -96,11 +144,14 @@ class HistoryScreen extends StatelessWidget {
                                     // ),
                                   ),
                                   const SizedBox(height: 2),
-                                  Text("${result.createdAt}",
+                                  Text("${result[index].createdAt}",
                                       style: title3Sans),
-                                  Text("${result.label}", style: title11Sans),
-                                  Text("${result.id}", style: title3Sans),
-                                  Text("${result.price}", style: title11Sans),
+                                  Text("${result[index].label}",
+                                      style: title11Sans),
+                                  Text("${result[index].id}",
+                                      style: title3Sans),
+                                  Text("${result[index].price}",
+                                      style: title11Sans),
                                   // Text("30/MEI/2022  19.40 WIB", style: title3Sans),
                                   // Text("OVO 20.000 (08313298343)", style: title11Sans),
                                   // Text("Order ID : Payzone_71203829",
@@ -119,6 +170,72 @@ class HistoryScreen extends StatelessWidget {
             }));
   }
 }
+
+Widget _buildStatusCard() {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 12),
+    height: 30,
+    width: 280,
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        Container(
+          width: 65,
+          height: 21,
+          child: FilterChip(
+              backgroundColor: putih,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: variant),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              elevation: 0,
+              label: Text(
+                "Selesai",
+                style: selesai,
+                textAlign: TextAlign.center,
+              ),
+              onSelected: (value) {}),
+        ),
+        Container(
+          width: 65,
+          height: 21,
+          child: FilterChip(
+              backgroundColor: putih,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: primaryKuning1),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              elevation: 0,
+              label: Text(
+                "Pending",
+                style: pending,
+                textAlign: TextAlign.center,
+              ),
+              onSelected: (value) {}),
+        ),
+        Container(
+          // padding: const EdgeInsets.all(2),
+          width: 65,
+          height: 21,
+          child: FilterChip(
+              backgroundColor: putih,
+              shape: RoundedRectangleBorder(
+                side: BorderSide(color: eror),
+                borderRadius: BorderRadius.circular(5),
+              ),
+              elevation: 0,
+              label: Text(
+                "Gagal",
+                style: gagal,
+                textAlign: TextAlign.center,
+              ),
+              onSelected: (value) {}),
+        ),
+      ],
+    ),
+  );
+}
+
 
 // class HistoryScreen extends StatefulWidget {
 //   final int? userTransactionId;
@@ -226,68 +343,3 @@ class HistoryScreen extends StatelessWidget {
 //           }),
 //     );
 //   }
-
-Widget _buildStatusCard() {
-  return Container(
-    margin: const EdgeInsets.symmetric(vertical: 12),
-    height: 30,
-    width: 280,
-    child: ListView(
-      scrollDirection: Axis.horizontal,
-      children: [
-        Container(
-          width: 65,
-          height: 21,
-          child: FilterChip(
-              backgroundColor: putih,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: variant),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              elevation: 0,
-              label: Text(
-                "Selesai",
-                style: selesai,
-                textAlign: TextAlign.center,
-              ),
-              onSelected: (value) {}),
-        ),
-        Container(
-          width: 65,
-          height: 21,
-          child: FilterChip(
-              backgroundColor: putih,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: primaryKuning1),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              elevation: 0,
-              label: Text(
-                "Pending",
-                style: pending,
-                textAlign: TextAlign.center,
-              ),
-              onSelected: (value) {}),
-        ),
-        Container(
-          // padding: const EdgeInsets.all(2),
-          width: 65,
-          height: 21,
-          child: FilterChip(
-              backgroundColor: putih,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: eror),
-                borderRadius: BorderRadius.circular(5),
-              ),
-              elevation: 0,
-              label: Text(
-                "Gagal",
-                style: gagal,
-                textAlign: TextAlign.center,
-              ),
-              onSelected: (value) {}),
-        ),
-      ],
-    ),
-  );
-}

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
-import 'package:payzone_2/screens/e-wallet%20screens/pembayaran_e_wallet_screen.dart';
 import 'package:provider/provider.dart';
 import '../../view model/client_daftar_produk_view_model..dart';
 
@@ -216,6 +215,9 @@ Widget _buildPaket(context) {
                     // final result =
                     //     Provider.of<DaftarProdukViewModel>(context).listProdukEWallet;
                     return InkWell(
+                      onTap: () {
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => DetailProdukEWallet(produk: result[index])));
+                      },
                       child: Container(
                         padding: const EdgeInsets.only(
                             top: 32, left: 12, bottom: 32, right: 12),

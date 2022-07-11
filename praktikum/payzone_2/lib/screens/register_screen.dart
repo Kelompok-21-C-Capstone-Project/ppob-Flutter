@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
-import 'package:payzone_2/view%20model/registrasi_view_model.dart';
 import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,13 +1,8 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../view model/login_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -23,10 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController inputPassword = TextEditingController();
 
   late SharedPreferences logindata;
-  String email = "";
-  String pass = "";
-
-  bool _isloading = false;
+  // String token = "";
 
   @override
   void dispose() {
@@ -35,63 +27,16 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  saveData() async {
+  saveData(String token) async {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("username", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
-    logindata.setString("identifier", "identifier");
-    logindata.setString("token", "token");
+    // logindata.setBool("login", true);
+    // logindata.setString("status", "status");
+    logindata.setString("token", token);
+    // logindata.setString("identifier", "identifier");
+    // logindata.setInt("id", value);
   }
-
-  //         sharedPreferences.setString("token", jsonresponse["token"]);
-  //         sharedPreferences.setString("email", jsonresponse["email"]);
-  //         sharedPreferences.setString("name", jsonresponse["name"]);
-  //         sharedPreferences.setString("role", jsonresponse["role"]);
-
-  // signIn(String email, String password) async {
-  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //   Map body = {
-  //     "email": email,
-  //     "password": password,
-  //   };
-  //   var jsonresponse;
-  //   var res =
-  //       await Dio().post("https://payzone.herokuapp.com/v1/auth", data: body);
-
-  //   if (res.statusCode == 200) {
-  //     jsonresponse = json.decode(res.data);
-
-  //     print("Response : ${res.statusCode}");
-  //     print("Response : ${res.data}");
-
-  //     if (jsonresponse != null) {
-  //       setState(() {
-  //         sharedPreferences.setString("token", jsonresponse["token"]);
-  //         sharedPreferences.setString("email", jsonresponse["email"]);
-  //         sharedPreferences.setString("name", jsonresponse["name"]);
-  //         sharedPreferences.setString("role", jsonresponse["role"]);
-
-  //         _isloading = false;
-  //       });
-
-  //       sharedPreferences.setString("token", jsonresponse["token"]);
-  //       Navigator.pushNamed(context, "/home");
-  //     } else {
-  //       setState(() {
-  //         _isloading = false;
-  //       });
-  //       print("Response : ${res.data}");
-  //     }
-  //   }
-  // }
-
-  // getLogin() async {
-  //   // logindata = await SharedPreferences.getInstance();
-  //   // email = logindata.getString("username")!;
-  //   // pass = logindata.getString("password")!;
-  //   // print(email);
-  //   // print(pass);
-  // }
 
   @override
   void initState() {
@@ -185,8 +130,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         if (formKey.currentState!.validate()) {
                           await viewModel.loginUser(
                               inputEmail.text, inputPassword.text);
+
                           if (viewModel.resultUser != null) {
-                            saveData();
+                            saveData(viewModel.resultUser.token!);
                             Navigator.pushNamed(context, "/home");
                           } else {
                             showDialog(
@@ -316,6 +262,57 @@ class _LoginScreenState extends State<LoginScreen> {
 //   return alreadyVisit;
 // }
 
+
+
+  //         sharedPreferences.setString("token", jsonresponse["token"]);
+  //         sharedPreferences.setString("email", jsonresponse["email"]);
+  //         sharedPreferences.setString("name", jsonresponse["name"]);
+  //         sharedPreferences.setString("role", jsonresponse["role"]);
+
+  // signIn(String email, String password) async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   Map body = {
+  //     "email": email,
+  //     "password": password,
+  //   };
+  //   var jsonresponse;
+  //   var res =
+  //       await Dio().post("https://payzone.herokuapp.com/v1/auth", data: body);
+
+  //   if (res.statusCode == 200) {
+  //     jsonresponse = json.decode(res.data);
+
+  //     print("Response : ${res.statusCode}");
+  //     print("Response : ${res.data}");
+
+  //     if (jsonresponse != null) {
+  //       setState(() {
+  //         sharedPreferences.setString("token", jsonresponse["token"]);
+  //         sharedPreferences.setString("email", jsonresponse["email"]);
+  //         sharedPreferences.setString("name", jsonresponse["name"]);
+  //         sharedPreferences.setString("role", jsonresponse["role"]);
+
+  //         _isloading = false;
+  //       });
+
+  //       sharedPreferences.setString("token", jsonresponse["token"]);
+  //       Navigator.pushNamed(context, "/home");
+  //     } else {
+  //       setState(() {
+  //         _isloading = false;
+  //       });
+  //       print("Response : ${res.data}");
+  //     }
+  //   }
+  // }
+
+  // getLogin() async {
+  //   // logindata = await SharedPreferences.getInstance();
+  //   // email = logindata.getString("username")!;
+  //   // pass = logindata.getString("password")!;
+  //   // print(email);
+  //   // print(pass);
+  // }
 
   //cara 1 (eror)
   // void login(String id, password) async {

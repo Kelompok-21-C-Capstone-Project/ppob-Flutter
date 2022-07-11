@@ -15,7 +15,7 @@ class UserViewModel extends ChangeNotifier {
     try {
       final newResultUser = await getAllUser.login(identifier, password);
       _resultUser = newResultUser;
-      print("hasil sukses get user : $_resultUser");
+      print("hasil sukses get user : ${_resultUser.token}");
     } catch (e) {
       print("hasil eror get user : $e");
     }
@@ -43,15 +43,15 @@ class UserViewModel extends ChangeNotifier {
   // get akun
   AkunModel _resultAkun = AkunModel();
   AkunModel get resultAkun => _resultAkun;
-  Future<void> userAkun(String idAkun) async {
+  Future<void> userAkun(String idAkun, String token) async {
     final getAllUserAkun = UserApiServices();
 
     try {
-      final newResultAkunUser = await getAllUserAkun.akun(idAkun);
+      final newResultAkunUser = await getAllUserAkun.akun(idAkun, token);
       _resultAkun = newResultAkunUser;
-      print("hasil sukses regis : $_resultAkun");
+      print("hasil sukses  : $_resultAkun");
     } catch (e) {
-      print("hasil eror regis : $e");
+      print("hasil eror  : $e");
     }
     notifyListeners();
   }
@@ -60,12 +60,12 @@ class UserViewModel extends ChangeNotifier {
 
   HapusAkunModel _resultHapusAkun = HapusAkunModel();
   HapusAkunModel get resultHapusAkun => _resultHapusAkun;
-  Future<void> userHapusAkun(String idAkun) async {
+  Future<void> userHapusAkun(String idAkun, String token) async {
     final getAllHapusUserAkun = UserApiServices();
 
     try {
       final newResultHapusAkunUser =
-          await getAllHapusUserAkun.hapusAkun(idAkun);
+          await getAllHapusUserAkun.hapusAkun(idAkun, token);
       _resultHapusAkun = newResultHapusAkunUser;
       print("hasil sukses regis : $_resultHapusAkun");
     } catch (e) {

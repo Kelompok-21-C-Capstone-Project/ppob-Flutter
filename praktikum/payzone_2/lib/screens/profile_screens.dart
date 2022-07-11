@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/service/user_api_services.dart';
+import 'package:payzone_2/view%20model/user_view_model.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -15,26 +18,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // int idPengguna = 0;
   String email = "";
   String pass = "";
+  String token = "";
+  String akunId = "";
 
-  @override
-  void initState() {
-    // logout();
-    getData();
-    super.initState();
-  }
-
-  // void logout() async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   setState(() {
-  //     idPengguna = logindata.getInt("id")!;
-  //   });
+  // @override
+  // void initState() {
+  //   getData();
+  //   deleteData();
+  //   super.initState();
   // }
 
-  getData() async {
+  getData(String id) async {
     logindata = await SharedPreferences.getInstance();
+
     setState(() {
       email = logindata.getString("username")!;
       pass = logindata.getString("password")!;
+      token = logindata.getString("token")!;
     });
   }
 
@@ -42,10 +42,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
     logindata = await SharedPreferences.getInstance();
     logindata.remove("username");
     logindata.remove("password");
+    logindata.remove("token");
   }
+
+  // Future<Map<String, dynamic>> getUserData() async {
+  //   dynamic userRes;
+  //   userRes = await UserApiServices().akun(akunId);
+  //   return userRes;
+  // }
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
@@ -71,6 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
+
           Positioned(
             left: 5,
             right: 5,
@@ -94,6 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     size: 40.0,
                   ),
                   const SizedBox(height: 10),
+
                   Text("${email}", style: title8Ubuntu),
                   const SizedBox(height: 5),
                   // Text(
@@ -108,6 +118,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
           ),
+          //   }
+          // }),
           Positioned(
             left: 5,
             right: 5,
@@ -119,9 +131,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _menuDanInfo(),
                 ListTile(
                   onTap: () {
-                    logindata.remove("username");
-                    logindata.remove("password");
-                    // logindata.clear();
+                    // logindata.remove("username");
+                    // logindata.remove("password");
+                    logindata.clear();
                     Navigator.pushNamed(context, "/login");
                   },
                   leading: Icon(

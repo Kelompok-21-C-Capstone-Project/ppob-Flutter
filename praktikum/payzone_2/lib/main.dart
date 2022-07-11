@@ -28,10 +28,8 @@ import 'package:payzone_2/screens/profile_screens.dart';
 import 'package:payzone_2/screens/register_screen.dart';
 import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:payzone_2/view%20model/history_view_model.dart';
-import 'package:payzone_2/view%20model/login_view_model.dart';
+import 'package:payzone_2/view%20model/list_produk_kategori_view_model.dart';
 import 'package:payzone_2/view%20model/metode_pembayaran_view_model.dart';
-import 'package:payzone_2/view%20model/payzone_view_model.dart';
-import 'package:payzone_2/view%20model/registrasi_view_model.dart';
 import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -46,20 +44,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<PayzoneViewModel>(
-            create: (context) => PayzoneViewModel()),
-        ChangeNotifierProvider<LoginViewModel>(
-            create: (context) => LoginViewModel()),
         ChangeNotifierProvider<DaftarProdukViewModel>(
             create: (context) => DaftarProdukViewModel()),
         ChangeNotifierProvider<HistoryViewModel>(
             create: (context) => HistoryViewModel()),
-        ChangeNotifierProvider<RegistrasiViewModel>(
-            create: (context) => RegistrasiViewModel()),
         ChangeNotifierProvider<UserViewModel>(
             create: (context) => UserViewModel()),
         ChangeNotifierProvider<MetodePembayaranViewModel>(
             create: (context) => MetodePembayaranViewModel()),
+        ChangeNotifierProvider<ListKategoriProdukViewModel>(
+            create: (context) => ListKategoriProdukViewModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -101,7 +95,7 @@ class MyApp extends StatelessWidget {
           "/adminDaftarProduk": (context) => AdminDaftarProduk(),
           "/adminDaftarBrand": (context) => AdminDaftarBrandScreen(),
         },
-        initialRoute: "/produkPaketData",
+        initialRoute: "/login",
       ),
     );
   }
