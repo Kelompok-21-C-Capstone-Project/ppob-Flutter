@@ -22,11 +22,11 @@ class HistoryViewModel extends ChangeNotifier {
   List<Data> _resultsHistoryId = [];
   List<Data> get resultsHistoryId => _resultsHistoryId;
 
-  Future<void> getAllResultHistory(String userId, String token) async {
+  Future<void> getAllResultHistory(String id, String token) async {
     final idHistory = HistoryApiServices();
 
     try {
-      final newResultHistoryId = await idHistory.getHistoryById(userId, token);
+      final newResultHistoryId = await idHistory.getHistoryById(id, token);
 
       _resultsHistoryId = newResultHistoryId ?? [];
 

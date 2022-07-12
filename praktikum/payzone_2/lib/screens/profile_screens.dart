@@ -21,20 +21,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String token = "";
   String akunId = "";
 
-  // @override
-  // void initState() {
-  //   getData();
-  //   deleteData();
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    getData();
+    deleteData();
+    super.initState();
+  }
 
-  getData(String id) async {
+  getData() async {
     logindata = await SharedPreferences.getInstance();
 
     setState(() {
       email = logindata.getString("username")!;
+      print("email: $email");
       pass = logindata.getString("password")!;
+      print("pass: $pass");
       token = logindata.getString("token")!;
+      print("token $token");
     });
   }
 
@@ -45,11 +48,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
     logindata.remove("token");
   }
 
-  // Future<Map<String, dynamic>> getUserData() async {
-  //   dynamic userRes;
-  //   userRes = await UserApiServices().akun(akunId);
-  //   return userRes;
+  // Future<Map<String, dynamic>> getData(String token, String id) async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   return {
+  //     "email": logindata.getString("username")!,
+  //     "pass": logindata.getString("password")!,
+  //     "token": logindata.getString("token")!,
+  //     "akunId": logindata.getString("akunId")!,
+  //   };
   // }
+
+  Future<Map<String, dynamic>> getUserData() async {
+    dynamic userRes;
+    userRes = await UserApiServices().akun(akunId, token);
+    logindata = await SharedPreferences.getInstance();
+    setState(() {
+      email = logindata.getString("username")!;
+      print("email: $email");
+      pass = logindata.getString("password")!;
+      print("pass: $pass");
+      token = logindata.getString("token")!;
+      print("token $token");
+    });
+    return userRes;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,44 +102,80 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
 
-          Positioned(
-            left: 5,
-            right: 5,
-            top: 5,
-            child: Container(
-              margin: const EdgeInsets.all(20),
-              height: 133,
-              width: 312,
-              decoration: BoxDecoration(
-                  color: putih,
-                  borderRadius: BorderRadius.circular(5),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.grey, blurRadius: 5)
-                  ]),
-              child: Column(
-                children: [
-                  const SizedBox(height: 15),
-                  Icon(
-                    Icons.account_circle,
-                    color: onPrimary,
-                    size: 40.0,
-                  ),
-                  const SizedBox(height: 10),
+          FutureBuilder(
+              future: viewModel.userAkun(akunId, token),
+              // future: getUserData(),
+              builder: (context, AsyncSnapshot<void> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else {
+                  final result = viewModel.resultAkun;
+                  print("print result : $result");
 
-                  Text("${email}", style: title8Ubuntu),
-                  const SizedBox(height: 5),
-                  // Text(
-                  //   "087864420972",
-                  //   style: TextStyle(
-                  //       fontFamily: GoogleFonts.ptSans().fontFamily,
-                  //       fontWeight: FontWeight.w400,
-                  //       fontSize: 12,
-                  //       color: onSurface),
-                  // ),
-                ],
-              ),
-            ),
-          ),
+                  // if (viewModel.resultAkun != null) {
+                  //   getData(viewModel.resultAkun.id!);
+                  //   Navigator.pushNamed(context, "/home");
+                  // } else {
+                  //   showDialog(
+                  //     context: context,
+                  //     builder: (context) => AlertDialog(
+                  //       title: const Text("Error"),
+                  //       content: Text("Coba Lagi!"),
+                  //       actions: [
+                  //         FlatButton(
+                  //           child: const Text("OK"),
+                  //           onPressed: () {
+                  //             Navigator.pop(context);
+                  //           },
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   );
+                  // }
+
+                  return Positioned(
+                    left: 5,
+                    right: 5,
+                    top: 5,
+                    child: Container(
+                      margin: const EdgeInsets.all(20),
+                      height: 133,
+                      width: 312,
+                      decoration: BoxDecoration(
+                          color: putih,
+                          borderRadius: BorderRadius.circular(5),
+                          boxShadow: const [
+                            BoxShadow(color: Colors.grey, blurRadius: 5)
+                          ]),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 15),
+                          Icon(
+                            Icons.account_circle,
+                            color: onPrimary,
+                            size: 40.0,
+                          ),
+                          const SizedBox(height: 10),
+                          Text("${result.email}", style: title8Ubuntu),
+
+                          // Text("${email}", style: title8Ubuntu),
+                          const SizedBox(height: 5),
+                          // Text(
+                          //   "087864420972",
+                          //   style: TextStyle(
+                          //       fontFamily: GoogleFonts.ptSans().fontFamily,
+                          //       fontWeight: FontWeight.w400,
+                          //       fontSize: 12,
+                          //       color: onSurface),
+                          // ),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+              }),
           //   }
           // }),
           Positioned(

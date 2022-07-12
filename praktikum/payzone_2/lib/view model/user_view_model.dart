@@ -43,11 +43,11 @@ class UserViewModel extends ChangeNotifier {
   // get akun
   AkunModel _resultAkun = AkunModel();
   AkunModel get resultAkun => _resultAkun;
-  Future<void> userAkun(String idAkun, String token) async {
+  Future<void> userAkun(String userId, String token) async {
     final getAllUserAkun = UserApiServices();
 
     try {
-      final newResultAkunUser = await getAllUserAkun.akun(idAkun, token);
+      final newResultAkunUser = await getAllUserAkun.akun(userId, token);
       _resultAkun = newResultAkunUser;
       print("hasil sukses  : $_resultAkun");
     } catch (e) {

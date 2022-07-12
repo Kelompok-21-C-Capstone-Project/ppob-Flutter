@@ -31,9 +31,10 @@ class _LoginScreenState extends State<LoginScreen> {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("username", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
-    // logindata.setBool("login", true);
+    logindata.setBool("login", true);
     // logindata.setString("status", "status");
     logindata.setString("token", token);
+
     // logindata.setString("identifier", "identifier");
     // logindata.setInt("id", value);
   }
@@ -46,16 +47,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // void checkLogin() async {
   //   logindata = await SharedPreferences.getInstance();
-  //   final id = logindata.getInt("identifier");
-  //   if (id != 0 && id != null) {
-  //     Navigator.pushNamed(context, "/home");
-  //     print("id : $id");
-  //   }
+  // final id = logindata.getInt("identifier");
+  // if (id != 0 && id != null) {
+  //   Navigator.pushNamed(context, "/home");
+  //   print("id : $id");
+  // }
   // }
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<UserViewModel>(context);
+    final viewModelLogin = Provider.of<UserViewModel>(context);
+    // final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
         backgroundColor: putih,
         body: SingleChildScrollView(
@@ -128,11 +130,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         // postLogin();
 
                         if (formKey.currentState!.validate()) {
-                          await viewModel.loginUser(
+                          await viewModelLogin.loginUser(
                               inputEmail.text, inputPassword.text);
 
-                          if (viewModel.resultUser != null) {
-                            saveData(viewModel.resultUser.token!);
+                          if (viewModelLogin.resultUser != null) {
+                            saveData(viewModelLogin.resultUser.token!);
+
+                            // panggil endpoint untuk login
+                            // viewModel.resultAkun.id;
+
                             Navigator.pushNamed(context, "/home");
                           } else {
                             showDialog(
@@ -152,6 +158,48 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                           }
                         }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: primaryKuning1,
+                        padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                      ),
+                      child: Text('Sign in', style: buttonText),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('Not registered yet?'),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/register");
+                          },
+                          child: Text('Create an account', style: buttonText),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ));
+  }
+}
+
+// setVisit() async {
+//   SharedPreferences visit = await SharedPreferences.getInstance();
+//   visit.setBool("alreadyVisit", true);
+// }
+
+// getVisit() async {
+//   SharedPreferences visit = await SharedPreferences.getInstance();
+//   bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
+//   return alreadyVisit;
+// }
+
 
                         // if (formKey.currentState!.validate()) {
                         //   await viewModel.loginUser(
@@ -220,47 +268,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         //   // case ketika user pertama kali datang
                         //   Navigator.pushNamed(context, "/profile");
                         // }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: primaryKuning1,
-                        padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
-                      ),
-                      child: Text('Sign in', style: buttonText),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('Not registered yet?'),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushNamed(context, "/register");
-                          },
-                          child: Text('Create an account', style: buttonText),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ));
-  }
-}
-
-// setVisit() async {
-//   SharedPreferences visit = await SharedPreferences.getInstance();
-//   visit.setBool("alreadyVisit", true);
-// }
-
-// getVisit() async {
-//   SharedPreferences visit = await SharedPreferences.getInstance();
-//   bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
-//   return alreadyVisit;
-// }
 
 
 

@@ -48,15 +48,15 @@ class UserApiServices {
   }
 
   // get akun
-  Future<AkunModel> akun(String idAkun, String token) async {
+  Future<AkunModel> akun(String userId, String token) async {
     final _dio = Dio();
     _dio.interceptors
         .add(LogInterceptor(responseBody: true, requestBody: true));
 
     try {
       final response = await _dio.get(
-          "https://payzone.herokuapp.com/v1/users/$idAkun",
-          options: Options(headers: {"token": token}));
+          "https://payzone.herokuapp.com/v1/users/$userId",
+          options: Options(headers: {"Authorization": 'Bearer ${token}'}));
       final resAkun = AkunModel.fromJson(response.data);
       return resAkun;
     } on DioError catch (e) {

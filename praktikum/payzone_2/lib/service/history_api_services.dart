@@ -19,10 +19,10 @@ class HistoryApiServices {
   //   }
   // }
 
-  Future<List<Data>?> getHistoryById(String userId, String token) async {
+  Future<List<Data>?> getHistoryById(String id, String token) async {
     final response = await Dio().get(
-        "https://payzone.herokuapp.com/v1/users/$userId/transactions",
-        options: Options(headers: {"token": token}));
+        "https://payzone.herokuapp.com/v1/users/$id/transactions",
+        options: Options(headers: {"Authorization": 'Bearer ${token}'}));
     print("hasil : ${response.data}");
     final res = HistoryDetailByIdModel.fromJson(response.data);
 
