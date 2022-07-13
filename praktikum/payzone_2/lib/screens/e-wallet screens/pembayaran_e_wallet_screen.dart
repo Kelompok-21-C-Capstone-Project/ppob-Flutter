@@ -161,7 +161,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                 },
                 title: Text(
                   "BCA Virtual Account",
-                  // "${result}",
+                  // "${viewModel}",
                   style: title6Ubuntu,
                   // overflow: TextOverflow.ellipsis,
                 ),

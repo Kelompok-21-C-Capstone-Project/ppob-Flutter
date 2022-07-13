@@ -17,9 +17,19 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController inputEmail = TextEditingController();
   TextEditingController inputPassword = TextEditingController();
 
+  TextEditingController inputNama = TextEditingController();
+  TextEditingController inputUsername = TextEditingController();
+  TextEditingController inputPhone = TextEditingController();
+
   late SharedPreferences logindata;
-  // String token = "";
+
+  String email = "";
+  String pass = "";
+  String token = "";
   String akunId = "";
+  String name = "";
+  String phone = "";
+  String username = "";
 
   @override
   void dispose() {
@@ -32,6 +42,9 @@ class _LoginScreenState extends State<LoginScreen> {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("email", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
+    logindata.setString("name", inputNama.text.toString());
+    logindata.setString("phone", inputPhone.text.toString());
+    logindata.setString("username", inputUsername.text.toString());
     // logindata.setBool("login", true);
     logindata.setString("token", token);
     // logindata.setString("id", id);
@@ -47,8 +60,20 @@ class _LoginScreenState extends State<LoginScreen> {
     logindata = await SharedPreferences.getInstance();
 
     setState(() {
-      akunId = logindata.getString("id")!;
+      email = logindata.getString("email").toString();
+      print("email: $email");
+      pass = logindata.getString("password").toString();
+      print("pass: $pass");
+      token = logindata.getString("token").toString();
+      print("token $token");
+      akunId = logindata.getString("id").toString();
       print("id : $akunId");
+      name = logindata.getString("name").toString();
+      print("name : $name");
+      phone = logindata.getString("phone").toString();
+      print("phone : $phone");
+      username = logindata.getString("username").toString();
+      print("username : $username");
     });
   }
 

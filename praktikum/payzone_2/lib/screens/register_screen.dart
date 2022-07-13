@@ -215,7 +215,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         if (viewModel.resultRegis.id != null) {
                           // saveData();
                           saveData(viewModel.resultRegis.id.toString());
-                          Navigator.pushNamed(context, "/login");
+                          Navigator.pushNamed(context, "/home");
                         } else {
                           showDialog(
                             context: context,
