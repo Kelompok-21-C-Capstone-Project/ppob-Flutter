@@ -1,10 +1,27 @@
 import 'package:dio/dio.dart';
+import 'package:payzone_2/model/user_token_model.dart';
 import 'package:payzone_2/model/hapus_akun_model.dart';
 import 'package:payzone_2/model/registrasi_model.dart';
 import 'package:payzone_2/model/user_akun_model.dart';
 import '../model/login_model.dart';
 
 class UserApiServices {
+  //getToken
+  Future<TokenModel> tokenize(String token) async {
+    final _dio = Dio();
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+    try {
+      final response = await _dio.post(
+          "https://payzone.herokuapp.com/v1/tokens",
+          options: Options(headers: {"Authorization": 'Bearer ${token}'}));
+      final resToken = TokenModel.fromJson(response.data);
+      return resToken;
+    } on DioError catch (e) {
+      return e.response!.data;
+    }
+  }
+
   //login
   Future<LoginModel> login(String identifier, String password) async {
     final _dio = Dio();
@@ -19,6 +36,7 @@ class UserApiServices {
       });
       final resLogin = LoginModel.fromJson(response.data);
       return resLogin;
+      // return response.data;
     } on DioError catch (e) {
       return e.response!.data;
     }

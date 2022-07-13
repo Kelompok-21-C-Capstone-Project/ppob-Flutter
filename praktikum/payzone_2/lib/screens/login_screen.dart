@@ -19,6 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   late SharedPreferences logindata;
   // String token = "";
+  String akunId = "";
 
   @override
   void dispose() {
@@ -29,35 +30,55 @@ class _LoginScreenState extends State<LoginScreen> {
 
   saveData(String token) async {
     logindata = await SharedPreferences.getInstance();
-    logindata.setString("username", inputEmail.text.toString());
+    logindata.setString("email", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
-    logindata.setBool("login", true);
-    // logindata.setString("status", "status");
+    // logindata.setBool("login", true);
     logindata.setString("token", token);
-
-    // logindata.setString("identifier", "identifier");
-    // logindata.setInt("id", value);
+    // logindata.setString("id", id);
   }
 
   @override
   void initState() {
-    // checkLogin();
+    getData();
     super.initState();
   }
 
+  getData() async {
+    logindata = await SharedPreferences.getInstance();
+
+    setState(() {
+      akunId = logindata.getString("id")!;
+      print("id : $akunId");
+    });
+  }
+
+  // login() async {
+  //   dynamic login =
+  //       await UserApiServices().login(inputEmail.text, inputPassword.text);
+  //   SharedPreferences sharedPref = await SharedPreferences.getInstance();
+  //   if (login['message'] == 'Success') {
+  //     setState(
+  //       () {
+  //         sharedPref.setString('token', login['data']['token']);
+  //         sharedPref.setString('useri!', login['data']['user_id']);
+  //       },
+  //     );
+  //   }
+  // }
+
   // void checkLogin() async {
   //   logindata = await SharedPreferences.getInstance();
-  // final id = logindata.getInt("identifier");
-  // if (id != 0 && id != null) {
-  //   Navigator.pushNamed(context, "/home");
-  //   print("id : $id");
-  // }
+  //   final id = logindata.getString("id");
+  //   if (id != 0 && id != null) {
+  //     Navigator.pushNamed(context, "/home");
+  //     print("id : $id");
+  //   }
   // }
 
   @override
   Widget build(BuildContext context) {
-    final viewModelLogin = Provider.of<UserViewModel>(context);
-    // final viewModel = Provider.of<UserViewModel>(context);
+    final viewModel = Provider.of<UserViewModel>(context);
+
     return Scaffold(
         backgroundColor: putih,
         body: SingleChildScrollView(
@@ -130,15 +151,37 @@ class _LoginScreenState extends State<LoginScreen> {
                         // postLogin();
 
                         if (formKey.currentState!.validate()) {
-                          await viewModelLogin.loginUser(
+                          // login();
+                          await viewModel.loginUser(
                               inputEmail.text, inputPassword.text);
+                          // await viewModel
+                          //     .tokenize(viewModel.resultUser.token.toString());
 
-                          if (viewModelLogin.resultUser != null) {
-                            saveData(viewModelLogin.resultUser.token!);
-
-                            // panggil endpoint untuk login
-                            // viewModel.resultAkun.id;
-
+                          if (viewModel.resultUser.token != null) {
+                            saveData(viewModel.resultUser.token!
+                                // viewModel.tokenModel.id.toString()
+                                );
+                            // await viewModel.tokenize(
+                            //     viewModel.resultUser.token.toString());
+                            // if (viewModel.tokenModel != null) {
+                            //   saveData(viewModel.tokenModel.id.toString());
+                            // } else {
+                            //   showDialog(
+                            //     context: context,
+                            //     builder: (context) => AlertDialog(
+                            //       title: const Text("Error"),
+                            //       content: Text("Coba Lagi!"),
+                            //       actions: [
+                            //         FlatButton(
+                            //           child: const Text("OK"),
+                            //           onPressed: () {
+                            //             Navigator.pop(context);
+                            //           },
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   );
+                            // }
                             Navigator.pushNamed(context, "/home");
                           } else {
                             showDialog(

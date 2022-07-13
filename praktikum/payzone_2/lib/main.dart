@@ -80,7 +80,6 @@ class MyApp extends StatelessWidget {
           "/profileDetail": (context) => ProfileDetail(),
           "/login": (context) => LoginScreen(),
           "/register": (context) => RegisterScreen(),
-          "/registrasi": (context) => RegisterScreen(),
           "/history": (context) => HistoryScreen(),
           "/historyDetail": (context) => HistoryDetailScreen(),
 

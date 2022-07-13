@@ -30,17 +30,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   late SharedPreferences logindata;
-  late bool newUser;
+  // late bool newUser;
 
-  saveData() async {
+  saveData(String id) async {
     logindata = await SharedPreferences.getInstance();
     logindata.setString("email", inputEmail.text.toString());
     logindata.setString("password", inputPassword.text.toString());
-    logindata.setString("nama", inputNama.text.toString());
+    logindata.setString("name", inputNama.text.toString());
     logindata.setString("phone", inputPhone.text.toString());
     logindata.setString("username", inputUsername.text.toString());
-    logindata.setString("status", "status");
-    logindata.setString("token", "token");
+    logindata.setString("id", id.toString());
+    // logindata.setString("token", token);
   }
 
   @override
@@ -48,6 +48,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     // checkLogin();
     super.initState();
   }
+
+  //buat cek regis dan logiS
 
   // void checkLogin() async {
   //   logindata = await SharedPreferences.getInstance();
@@ -75,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
       backgroundColor: putih,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,14 +103,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 20,
                   ),
                   TextFormField(
-                    controller: inputUsername,
+                    controller: inputNama,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your name';
                       }
                       return null;
                     },
-                    maxLines: 1,
+                    // maxLines: 1,
                     decoration: InputDecoration(
                       hintText: 'Enter your name',
                       prefixIcon: const Icon(Icons.person_add),
@@ -128,7 +130,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                       return null;
                     },
-                    maxLines: 1,
+                    // maxLines: 1,
                     decoration: InputDecoration(
                       hintText: 'Enter your phone number',
                       prefixIcon: const Icon(Icons.phone_android_outlined),
@@ -141,7 +143,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 20,
                   ),
                   TextFormField(
-                    controller: inputNama,
+                    controller: inputUsername,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your username';
@@ -150,7 +152,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.person),
-                      hintText: 'Enter your Username',
+                      hintText: 'Enter your username',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -204,14 +206,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: () async {
                       if (formKey.currentState!.validate()) {
                         await viewModel.regisUser(
-                            inputEmail.text,
-                            inputPassword.text,
-                            inputNama.text,
-                            inputPhone.text,
-                            inputUsername.text);
-                        if (viewModel.resultRegis != null) {
-                          saveData();
-                          Navigator.pushNamed(context, "/home");
+                          inputEmail.text.toString(),
+                          inputNama.text.toString(),
+                          inputPassword.text.toString(),
+                          inputPhone.text.toString(),
+                          inputUsername.text.toString(),
+                        );
+                        if (viewModel.resultRegis.id != null) {
+                          // saveData();
+                          saveData(viewModel.resultRegis.id.toString());
+                          Navigator.pushNamed(context, "/login");
                         } else {
                           showDialog(
                             context: context,

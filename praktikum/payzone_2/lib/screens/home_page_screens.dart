@@ -16,7 +16,7 @@ class _HomePageScreensState extends State<HomePageScreens> {
 
   final screen = [
     const DaftarProdukScreens(),
-    const HistoryScreen(),
+    HistoryScreen(),
     const ProfileScreen(),
   ];
   @override
@@ -28,8 +28,8 @@ class _HomePageScreensState extends State<HomePageScreens> {
       // body: DaftarProdukScreens(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        // selectedItemColor: primaryKuning1,
-        // unselectedItemColor: onSurface,
+        selectedItemColor: primaryKuning1,
+        unselectedItemColor: onSurface,
         iconSize: 30,
         items: const [
           BottomNavigationBarItem(

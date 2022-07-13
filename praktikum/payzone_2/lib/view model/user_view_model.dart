@@ -1,11 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:payzone_2/model/hapus_akun_model.dart';
+import 'package:payzone_2/model/user_token_model.dart';
 import 'package:payzone_2/model/login_model.dart';
 import 'package:payzone_2/model/registrasi_model.dart';
 import 'package:payzone_2/model/user_akun_model.dart';
 import 'package:payzone_2/service/user_api_services.dart';
 
 class UserViewModel extends ChangeNotifier {
+  // tokenData
+  TokenModel _tokenModel = TokenModel();
+  TokenModel get tokenModel => _tokenModel;
+  Future<void> tokenize(String token) async {
+    final getTokenData = UserApiServices();
+    try {
+      final tokenData = await getTokenData.tokenize(token);
+      _tokenModel = tokenData;
+      print("token berhasil di enkripsi");
+    } catch (e) {
+      print("hasil eror get user : $e");
+    }
+    notifyListeners();
+  }
+
   // login
   LoginModel _resultUser = LoginModel();
   LoginModel get resultUser => _resultUser;
@@ -33,7 +49,7 @@ class UserViewModel extends ChangeNotifier {
       final newResultRegis =
           await getAllUserRegis.regis(email, name, password, phone, username);
       _resultRegis = newResultRegis;
-      print("hasil sukses regis : $_resultRegis");
+      print("hasil sukses regis : ${_resultRegis.id}");
     } catch (e) {
       print("hasil eror regis : $e");
     }

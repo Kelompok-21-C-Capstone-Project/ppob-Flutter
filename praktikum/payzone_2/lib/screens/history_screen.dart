@@ -18,7 +18,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   @override
   void initState() {
-    // checkUser("identifier");
+    getData();
     super.initState();
   }
 
@@ -51,6 +51,25 @@ class _HistoryScreenState extends State<HistoryScreen> {
   //   }
   // }
 
+  // checkLogin() async {
+  //   SharedPreferences sher = await SharedPreferences.getInstance();
+  //   final token = sher.getString('token') ?? 'No token';
+  //   final id = sher.getString('id') ?? 'No id';
+  // }
+
+  getData() async {
+    String token = "";
+    String akunId = "";
+    logindata = await SharedPreferences.getInstance();
+
+    setState(() {
+      token = logindata.getString("token").toString();
+      print("token $token");
+      akunId = logindata.getString("id").toString();
+      print("id : $akunId");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<HistoryViewModel>(context);
@@ -63,8 +82,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
           centerTitle: true,
         ),
         body: FutureBuilder<void>(
-            future:
-                viewModel.getAllResultHistory(widget.userById!, widget.token!),
+            future: viewModel.getAllResultHistory(
+                widget.userById.toString(), widget.token.toString()),
             builder: (context, AsyncSnapshot<void> snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Center(

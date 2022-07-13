@@ -22,7 +22,7 @@ class DaftarProdukEWalletScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: 3,
           mainAxisSpacing: 14,
           crossAxisSpacing: 10,
           children: List.generate(

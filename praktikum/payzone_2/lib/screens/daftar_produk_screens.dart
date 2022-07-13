@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/screens/paket%20data%20screens/daftar_produk_paket_data_screen.dart';
 import 'package:payzone_2/screens/pdam%20screens/daftar_produk_pdam_screen.dart';
@@ -18,6 +19,7 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<ListKategoriProdukViewModel>(context);
+    final result = viewModel.listKategoriProduk;
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -74,11 +76,11 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
                 // child: GridView.builder(
                 //     gridDelegate:
                 //         const SliverGridDelegateWithFixedCrossAxisCount(
-                //       crossAxisCount: 2,
-                //       mainAxisSpacing: 14,
-                //       crossAxisSpacing: 10,
+                //       crossAxisCount: 3,
+                //       // mainAxisSpacing: 14,
+                //       // crossAxisSpacing: 10,
                 //     ),
-                //     // itemCount: result.length,
+                //     itemCount: result.length,
                 //     itemBuilder: (context, index) {
                 //       return InkWell(
                 //         child: Column(
@@ -93,13 +95,19 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
                 //                   boxShadow: const [
                 //                     BoxShadow(color: Colors.grey, blurRadius: 2)
                 //                   ]),
-                //               // child: Image.network("${result.length}"),
+                //               child: Image.asset(
+                //                 "/assets/images/logo.png",
+                //                 fit: BoxFit.fill,
+                //               ),
+                //               // child:
+                //               // SvgPicture.network("${result[index].icon}"),
+                //               // child: Image.network("${result[index].icon}"),
                 //             ),
                 //             const SizedBox(height: 11),
-                //             // Text(
-                //             //   "${result.length}",
-                //             //   style: title3Sans,
-                //             // ),
+                //             Text(
+                //               "${result[index].name}",
+                //               style: title3Sans,
+                //             ),
                 //           ],
                 //         ),
                 //       );
