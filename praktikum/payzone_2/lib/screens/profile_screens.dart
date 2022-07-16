@@ -18,7 +18,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // int idPengguna = 0;
   String email = "";
   String pass = "";
-  String token = "";
+  String tokenUser = "";
   String akunId = "";
   String name = "";
   String phone = "";
@@ -39,8 +39,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       print("email: $email");
       pass = logindata.getString("password").toString();
       print("pass: $pass");
-      token = logindata.getString("token").toString();
-      print("token $token");
+      tokenUser = logindata.getString("token").toString();
+      print("token $tokenUser");
       akunId = logindata.getString("id").toString();
       print("id : $akunId");
       name = logindata.getString("name").toString();
@@ -66,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<UserViewModel>(context);
+    // final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
@@ -96,38 +96,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
             left: 5,
             right: 5,
             top: 5,
-            child: Container(
-              margin: const EdgeInsets.all(20),
-              height: 133,
-              width: 312,
-              decoration: BoxDecoration(
-                  color: putih,
-                  borderRadius: BorderRadius.circular(5),
-                  boxShadow: const [
-                    BoxShadow(color: Colors.grey, blurRadius: 5)
-                  ]),
-              child: Column(
-                children: [
-                  const SizedBox(height: 15),
-                  Icon(
-                    Icons.account_circle,
-                    color: onPrimary,
-                    size: 40.0,
-                  ),
-                  const SizedBox(height: 10),
-                  Text("${viewModel.resultAkun.email}", style: title8Ubuntu),
+            child: Consumer<UserViewModel>(
+              builder: (context, value, child) => Container(
+                margin: const EdgeInsets.all(20),
+                height: 133,
+                width: 312,
+                decoration: BoxDecoration(
+                    color: putih,
+                    borderRadius: BorderRadius.circular(5),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.grey, blurRadius: 5)
+                    ]),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 15),
+                    Icon(
+                      Icons.account_circle,
+                      color: onPrimary,
+                      size: 40.0,
+                    ),
+                    const SizedBox(height: 10),
+                    // Text("${value.resultAkun.email}", style: title8Ubuntu),
 
-                  // Text("${email}", style: title8Ubuntu),
-                  const SizedBox(height: 5),
-                  // Text(
-                  //   "087864420972",
-                  //   style: TextStyle(
-                  //       fontFamily: GoogleFonts.ptSans().fontFamily,
-                  //       fontWeight: FontWeight.w400,
-                  //       fontSize: 12,
-                  //       color: onSurface),
-                  // ),
-                ],
+                    Text("${email}", style: title8Ubuntu),
+                    const SizedBox(height: 5),
+                    // Text(
+                    //   "087864420972",
+                    //   style: TextStyle(
+                    //       fontFamily: GoogleFonts.ptSans().fontFamily,
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 12,
+                    //       color: onSurface),
+                    // ),
+                  ],
+                ),
               ),
             ),
           ),

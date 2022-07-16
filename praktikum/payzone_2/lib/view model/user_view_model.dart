@@ -49,7 +49,7 @@ class UserViewModel extends ChangeNotifier {
       final newResultRegis =
           await getAllUserRegis.regis(email, name, password, phone, username);
       _resultRegis = newResultRegis;
-      print("hasil sukses regis : ${_resultRegis.id}");
+      print("hasil sukses regis : $_resultRegis");
     } catch (e) {
       print("hasil eror regis : $e");
     }

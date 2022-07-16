@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/screens/e-wallet%20screens/pembayaran_e_wallet_screen.dart';
 import 'package:provider/provider.dart';
 import '../../view model/client_daftar_produk_view_model..dart';
 
@@ -217,6 +218,17 @@ Widget _buildPaket(context) {
                     return InkWell(
                       onTap: () {
                         // Navigator.push(context, MaterialPageRoute(builder: (context) => DetailProdukEWallet(produk: result[index])));
+                        // Navigator.pushNamed(context, "/pembayaranEWallet",
+                        //     arguments: result.products?[index]);
+                        // Navigator.pushNamed(context, "/pembayaranEWallet");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PembayaranEWalletScreen(
+                                      // produk: result[index],
+                                      produkEWallet:
+                                          result.products?[index].toString(),
+                                    )));
                       },
                       child: Container(
                         padding: const EdgeInsets.only(
@@ -371,11 +383,11 @@ class CardItem extends StatelessWidget {
 //   ProdukOVO(title: "OVO 200", harga: "Rp. 201.500"),
 // ];
 
-class ProdukOVO {
-  final String title;
-  final String harga;
-  const ProdukOVO({required this.title, required this.harga});
-}
+// class ProdukOVO {
+//   final String title;
+//   final String harga;
+//   const ProdukOVO({required this.title, required this.harga});
+// }
 
 // class CardItemOVO extends StatelessWidget {
 //   CardItemOVO({Key? key, required this.produkOvo, required this.index})

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
 
 class MetodePembayaranPdamScreen extends StatefulWidget {
@@ -11,6 +12,13 @@ class MetodePembayaranPdamScreen extends StatefulWidget {
 
 class _MetodePembayaranPdamScreenState
     extends State<MetodePembayaranPdamScreen> {
+  Future<void> _copyToClipboard() async {
+    await Clipboard.setData(const ClipboardData(text: "salin"));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text('Copied to clipboard'),
+    ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +52,8 @@ class _MetodePembayaranPdamScreenState
                 Text("123456789012345", style: title4Ubuntu),
                 Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {},
+                    InkWell(
+                      onTap: () => _copyToClipboard(),
                       child: const Icon(
                         Icons.copy,
                         size: 10,

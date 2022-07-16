@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
-import 'package:payzone_2/view%20model/metode_pembayaran_view_model.dart';
+import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:provider/provider.dart';
 
 class PembayaranPaketDataScreen extends StatefulWidget {
@@ -40,92 +40,99 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
               style: title9Sans,
             ),
             // const SizedBox(height: 12),
-            Container(
-              padding: const EdgeInsets.only(
-                  left: 5, top: 12, bottom: 12, right: 10),
-              width: 340,
-              height: 80,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Nama Produk",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "Nomor Handphone",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "Harga",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "Biaya Admin",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            "OVO 25",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "08xxxxxxxxx",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "Rp. 21.500",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 5),
-                          Text(
-                            "RP. 2500",
-                            style: title3Sans,
-                          ),
-                          // const SizedBox(height: 20),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+            Consumer<DaftarProdukViewModel>(
+              builder: (context, value, child) => Container(
+                padding: const EdgeInsets.only(
+                    left: 5, top: 12, bottom: 12, right: 10),
+                width: 340,
+                height: 80,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Nama Produk",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "Nomor Handphone",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "Harga",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "Biaya Admin",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                          ],
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              "OVO 25",
+                              // "${value.listProdukEWallet.products?[index].label}",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "08xxxxxxxxx",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "Rp. 21.500",
+                              // "${value.listProdukEWallet.products?[index].price}",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 5),
+                            Text(
+                              "RP. 2500",
+                              style: title3Sans,
+                            ),
+                            // const SizedBox(height: 20),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
 
             // const SizedBox(height: 15),
-            Container(
-              padding: const EdgeInsets.only(
-                  left: 12, top: 12, bottom: 12, right: 12),
-              height: 36,
-              width: 312,
-              color: bgTotal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Total Pembayaran",
-                    style: title5Sans,
-                  ),
-                  Text(
-                    "Total",
-                    style: title5Sans,
-                  ),
-                ],
+            Consumer<DaftarProdukViewModel>(
+              builder: (context, value, child) => Container(
+                padding: const EdgeInsets.only(
+                    left: 12, top: 12, bottom: 12, right: 12),
+                height: 36,
+                width: 312,
+                color: bgTotal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Total Pembayaran",
+                      style: title5Sans,
+                    ),
+                    Text(
+                      "Total",
+                      // "${value.listProdukEWallet.products?[index].label}",
+                      style: title5Sans,
+                    ),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 32),

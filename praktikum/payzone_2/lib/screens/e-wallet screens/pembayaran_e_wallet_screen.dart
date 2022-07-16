@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
-import 'package:payzone_2/view%20model/metode_pembayaran_view_model.dart';
+import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:provider/provider.dart';
 
 class PembayaranEWalletScreen extends StatefulWidget {
-  const PembayaranEWalletScreen({Key? key}) : super(key: key);
+  final String? produkEWallet;
+  const PembayaranEWalletScreen({Key? key, this.produkEWallet})
+      : super(key: key);
 
   @override
   State<PembayaranEWalletScreen> createState() =>
@@ -17,7 +19,8 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<MetodePembayaranViewModel>(context);
+    // final viewModel = Provider.of<MetodePembayaranViewModel>(context);
+    var index;
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -51,94 +54,133 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                 style: title9Sans,
               ),
               // const SizedBox(height: 12),
-              Container(
-                padding: const EdgeInsets.only(
-                    left: 5, top: 12, bottom: 12, right: 10),
-                width: 340,
-                height: 80,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Nama Produk",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "Nomor Handphone",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "Harga",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "Biaya Admin",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              "OVO 25",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "08xxxxxxxxx",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "Rp. 21.500",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 5),
-                            Text(
-                              "RP. 2500",
-                              style: title3Sans,
-                            ),
-                            // const SizedBox(height: 10),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+              // kasih Consumer
+              Consumer<DaftarProdukViewModel>(
+                builder: (context, value, child) => Container(
+                  padding: const EdgeInsets.only(
+                      left: 5, top: 12, bottom: 12, right: 10),
+                  width: 340,
+                  height: 80,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Nama Produk",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                "Nomor Handphone",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                "Harga",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                "Biaya Admin",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                // "${value.listProdukEWallet.products?[index].label}",
+                                "OVO 25",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                "08xxxxxxxxx",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                // "${value.listProdukEWallet.products?[index].price}",
+                                "Rp. 21.500",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 5),
+                              Text(
+                                "RP. 2500",
+                                style: title3Sans,
+                              ),
+                              // const SizedBox(height: 10),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
               // const SizedBox(height: 15),
-              Container(
-                padding: const EdgeInsets.only(
-                    left: 12, top: 12, bottom: 12, right: 12),
-                height: 36,
-                width: 340,
-                color: bgTotal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Total Pembayaran",
-                      style: title5Sans,
-                    ),
-                    Text(
-                      "Rp21.500",
-                      style: title5Sans,
-                    ),
-                  ],
+              // kasih Consumer
+              Consumer<DaftarProdukViewModel>(
+                builder: (context, value, child) => Container(
+                  padding: const EdgeInsets.only(
+                      left: 12, top: 12, bottom: 12, right: 12),
+                  height: 36,
+                  width: 340,
+                  color: bgTotal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Total Pembayaran",
+                        style: title5Sans,
+                      ),
+                      Text(
+                        "Rp. 21500",
+                        // "${value.listProdukEWallet.products?[index].label}",
+                        style: title5Sans,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 32),
+              // Consumer<MetodePembayaranViewModel>(
+              //   builder: (context, value, child) => Container(
+              //     width: 312,
+              //     height: 262,
+              //     child: ListView.builder(
+              //       // itemCount: value.listMetode.services!.length,
+              //       itemBuilder: (context, index) {
+              //         return RadioListTile(
+              //           value: "${value.listMetode.id}",
+              //           groupValue: val,
+              //           onChanged: (value) {
+              //             setState(() {
+              //               val = value;
+              //             });
+              //           },
+              //           title:
+              //               Text("${value.listMetode.services![index].label}"),
+              //           // "${value.resultMetodePembayaran[index].label}",
+              //           // secondary: Image.asset(
+              //           //   "assets/images/${value.resultMetodePembayaran[index].icon}",
+              //           //   width: 50,
+              //           // ),
+              //           toggleable: true,
+              //           controlAffinity: ListTileControlAffinity.trailing,
+              //         );
+              //       },
+              //     ),
+              //   ),
+              // ),
+
               Text(
                 "Pilih Metode Pembayaran",
                 style: title9Sans,
@@ -161,7 +203,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                 },
                 title: Text(
                   "BCA Virtual Account",
-                  // "${viewModel}",
+                  // "${viewModel.resultMetodePembayaran.length}",
                   style: title6Ubuntu,
                   // overflow: TextOverflow.ellipsis,
                 ),

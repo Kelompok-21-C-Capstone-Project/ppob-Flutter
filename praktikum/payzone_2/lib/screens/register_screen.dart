@@ -49,28 +49,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.initState();
   }
 
-  //buat cek regis dan logiS
-
-  // void checkLogin() async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   newUser = logindata.getBool("login") ?? true;
-
-  //   // if (newUser) {
-  //   //   Navigator.pushNamedAndRemoveUntil(
-  //   //       context, HomeScreen.route, (route) => false);
-  //   // }
-  // }
-
-  // checkLogin() async {
-  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-  //   String? token = sharedPreferences.getString("token");
-
-  //   print("token $token");
-  //   if (token != null) {
-  //     Navigator.pushNamed(context, "/home");
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<UserViewModel>(context);
@@ -86,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               height: 20,
             ),
             const Text(
-              'Sign up',
+              'Daftar',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -106,18 +84,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputNama,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your name';
+                        return 'masukkan nama lengkap anda';
                       }
                       return null;
                     },
-                    // maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your name',
-                      prefixIcon: const Icon(Icons.person_add),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Nama Lengkap",
+                        hintText: "User Aja",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
                   ),
                   const SizedBox(
                     height: 20,
@@ -126,18 +105,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputPhone,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your phone number';
+                        return 'masukkan nomor handphone anda';
                       }
                       return null;
                     },
-                    // maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your phone number',
-                      prefixIcon: const Icon(Icons.phone_android_outlined),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Nomor Handaphone",
+                        hintText: "081234567890",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
                   ),
                   const SizedBox(
                     height: 20,
@@ -146,37 +126,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputUsername,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your username';
+                        return 'masukkan username anda';
                       }
                       return null;
                     },
                     decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.person),
-                      hintText: 'Enter your username',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Username",
+                        hintText: "@useraja",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
                     controller: inputEmail,
+                    keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'masukkan email anda';
                       }
                       return null;
                     },
-                    maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your Email',
-                      prefixIcon: const Icon(Icons.email),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Email",
+                        hintText: "user@gmail.com",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
                   ),
                   const SizedBox(
                     height: 20,
@@ -185,19 +169,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputPassword,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your Password';
+                        return 'masukkan password anda';
                       }
                       return null;
                     },
-                    maxLines: 1,
-                    obscureText: true,
                     decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.lock),
-                      hintText: 'Enter your password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Password",
+                        hintText: "supersecret",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
                   ),
                   const SizedBox(
                     height: 20,
@@ -212,10 +196,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           inputPhone.text.toString(),
                           inputUsername.text.toString(),
                         );
-                        if (viewModel.resultRegis.id != null) {
+                        if (viewModel.resultRegis != null) {
                           // saveData();
-                          saveData(viewModel.resultRegis.id.toString());
-                          Navigator.pushNamed(context, "/home");
+                          saveData("${viewModel.resultRegis.id}");
+
+                          Navigator.pushNamed(context, "/login");
                         } else {
                           showDialog(
                             context: context,
@@ -251,7 +236,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
                     child: Text(
-                      'Sign up',
+                      'Daftar',
                       style: buttonText,
                     ),
                   ),
@@ -262,13 +247,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'Already registered?',
+                        'Sudah memiliki akun ?',
                       ),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, "/login");
                         },
-                        child: Text('Sign in', style: buttonText),
+                        child: Text('Daftar', style: buttonText),
                       ),
                     ],
                   ),
@@ -292,3 +277,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
 //   bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
 //   return alreadyVisit;
 // }
+
+
+
+  //buat cek regis dan logiS
+
+  // void checkLogin() async {
+  //   logindata = await SharedPreferences.getInstance();
+  //   newUser = logindata.getBool("login") ?? true;
+
+  //   // if (newUser) {
+  //   //   Navigator.pushNamedAndRemoveUntil(
+  //   //       context, HomeScreen.route, (route) => false);
+  //   // }
+  // }
+
+  // checkLogin() async {
+  //   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+  //   String? token = sharedPreferences.getString("token");
+
+  //   print("token $token");
+  //   if (token != null) {
+  //     Navigator.pushNamed(context, "/home");
+  //   }
+  // }

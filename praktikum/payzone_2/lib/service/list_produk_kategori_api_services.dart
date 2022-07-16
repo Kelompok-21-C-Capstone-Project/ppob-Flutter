@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:payzone_2/model/history_detail_by_id_model.dart';
 import 'package:payzone_2/model/list_kategori_produk_model.dart';
 
 class ListKategoriProdukApiServices {
@@ -37,13 +38,28 @@ class ListKategoriProdukApiServices {
   //   // }
   // }
 
-  Future<List<ListKategoriProdukModel>?> getKategoriProduk() async {
+  Future<List<Datas>?> getKategoriProduk() async {
     final response = await Dio()
         .get("https://payzone.herokuapp.com/v1/clients/products/categories");
     print("hasil : ${response.data}");
     final res = ListKategoriProdukModel.fromJson(response.data);
-    List<ListKategoriProdukModel>? result =
-        res as List<ListKategoriProdukModel>?;
+    List<Datas>? result = res.datas;
     return result;
   }
+
+  // Future<ListKategoriProdukModel> getKategoriProduk() async {
+  //   final _dio = Dio();
+  //   _dio.interceptors
+  //       .add(LogInterceptor(responseBody: true, requestBody: true));
+
+  //   try {
+  //     final response = await _dio
+  //         .get("https://payzone.herokuapp.com/v1/clients/products/categories");
+  //     print("hasil : ${response.data}");
+  //     final resDaftarPdam = ListKategoriProdukModel.fromJson(response.data);
+  //     return resDaftarPdam;
+  //   } on DioError catch (e) {
+  //     return e.response!.data;
+  //   }
+  // }
 }

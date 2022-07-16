@@ -123,82 +123,90 @@ Widget _buildPaket(context) {
                         ),
                         itemBuilder: (context, index) {
                           return InkWell(
+                              onTap: () => Navigator.pushNamed(
+                                  context, "/pembayaranPaketData"),
                               child: Container(
-                            padding: const EdgeInsets.only(
-                                top: 32, left: 12, bottom: 32, right: 12),
-                            height: 145,
-                            width: 145,
-                            decoration: BoxDecoration(
-                                color: putih,
-                                borderRadius: BorderRadius.circular(5),
-                                boxShadow: const [
-                                  BoxShadow(color: Colors.grey, blurRadius: 1)
-                                ]),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "${result.products![index].label}",
-                                  // "${produkTelkomsel.title}",
-                                  style: title4Ubuntu,
-                                ),
-                                const Divider(
-                                  color: Colors.grey,
-                                  thickness: 1,
-                                ),
-                                Text(
-                                  "Harga",
-                                  style: title3Sans,
-                                ),
-                                Text(
-                                  "${result.products![index].price}",
-                                  // "${produkTelkomsel.harga}",
-                                  style: title5Ubuntu,
-                                ),
-                                const SizedBox(height: 5),
-                                InkWell(
-                                  onTap: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: Text(
-                                              "Detail Paket",
-                                              style: title9Sans,
-                                            ),
-                                            content: Text(
-                                              "${result.products![index].description}",
-                                              style: title3Sans,
-                                              textAlign: TextAlign.justify,
-                                            ),
-                                            actions: [
-                                              Center(
-                                                child: ElevatedButton(
-                                                  onPressed: () {},
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    primary: primaryKuning1,
-                                                    padding: const EdgeInsets
-                                                            .fromLTRB(
-                                                        70, 12, 70, 12),
-                                                  ),
-                                                  child: Text(
-                                                      "Lanjut ke Pembayaran",
-                                                      style: buttonText),
+                                padding: const EdgeInsets.only(
+                                    top: 32, left: 12, bottom: 32, right: 12),
+                                height: 145,
+                                width: 145,
+                                decoration: BoxDecoration(
+                                    color: putih,
+                                    borderRadius: BorderRadius.circular(5),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                          color: Colors.grey, blurRadius: 1)
+                                    ]),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "${result.products![index].label}",
+                                      // "${produkTelkomsel.title}",
+                                      style: title4Ubuntu,
+                                    ),
+                                    const Divider(
+                                      color: Colors.grey,
+                                      thickness: 1,
+                                    ),
+                                    Text(
+                                      "Harga",
+                                      style: title3Sans,
+                                    ),
+                                    Text(
+                                      "${result.products![index].price}",
+                                      // "${produkTelkomsel.harga}",
+                                      style: title5Ubuntu,
+                                    ),
+                                    const SizedBox(height: 5),
+                                    InkWell(
+                                      onTap: () {
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                title: Text(
+                                                  "Detail Paket",
+                                                  style: title9Sans,
                                                 ),
-                                              ),
-                                            ],
-                                          );
-                                        });
-                                  },
-                                  child: Text(
-                                    "Selengkapnya",
-                                    style: title1Sans,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ));
+                                                content: Text(
+                                                  "${result.products![index].description}",
+                                                  style: title3Sans,
+                                                  textAlign: TextAlign.justify,
+                                                ),
+                                                actions: [
+                                                  Center(
+                                                    child: ElevatedButton(
+                                                      onPressed: () {
+                                                        Navigator.pushNamed(
+                                                            context,
+                                                            "/pembayaranPaketData");
+                                                      },
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        primary: primaryKuning1,
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .fromLTRB(
+                                                                70, 12, 70, 12),
+                                                      ),
+                                                      child: Text(
+                                                          "Lanjut ke Pembayaran",
+                                                          style: buttonText),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            });
+                                      },
+                                      child: Text(
+                                        "Selengkapnya",
+                                        style: title1Sans,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ));
                         },
                         itemCount: result.products!.length,
                       ),

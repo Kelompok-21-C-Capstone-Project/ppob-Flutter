@@ -9,22 +9,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:payzone_2/main.dart';
+import 'package:payzone_2/service/list_produk_kategori_api_services.dart';
+import 'package:payzone_2/service/metode_pembayaran_api_services.dart';
+import 'package:payzone_2/service/user_api_services.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  //   // Build our app and trigger a frame.
+  //   await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  //   // Verify that our counter starts at 0.
+  //   expect(find.text('0'), findsOneWidget);
+  //   expect(find.text('1'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  //   // Tap the '+' icon and trigger a frame.
+  //   await tester.tap(find.byIcon(Icons.add));
+  //   await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  //   // Verify that our counter has incremented.
+  //   expect(find.text('0'), findsNothing);
+  //   expect(find.text('1'), findsOneWidget);
+  // });
+
+  group('PayzoneAPI', () {
+    test('List Kategori Api Test', () async {
+      var listProduk =
+          await ListKategoriProdukApiServices().getKategoriProduk();
+      expect(listProduk, isNotEmpty);
+    });
+    test('Metode Pembayaran Api Test', () async {
+      var metodePembayaran = await MetodePembayaranApiServices().getMetode();
+      expect(metodePembayaran, isNotEmpty);
+    });
   });
 }

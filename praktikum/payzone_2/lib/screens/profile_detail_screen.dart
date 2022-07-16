@@ -40,41 +40,45 @@ class _ProfileDetailState extends State<ProfileDetail> {
           children: [
             const SizedBox(height: 20),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                  hintStyle: title2Robo,
+                  labelStyle: title1Robo,
                   labelText: "Username",
                   hintText: "BangunKhan",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                  hintStyle: title2Robo,
+                  labelStyle: title1Robo,
                   labelText: "Password",
                   hintText: "******",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                  hintStyle: title2Robo,
+                  labelStyle: title1Robo,
                   labelText: "Nomor Handphone",
                   hintText: "08xxxx",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly,
-              ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             TextFormField(
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                  hintStyle: title2Robo,
+                  labelStyle: title1Robo,
                   labelText: "Email",
                   hintText: "Bangun@gmail.com",
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)))),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(

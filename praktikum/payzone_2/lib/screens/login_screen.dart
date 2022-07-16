@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   String email = "";
   String pass = "";
-  String token = "";
+  String tokenUser = "";
   String akunId = "";
   String name = "";
   String phone = "";
@@ -64,8 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
       print("email: $email");
       pass = logindata.getString("password").toString();
       print("pass: $pass");
-      token = logindata.getString("token").toString();
-      print("token $token");
+      tokenUser = logindata.getString("token").toString();
+      print("token $tokenUser");
       akunId = logindata.getString("id").toString();
       print("id : $akunId");
       name = logindata.getString("name").toString();
@@ -116,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               const Text(
-                'Sign in',
+                'Masuk',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
@@ -133,18 +134,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: inputEmail,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your Email';
+                          return 'masukkan email anda';
                         }
                         return null;
                       },
-                      maxLines: 1,
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.person),
-                        hintText: 'Enter your Email',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+                          // prefixIcon: const Icon(Icons.email),
+                          hintStyle: title2Robo,
+                          labelStyle: title1Robo,
+                          labelText: "Email",
+                          hintText: "user@gmail.com",
+                          border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)))),
                     ),
                     const SizedBox(
                       height: 20,
@@ -153,19 +155,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: inputPassword,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return 'masukkan password anda';
                         }
                         return null;
                       },
-                      maxLines: 1,
                       obscureText: true,
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.lock),
-                        hintText: 'Enter your password',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
+
+                          // prefixIcon: const Icon(Icons.lock),
+                          hintStyle: title2Robo,
+                          labelStyle: title1Robo,
+                          labelText: "Password",
+                          hintText: "supersecret",
+                          border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5)))),
                     ),
                     const SizedBox(
                       height: 20,
@@ -182,14 +186,20 @@ class _LoginScreenState extends State<LoginScreen> {
                           // await viewModel
                           //     .tokenize(viewModel.resultUser.token.toString());
 
-                          if (viewModel.resultUser.token != null) {
-                            saveData(viewModel.resultUser.token!
-                                // viewModel.tokenModel.id.toString()
-                                );
+                          if (viewModel.resultUser != null) {
+                            saveData(
+                              viewModel.resultUser.token!,
+                              // viewModel.resultRegis.id.toString(),
+                            );
+
+                            // untuk kirim token id ke server
                             // await viewModel.tokenize(
                             //     viewModel.resultUser.token.toString());
-                            // if (viewModel.tokenModel != null) {
-                            //   saveData(viewModel.tokenModel.id.toString());
+                            // if (viewModel.tokenModel.id != null) {
+                            //   saveData(
+                            //     viewModel.tokenModel.id.toString(),
+                            //     // viewModel.resultUser.token!,
+                            //   );
                             // } else {
                             //   showDialog(
                             //     context: context,
@@ -231,7 +241,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         primary: primaryKuning1,
                         padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                       ),
-                      child: Text('Sign in', style: buttonText),
+                      child: Text('Masuk', style: buttonText),
                     ),
                     const SizedBox(
                       height: 20,
@@ -239,12 +249,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('Not registered yet?'),
+                        const Text('Belum memiliki akun?'),
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(context, "/register");
                           },
-                          child: Text('Create an account', style: buttonText),
+                          child: Text('Buat Akun', style: buttonText),
                         ),
                       ],
                     ),

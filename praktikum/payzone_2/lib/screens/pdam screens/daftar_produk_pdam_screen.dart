@@ -15,9 +15,11 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
   final formKey = GlobalKey<FormState>();
   TextEditingController inputNomorHp = TextEditingController();
   int? dropDownValue = 0;
+
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<DaftarProdukViewModel>(context);
+    var index;
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -84,53 +86,55 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
                                   child: Text(
                                     "Pilih Wilayah",
                                     // "${result.products![index].label}",
+                                    // "${viewModel.listProdukPdam.products?[index].group}",
                                     style: title9Ubuntu,
                                   ),
                                 ),
-                                // DropdownMenuItem(
-                                //   value: 1,
-                                //   // result.products!.length,
-                                //   child: Text(
-                                //     // "${result.products![index].label}",
-                                //     "PDAM AETRA JAKARTA",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
-                                // DropdownMenuItem(
-                                //   value: 2,
-                                //   child: Text(
-                                //     "SPAM BATAM",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
-                                // DropdownMenuItem(
-                                //   value: 3,
-                                //   child: Text(
-                                //     "PDAM KAB SUKABUMI",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
-                                // DropdownMenuItem(
-                                //   value: 4,
-                                //   child: Text(
-                                //     "PDAM KOTA MALANG (JATIM)",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
-                                // DropdownMenuItem(
-                                //   value: 5,
-                                //   child: Text(
-                                //     "PDAM KOTA BOGOR (JABAR)",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
-                                // DropdownMenuItem(
-                                //   value: 6,
-                                //   child: Text(
-                                //     "PDAM KAB BOGOR (JABAR)",
-                                //     style: title9Ubuntu,
-                                //   ),
-                                // ),
+                                DropdownMenuItem(
+                                  value: 1,
+                                  // result.products!.length,
+                                  child: Text(
+                                    // "${result.products![index].label}",
+                                    "${viewModel.listProdukPdam.products?[index].label}",
+                                    // "PDAM AETRA JAKARTA",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
+                                DropdownMenuItem(
+                                  value: 2,
+                                  child: Text(
+                                    "SPAM BATAM",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
+                                DropdownMenuItem(
+                                  value: 3,
+                                  child: Text(
+                                    "PDAM KAB SUKABUMI",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
+                                DropdownMenuItem(
+                                  value: 4,
+                                  child: Text(
+                                    "PDAM KOTA MALANG (JATIM)",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
+                                DropdownMenuItem(
+                                  value: 5,
+                                  child: Text(
+                                    "PDAM KOTA BOGOR (JABAR)",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
+                                DropdownMenuItem(
+                                  value: 6,
+                                  child: Text(
+                                    "PDAM KAB BOGOR (JABAR)",
+                                    style: title9Ubuntu,
+                                  ),
+                                ),
                               ],
                               value: dropDownValue,
                               onChanged: (int? value) {
