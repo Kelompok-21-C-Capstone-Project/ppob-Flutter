@@ -26,6 +26,7 @@ import 'package:payzone_2/screens/pdam%20screens/pembayaran_pdam_screen.dart';
 import 'package:payzone_2/screens/profile_detail_screen.dart';
 import 'package:payzone_2/screens/profile_screens.dart';
 import 'package:payzone_2/screens/register_screen.dart';
+import 'package:payzone_2/screens/splash_screen.dart';
 import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:payzone_2/view%20model/history_view_model.dart';
 import 'package:payzone_2/view%20model/list_produk_kategori_view_model.dart';
@@ -82,6 +83,7 @@ class MyApp extends StatelessWidget {
           "/register": (context) => RegisterScreen(),
           "/history": (context) => HistoryScreen(),
           "/historyDetail": (context) => HistoryDetailScreen(),
+          "/splashScreen": (context) => SplashScreen(),
 
           //admin
           "/adminHome": (context) => AdminHomeScreen(),
@@ -94,7 +96,7 @@ class MyApp extends StatelessWidget {
           "/adminDaftarProduk": (context) => AdminDaftarProduk(),
           "/adminDaftarBrand": (context) => AdminDaftarBrandScreen(),
         },
-        initialRoute: "/daftarProduk",
+        initialRoute: "/register",
       ),
     );
   }

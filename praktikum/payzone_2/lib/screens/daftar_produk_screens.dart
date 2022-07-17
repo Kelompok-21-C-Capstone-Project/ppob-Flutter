@@ -18,8 +18,9 @@ class DaftarProdukScreens extends StatefulWidget {
 class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<ListKategoriProdukViewModel>(context);
-    final result = viewModel.listKategoriProduk;
+    final viewModel =
+        Provider.of<ListKategoriProdukViewModel>(context, listen: false);
+
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -73,45 +74,60 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
                     boxShadow: const [
                       BoxShadow(color: Colors.grey, blurRadius: 5)
                     ]),
-                // child: GridView.builder(
-                //     gridDelegate:
-                //         const SliverGridDelegateWithFixedCrossAxisCount(
-                //       crossAxisCount: 3,
-                //       // mainAxisSpacing: 14,
-                //       // crossAxisSpacing: 10,
-                //     ),
-                //     itemCount: result.length,
-                //     itemBuilder: (context, index) {
-                //       return InkWell(
-                //         child: Column(
-                //           crossAxisAlignment: CrossAxisAlignment.center,
-                //           children: [
-                //             Container(
-                //               height: 35,
-                //               width: 35,
-                //               decoration: BoxDecoration(
-                //                   color: primaryKuning1,
-                //                   borderRadius: BorderRadius.circular(5),
-                //                   boxShadow: const [
-                //                     BoxShadow(color: Colors.grey, blurRadius: 2)
-                //                   ]),
-                //               child: Image.asset(
-                //                 "/assets/images/logo.png",
-                //                 fit: BoxFit.fill,
-                //               ),
-                //               // child:
-                //               // SvgPicture.network("${result[index].icon}"),
-                //               // child: Image.network("${result[index].icon}"),
+                // child: FutureBuilder<void>(
+                //     future: viewModel.getAllKategori(),
+                //     builder: (context, AsyncSnapshot<void> snapshot) {
+                //       if (snapshot.connectionState == ConnectionState.waiting) {
+                //         return const Center(
+                //           child: CircularProgressIndicator(),
+                //         );
+                //       } else {
+                //         final result = viewModel.listKategoriProduk;
+                //         return GridView.builder(
+                //             gridDelegate:
+                //                 const SliverGridDelegateWithFixedCrossAxisCount(
+                //               crossAxisCount: 3,
+                //               // mainAxisSpacing: 14,
+                //               // crossAxisSpacing: 10,
                 //             ),
-                //             const SizedBox(height: 11),
-                //             Text(
-                //               "${result[index].name}",
-                //               style: title3Sans,
-                //             ),
-                //           ],
-                //         ),
-                //       );
+                //             itemCount: result.length,
+                //             itemBuilder: (context, index) {
+                //               return InkWell(
+                //                 child: Column(
+                //                   crossAxisAlignment: CrossAxisAlignment.center,
+                //                   children: [
+                //                     Container(
+                //                       height: 35,
+                //                       width: 35,
+                //                       decoration: BoxDecoration(
+                //                           color: primaryKuning1,
+                //                           borderRadius:
+                //                               BorderRadius.circular(5),
+                //                           boxShadow: const [
+                //                             BoxShadow(
+                //                                 color: Colors.grey,
+                //                                 blurRadius: 2)
+                //                           ]),
+                //                       child: Image.asset(
+                //                         "/assets/images/logo.png",
+                //                         fit: BoxFit.fill,
+                //                       ),
+                //                       // child:
+                //                       // SvgPicture.network("${result[index].icon}"),
+                //                       // child: Image.network("${result[index].icon}"),
+                //                     ),
+                //                     const SizedBox(height: 11),
+                //                     Text(
+                //                       "${result[index].name}",
+                //                       style: title3Sans,
+                //                     ),
+                //                   ],
+                //                 ),
+                //               );
+                //             });
+                //       }
                 //     }),
+
                 child: GridView.count(
                   crossAxisCount: 3,
                   crossAxisSpacing: 5,
@@ -156,34 +172,34 @@ Widget _buildPromo() {
       Text("Promo", style: title10Sans),
       const SizedBox(height: 15),
       Container(
-        margin: const EdgeInsets.all(15),
+        // margin: const EdgeInsets.all(15),
         child: CarouselSlider.builder(
-          itemCount: 4,
+          itemCount: 2,
           itemBuilder: (context, index, id) {
             return GestureDetector(
-                onTap: () {},
-                child: Container(
-                  margin: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: putih),
-                  ),
-                  child: ClipRRect(
+              onTap: () {},
+              child: Container(
+                // margin: const EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  // borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: putih),
+                ),
+                child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      "https://i.picsum.photos/id/0/5616/3744.jpg?hmac=3GAAioiQziMGEtLbfrdbcoenXoWAW-zlyEAMkfEdBzQ",
-                      width: double.infinity,
+                    child: Image.asset(
+                      "assets/images/promo/a.png",
                       fit: BoxFit.cover,
-                    ),
-                    // child: Image.asset("assets/images/bca.png")),
-                  ),
-                ));
+                      // height: 155,
+                      // width: 281,
+                    )),
+              ),
+            );
           },
           options: CarouselOptions(
-            // enlargeCenterPage: true,
-            height: 155,
-            autoPlayInterval: const Duration(seconds: 3),
-            aspectRatio: 5.0,
+            enlargeCenterPage: true,
+            height: 200,
+            // autoPlayInterval: const Duration(seconds: 3),
+            // aspectRatio: 16 / 9,
           ),
         ),
       ),
@@ -246,7 +262,7 @@ Widget _buildHistory(context) {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  SizedBox(height: 2),
+                  const SizedBox(height: 2),
                   Text("30/MEI/2022  19.40 WIB", style: title3Sans),
                   Text("OVO 20.000 (08313298343)", style: title11Sans),
                   Text("Order ID : Payzone_71203829", style: title3Sans),

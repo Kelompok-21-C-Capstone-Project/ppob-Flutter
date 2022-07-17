@@ -44,35 +44,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   @override
-  void initState() {
-    // checkLogin();
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<UserViewModel>(context);
     return Scaffold(
       backgroundColor: putih,
+      appBar: AppBar(
+        backgroundColor: putih,
+        title: Text(
+          "Daftar",
+          style: appBar,
+        ),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(
-              height: 20,
-            ),
-            const Text(
-              'Daftar',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-              ),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
             Form(
               key: formKey,
               child: Column(
@@ -84,7 +76,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: inputNama,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'masukkan nama lengkap anda';
+                        return 'masukkan nama anda';
                       }
                       return null;
                     },
@@ -92,29 +84,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         // prefixIcon: const Icon(Icons.lock),
                         hintStyle: title2Robo,
                         labelStyle: title1Robo,
-                        labelText: "Nama Lengkap",
+                        labelText: "Nama",
                         hintText: "User Aja",
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5)))),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    controller: inputPhone,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'masukkan nomor handphone anda';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        // prefixIcon: const Icon(Icons.lock),
-                        hintStyle: title2Robo,
-                        labelStyle: title1Robo,
-                        labelText: "Nomor Handaphone",
-                        hintText: "081234567890",
                         border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5)))),
@@ -136,6 +107,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         labelStyle: title1Robo,
                         labelText: "Username",
                         hintText: "@useraja",
+                        border: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5)))),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: inputPhone,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'masukkan nomor handphone anda';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        // prefixIcon: const Icon(Icons.lock),
+                        hintStyle: title2Robo,
+                        labelStyle: title1Robo,
+                        labelText: "Nomor Handaphone",
+                        hintText: "081234567890",
                         border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5)))),
@@ -233,7 +225,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     },
                     style: ElevatedButton.styleFrom(
                       primary: primaryKuning1,
-                      padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                      padding: const EdgeInsets.fromLTRB(120, 12, 120, 12),
                     ),
                     child: Text(
                       'Daftar',
@@ -241,19 +233,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         'Sudah memiliki akun ?',
+                        style: register,
                       ),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, "/login");
                         },
-                        child: Text('Daftar', style: buttonText),
+                        child: Text('Masuk', style: register2),
                       ),
                     ],
                   ),

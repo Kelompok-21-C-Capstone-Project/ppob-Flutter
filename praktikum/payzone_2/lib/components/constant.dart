@@ -104,6 +104,18 @@ TextStyle gagal = GoogleFonts.ptSans(
     fontWeight: FontWeight.w400,
     color: eror);
 
+TextStyle register = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    color: namaProduk);
+
+TextStyle register2 = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: primaryKuning1);
+
 TextStyle unactive =
     GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w500, color: icon);
 TextStyle unactive2 =
