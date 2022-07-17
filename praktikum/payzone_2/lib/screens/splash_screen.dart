@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/screens/login_screen.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -23,15 +24,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: AnimatedSplashScreen(
-          splash: Image.asset("assets/images/splash1.png"),
-          duration: 3000,
-          animationDuration: Duration(seconds: 2),
-          nextScreen: LoginScreen(),
-          splashTransition: SplashTransition.sizeTransition,
-          backgroundColor: primaryKuning1,
-        ),
+      body: AnimatedSplashScreen(
+        splash: Image.asset("assets/images/splash1.png"),
+        splashIconSize: 100,
+        duration: 3000,
+        animationDuration: const Duration(seconds: 1),
+        nextScreen: const LoginScreen(),
+        splashTransition: SplashTransition.sizeTransition,
+        pageTransitionType: PageTransitionType.leftToRight,
+        backgroundColor: primaryKuning1,
       ),
     );
   }

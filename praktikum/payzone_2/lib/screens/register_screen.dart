@@ -19,6 +19,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController inputUsername = TextEditingController();
   TextEditingController inputPhone = TextEditingController();
 
+  bool _obsecuretext = true;
+
   @override
   void dispose() {
     inputEmail.dispose();
@@ -165,8 +167,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                       return null;
                     },
+                    obscureText: _obsecuretext,
                     decoration: InputDecoration(
                         // prefixIcon: const Icon(Icons.lock),
+                        suffixIcon: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _obsecuretext = !_obsecuretext;
+                            });
+                          },
+                          child: Icon(
+                            _obsecuretext
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: Colors.grey,
+                          ),
+                        ),
                         hintStyle: title2Robo,
                         labelStyle: title1Robo,
                         labelText: "Password",

@@ -41,6 +41,20 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  PageRouteBuilder routeBuilder(Widget widget, RouteSettings routeSettings) {
+    return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (a, b, c) => widget,
+        transitionsBuilder: (d, up, e, down) {
+          final tween = Tween(begin: const Offset(0, .5), end: Offset.zero);
+
+          return SlideTransition(
+            position: up.drive(tween),
+            child: down,
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -96,7 +110,7 @@ class MyApp extends StatelessWidget {
           "/adminDaftarProduk": (context) => AdminDaftarProduk(),
           "/adminDaftarBrand": (context) => AdminDaftarBrandScreen(),
         },
-        initialRoute: "/register",
+        initialRoute: "/splashScreen",
       ),
     );
   }

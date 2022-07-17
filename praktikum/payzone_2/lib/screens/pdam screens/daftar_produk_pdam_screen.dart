@@ -95,8 +95,8 @@ class _DaftarProdukPdamScreenState extends State<DaftarProdukPdamScreen> {
                                   // result.products!.length,
                                   child: Text(
                                     // "${result.products![index].label}",
-                                    "${viewModel.listProdukPdam.products?[index].label}",
-                                    // "PDAM AETRA JAKARTA",
+                                    // "${viewModel.listProdukPdam.products?[index].label}",
+                                    "PDAM AETRA JAKARTA",
                                     style: title9Ubuntu,
                                   ),
                                 ),

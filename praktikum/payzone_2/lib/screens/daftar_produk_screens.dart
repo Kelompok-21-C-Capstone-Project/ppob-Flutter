@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/screens/paket%20data%20screens/daftar_produk_paket_data_screen.dart';
 import 'package:payzone_2/screens/pdam%20screens/daftar_produk_pdam_screen.dart';
@@ -21,6 +20,12 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
     final viewModel =
         Provider.of<ListKategoriProdukViewModel>(context, listen: false);
 
+    final _screen = [
+      const DaftarProdukEWalletScreen(),
+      const DaftarProdukPdamScreen(),
+      const DaftarProdukPaketDataScreen(),
+    ];
+
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -31,18 +36,7 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
               height: 39,
               width: 75,
             )),
-        body:
-            // FutureBuilder(
-            //     future: getkategoruProduk(),
-            //     builder: (context, AsyncSnapshot<void> snapshot) {
-            //       if (snapshot.connectionState == ConnectionState.waiting) {
-            //         return const Center(
-            //           child: CircularProgressIndicator(),
-            //         );
-            //       } else {
-            //         final result = viewModel.listKategoriProduk;
-            //         return
-            Stack(
+        body: Stack(
           children: [
             Column(
               children: [
@@ -65,8 +59,9 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
               right: 5,
               top: 10,
               child: Container(
+                padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.all(20),
-                height: 217,
+                height: 200,
                 width: 312,
                 decoration: BoxDecoration(
                     color: putih,
@@ -74,76 +69,64 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
                     boxShadow: const [
                       BoxShadow(color: Colors.grey, blurRadius: 5)
                     ]),
-                // child: FutureBuilder<void>(
-                //     future: viewModel.getAllKategori(),
-                //     builder: (context, AsyncSnapshot<void> snapshot) {
-                //       if (snapshot.connectionState == ConnectionState.waiting) {
-                //         return const Center(
-                //           child: CircularProgressIndicator(),
-                //         );
-                //       } else {
-                //         final result = viewModel.listKategoriProduk;
-                //         return GridView.builder(
-                //             gridDelegate:
-                //                 const SliverGridDelegateWithFixedCrossAxisCount(
-                //               crossAxisCount: 3,
-                //               // mainAxisSpacing: 14,
-                //               // crossAxisSpacing: 10,
-                //             ),
-                //             itemCount: result.length,
-                //             itemBuilder: (context, index) {
-                //               return InkWell(
-                //                 child: Column(
-                //                   crossAxisAlignment: CrossAxisAlignment.center,
-                //                   children: [
-                //                     Container(
-                //                       height: 35,
-                //                       width: 35,
-                //                       decoration: BoxDecoration(
-                //                           color: primaryKuning1,
-                //                           borderRadius:
-                //                               BorderRadius.circular(5),
-                //                           boxShadow: const [
-                //                             BoxShadow(
-                //                                 color: Colors.grey,
-                //                                 blurRadius: 2)
-                //                           ]),
-                //                       child: Image.asset(
-                //                         "/assets/images/logo.png",
-                //                         fit: BoxFit.fill,
-                //                       ),
-                //                       // child:
-                //                       // SvgPicture.network("${result[index].icon}"),
-                //                       // child: Image.network("${result[index].icon}"),
-                //                     ),
-                //                     const SizedBox(height: 11),
-                //                     Text(
-                //                       "${result[index].name}",
-                //                       style: title3Sans,
-                //                     ),
-                //                   ],
-                //                 ),
-                //               );
-                //             });
-                //       }
-                //     }),
-
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
-                  children: List.generate(
-                    produks.length,
-                    (index) {
-                      return Center(
-                        child: CardItem(
-                          produk: produks[index],
-                          currentIndex: index,
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                child: FutureBuilder<void>(
+                    future: Provider.of<ListKategoriProdukViewModel>(context,
+                            listen: false)
+                        .getAllKategori(),
+                    builder: (context, AsyncSnapshot<void> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else {
+                        final result = viewModel.listKategoriProduk;
+                        return GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                          ),
+                          itemBuilder: (context, index) {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => _screen[index]));
+                              },
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 35,
+                                    width: 35,
+                                    decoration: BoxDecoration(
+                                        color: primaryKuning1,
+                                        borderRadius: BorderRadius.circular(5),
+                                        boxShadow: const [
+                                          BoxShadow(
+                                              color: Colors.grey, blurRadius: 2)
+                                        ]),
+                                    // child: Image.network(
+                                    //   "${result[index].icon}",
+                                    //   fit: BoxFit.fill,
+                                    // ),
+                                    child: Icon(
+                                      produks[index].icon,
+                                      size: 25,
+                                      color: onPrimary,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 11),
+                                  Text(
+                                    result[index].name.toString(),
+                                    style: title3Sans,
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                          itemCount: result.length,
+                        );
+                      }
+                    }),
               ),
             ),
             Positioned(
@@ -161,9 +144,6 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
         ));
   }
 }
-//         ),
-//   );
-// }
 
 Widget _buildPromo() {
   return Column(
@@ -174,7 +154,7 @@ Widget _buildPromo() {
       Container(
         // margin: const EdgeInsets.all(15),
         child: CarouselSlider.builder(
-          itemCount: 2,
+          itemCount: 4,
           itemBuilder: (context, index, id) {
             return GestureDetector(
               onTap: () {},
@@ -187,7 +167,7 @@ Widget _buildPromo() {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      "assets/images/promo/a.png",
+                      "assets/promo/a.png",
                       fit: BoxFit.cover,
                       // height: 155,
                       // width: 281,
@@ -279,81 +259,117 @@ Widget _buildHistory(context) {
 // }
 
 class Produk {
-  final String title;
   final IconData icon;
-  const Produk({required this.title, required this.icon});
+  const Produk({required this.icon});
 }
 
 List<Produk> produks = <Produk>[
-  Produk(title: 'E-Wallet', icon: Icons.account_balance_wallet_outlined),
-  Produk(title: 'PDAM', icon: Icons.water_drop),
-  Produk(title: 'Paket Data', icon: Icons.network_cell),
-  Produk(title: 'Pulsa', icon: Icons.smartphone),
-  Produk(title: 'PLN', icon: Icons.storm),
-  Produk(title: 'Internet dan TV Kabel', icon: Icons.tv),
+  Produk(icon: Icons.account_balance_wallet_outlined),
+  Produk(icon: Icons.water_drop),
+  Produk(icon: Icons.language),
+  Produk(icon: Icons.phonelink_ring),
+  Produk(icon: Icons.flash_on),
+  Produk(icon: Icons.monitor),
 ];
 
-class CardItem extends StatelessWidget {
-  CardItem({Key? key, required this.produk, required this.currentIndex})
-      : super(key: key);
-  final Produk produk;
-  final int currentIndex;
-  final _screen = [
-    DaftarProdukEWalletScreen(),
-    DaftarProdukPdamScreen(),
-    DaftarProdukPaketDataScreen(),
-  ];
+// class CardItem extends StatelessWidget {
+//   CardItem({Key? key, required this.produk, required this.currentIndex})
+//       : super(key: key);
+//   final Produk produk;
+//   final int currentIndex;
+//   final _screen = [
+//     DaftarProdukEWalletScreen(),
+//     DaftarProdukPdamScreen(),
+//     DaftarProdukPaketDataScreen(),
+//   ];
 
-  @override
-  Widget build(BuildContext context) {
-    // return FutureBuilder<void>(
-    //     future:
-    //         Provider.of<ListKategoriProdukViewModel>(context).getAllKategori(),
-    //     builder: (context, AsyncSnapshot<void> snapshot) {
-    //       if (snapshot.connectionState == ConnectionState.waiting) {
-    //         return const Center(
-    //           child: CircularProgressIndicator(),
-    //         );
-    //       } else {
-    //         final result = Provider.of<ListKategoriProdukViewModel>(context)
-    //             .listKategoriProduk;
+//   @override
+//   Widget build(BuildContext context) {
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: 35,
-          width: 35,
-          decoration: BoxDecoration(
-              color: primaryKuning1,
-              borderRadius: BorderRadius.circular(5),
-              boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 2)]),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => _screen[currentIndex]),
-                    );
-                  },
-                  // child: Image.network("${result[currentIndex].icon}")),
-                  child: Icon(produk.icon, size: 25, color: onPrimary))
-            ],
-          ),
-        ),
-        const SizedBox(height: 11),
-        Text(
-          // "${result[currentIndex].name}",
-          "${produk.title}",
-          style: title3Sans,
-        ),
-      ],
-    );
-  }
-}
-//         );
+
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.center,
+//       children: [
+//         Container(
+//           height: 35,
+//           width: 35,
+//           decoration: BoxDecoration(
+//               color: primaryKuning1,
+//               borderRadius: BorderRadius.circular(5),
+//               boxShadow: const [BoxShadow(color: Colors.grey, blurRadius: 2)]),
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.center,
+//             children: [
+//               InkWell(
+//                   onTap: () {
+//                     Navigator.push(
+//                       context,
+//                       MaterialPageRoute(
+//                           builder: (context) => _screen[currentIndex]),
+//                     );
+//                   },
+//                   // child: Image.network("${result[currentIndex].icon}")),
+//                   child: Icon(produk.icon, size: 25, color: onPrimary))
+//             ],
+//           ),
+//         ),
+//         const SizedBox(height: 11),
+//         // Text(
+//         //   // "${result[currentIndex].name}",
+//         //   "${produk.title}",
+//         //   style: title3Sans,
+//         // ),
+//       ],
+//     );
 //   }
 // }
+
+
+                                // if (result[index].id == "Paket Data") {
+                                //   return DaftarProdukPaketDataScreen();
+                                // }
+                                // else if (result[index].id == "PDAM") {
+                                //   return DaftarProdukPDAMScreen();
+                                // }
+                                // else if (result[index].id ==
+                                //     "E-Wallet") {
+                                //   return DaftarProdukEWalletScreen();
+                                // }
+
+                                // builder: (context) => viewModel
+                                //             .listKategoriProduk[index].id ==
+                                //         "Paket Data"
+                                //     ? const DaftarProdukPaketDataScreen()
+                                //     : viewModel.listKategoriProduk[index]
+                                //                 .id ==
+                                //             "PDAM"
+                                //         ? DaftarProdukPDAMScreen()
+                                //         : viewModel
+                                //                     .listKategoriProduk[
+                                //                         index]
+                                //                     .id ==
+                                //                 "E-Wallet"
+                                //             ? const DaftarProdukEWalletScreen()
+                                //             : null,
+                                // DaftarProdukKategoriScreen(
+                                //   kategori: result[index].kategori,
+                                // ),
+
+                // child: GridView.count(
+                //   crossAxisCount: 3,
+                //   crossAxisSpacing: 5,
+                //   mainAxisSpacing: 5,
+                //   children: List.generate(
+                //     produks.length,
+                //     (index) {
+                //       return Center(
+                //         child: CardItem(
+                //           produk: produks[index],
+                //           currentIndex: index,
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // ),
+
+

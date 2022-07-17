@@ -116,6 +116,12 @@ TextStyle register2 = GoogleFonts.ptSans(
     fontWeight: FontWeight.w700,
     color: primaryKuning1);
 
+TextStyle welcome = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    color: onSurface);
+
 TextStyle unactive =
     GoogleFonts.ubuntu(fontSize: 10, fontWeight: FontWeight.w500, color: icon);
 TextStyle unactive2 =

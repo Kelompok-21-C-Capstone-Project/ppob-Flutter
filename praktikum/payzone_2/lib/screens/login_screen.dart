@@ -22,6 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController inputUsername = TextEditingController();
   TextEditingController inputPhone = TextEditingController();
 
+  bool _obsecureText = true;
+
   late SharedPreferences logindata;
 
   String email = "";
@@ -107,24 +109,48 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
         backgroundColor: putih,
+        appBar: AppBar(
+          backgroundColor: primaryKuning1,
+          title: Image.asset(
+            "assets/images/logo.png",
+            fit: BoxFit.fill,
+            height: 44,
+            width: 86,
+          ),
+          centerTitle: true,
+        ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text(
+                "Selamat Datang",
+                style: welcome,
+                // textAlign: TextAlign.center,
+              ),
               const SizedBox(
                 height: 20,
               ),
-              const Text(
-                'Masuk',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
+              Image.asset(
+                "assets/images/login.jpeg",
+                fit: BoxFit.cover,
+                height: 208,
+                width: 230,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Login",
+                  style: welcome,
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               Form(
                 key: formKey,
@@ -159,9 +185,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                         return null;
                       },
-                      obscureText: true,
+                      obscureText: _obsecureText,
                       decoration: InputDecoration(
-
+                          suffixIcon: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _obsecureText = !_obsecureText;
+                              });
+                            },
+                            child: Icon(
+                              _obsecureText
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Colors.grey,
+                            ),
+                          ),
                           // prefixIcon: const Icon(Icons.lock),
                           hintStyle: title2Robo,
                           labelStyle: title1Robo,
@@ -239,22 +277,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       style: ElevatedButton.styleFrom(
                         primary: primaryKuning1,
-                        padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
+                        padding: const EdgeInsets.fromLTRB(120, 12, 120, 12),
                       ),
                       child: Text('Masuk', style: buttonText),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 5,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text('Belum memiliki akun?'),
+                        Text(
+                          'Belum punya akun?',
+                          style: register,
+                        ),
                         TextButton(
                           onPressed: () {
                             Navigator.pushNamed(context, "/register");
                           },
-                          child: Text('Buat Akun', style: buttonText),
+                          child: Text('Buat Akun', style: register2),
                         ),
                       ],
                     ),
