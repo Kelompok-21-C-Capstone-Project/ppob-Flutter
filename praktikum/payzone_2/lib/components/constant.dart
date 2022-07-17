@@ -70,6 +70,8 @@ TextStyle title8Ubuntu = GoogleFonts.ubuntu(
     fontSize: 15, fontWeight: FontWeight.w500, color: onSurface);
 TextStyle title9Ubuntu = GoogleFonts.ubuntu(
     fontSize: 12, fontWeight: FontWeight.w400, color: namaProduk);
+TextStyle title10Ubuntu = GoogleFonts.ubuntu(
+    fontSize: 14, fontWeight: FontWeight.w500, color: namaProduk);
 
 // font roboto
 
@@ -115,6 +117,12 @@ TextStyle register2 = GoogleFonts.ptSans(
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: primaryKuning1);
+
+TextStyle keluar = GoogleFonts.ptSans(
+    fontStyle: FontStyle.normal,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    color: onPrimary);
 
 TextStyle welcome = GoogleFonts.ptSans(
     fontStyle: FontStyle.normal,

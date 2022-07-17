@@ -202,9 +202,8 @@ class _MetodePembayaranPdamScreenState
             Center(
               child: ElevatedButton(
                   onPressed: () {
-                    // kembali ke home page
-                    // masih eror di bagian ke home page muncul panah kembali
-                    Navigator.pushNamed(context, "/home");
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/home", (route) => false);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,

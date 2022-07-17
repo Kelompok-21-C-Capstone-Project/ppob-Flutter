@@ -23,6 +23,7 @@ class _DaftarProdukPaketDataScreenState
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
+          backgroundColor: putih,
           title: Text(
             "Paket Data",
             style: appBar,

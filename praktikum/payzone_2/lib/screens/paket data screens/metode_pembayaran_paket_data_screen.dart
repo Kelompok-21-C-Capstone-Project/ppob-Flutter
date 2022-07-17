@@ -201,7 +201,8 @@ class _MetodePembayaranPaketDataScreenState
             Center(
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/home");
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/home", (route) => false);
                   },
                   style: ElevatedButton.styleFrom(
                     primary: primaryKuning1,

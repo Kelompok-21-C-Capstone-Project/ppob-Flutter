@@ -80,29 +80,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  // login() async {
-  //   dynamic login =
-  //       await UserApiServices().login(inputEmail.text, inputPassword.text);
-  //   SharedPreferences sharedPref = await SharedPreferences.getInstance();
-  //   if (login['message'] == 'Success') {
-  //     setState(
-  //       () {
-  //         sharedPref.setString('token', login['data']['token']);
-  //         sharedPref.setString('useri!', login['data']['user_id']);
-  //       },
-  //     );
-  //   }
-  // }
-
-  // void checkLogin() async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   final id = logindata.getString("id");
-  //   if (id != 0 && id != null) {
-  //     Navigator.pushNamed(context, "/home");
-  //     print("id : $id");
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<UserViewModel>(context);
@@ -214,15 +191,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        // loginUsers();
-                        // postLogin();
-
                         if (formKey.currentState!.validate()) {
-                          // login();
                           await viewModel.loginUser(
                               inputEmail.text, inputPassword.text);
-                          // await viewModel
-                          //     .tokenize(viewModel.resultUser.token.toString());
 
                           if (viewModel.resultUser != null) {
                             saveData(
@@ -230,32 +201,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               // viewModel.resultRegis.id.toString(),
                             );
 
-                            // untuk kirim token id ke server
-                            // await viewModel.tokenize(
-                            //     viewModel.resultUser.token.toString());
-                            // if (viewModel.tokenModel.id != null) {
-                            //   saveData(
-                            //     viewModel.tokenModel.id.toString(),
-                            //     // viewModel.resultUser.token!,
-                            //   );
-                            // } else {
-                            //   showDialog(
-                            //     context: context,
-                            //     builder: (context) => AlertDialog(
-                            //       title: const Text("Error"),
-                            //       content: Text("Coba Lagi!"),
-                            //       actions: [
-                            //         FlatButton(
-                            //           child: const Text("OK"),
-                            //           onPressed: () {
-                            //             Navigator.pop(context);
-                            //           },
-                            //         ),
-                            //       ],
-                            //     ),
-                            //   );
-                            // }
-                            Navigator.pushNamed(context, "/home");
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, "/home", (route) => false);
                           } else {
                             showDialog(
                               context: context,
@@ -308,16 +255,31 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 }
 
-// setVisit() async {
-//   SharedPreferences visit = await SharedPreferences.getInstance();
-//   visit.setBool("alreadyVisit", true);
-// }
-
-// getVisit() async {
-//   SharedPreferences visit = await SharedPreferences.getInstance();
-//   bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
-//   return alreadyVisit;
-// }
+                            // untuk kirim token id ke server
+                            // await viewModel.tokenize(
+                            //     viewModel.resultUser.token.toString());
+                            // if (viewModel.tokenModel.id != null) {
+                            //   saveData(
+                            //     viewModel.tokenModel.id.toString(),
+                            //     // viewModel.resultUser.token!,
+                            //   );
+                            // } else {
+                            //   showDialog(
+                            //     context: context,
+                            //     builder: (context) => AlertDialog(
+                            //       title: const Text("Error"),
+                            //       content: Text("Coba Lagi!"),
+                            //       actions: [
+                            //         FlatButton(
+                            //           child: const Text("OK"),
+                            //           onPressed: () {
+                            //             Navigator.pop(context);
+                            //           },
+                            //         ),
+                            //       ],
+                            //     ),
+                            //   );
+                            // }
 
 
                         // if (formKey.currentState!.validate()) {

@@ -5,6 +5,7 @@ import 'package:payzone_2/screens/paket%20data%20screens/daftar_produk_paket_dat
 import 'package:payzone_2/screens/pdam%20screens/daftar_produk_pdam_screen.dart';
 import 'package:payzone_2/view%20model/list_produk_kategori_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'e-wallet screens/daftar_produk_e_wallet_screen.dart';
 
 class DaftarProdukScreens extends StatefulWidget {
@@ -16,14 +17,35 @@ class DaftarProdukScreens extends StatefulWidget {
 
 class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
   @override
-  Widget build(BuildContext context) {
-    final viewModel =
-        Provider.of<ListKategoriProdukViewModel>(context, listen: false);
+  void initState() {
+    checkLogin();
+    super.initState();
+  }
 
+  checkLogin() async {
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? token = prefs.getString('token');
+    // if (token != null) {
+    //   // Navigator.pushReplacementNamed(context, "/home");
+    // }
+
+    // bool visit = await getVisit();
+    // setVisit();
+    // if (visit == true) {
+    //   // case ketika not the first time user datang
+    //   // Navigator.of(context).pushNamed('/home');
+    // } else {
+    //   // case ketika user pertama kali datang
+    //   Navigator.pushNamed(context, "/profile");
+    // }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final _screen = [
-      const DaftarProdukEWalletScreen(),
-      const DaftarProdukPdamScreen(),
       const DaftarProdukPaketDataScreen(),
+      const DaftarProdukPdamScreen(),
+      const DaftarProdukEWalletScreen(),
     ];
 
     return Scaffold(
@@ -77,7 +99,10 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return const Center(child: CircularProgressIndicator());
                       } else {
-                        final result = viewModel.listKategoriProduk;
+                        final result = Provider.of<ListKategoriProdukViewModel>(
+                                context,
+                                listen: false)
+                            .listKategoriProduk;
                         return GridView.builder(
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
@@ -142,6 +167,17 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
             ),
           ],
         ));
+  }
+
+  setVisit() async {
+    SharedPreferences visit = await SharedPreferences.getInstance();
+    visit.setBool("alreadyVisit", true);
+  }
+
+  getVisit() async {
+    SharedPreferences visit = await SharedPreferences.getInstance();
+    bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
+    return alreadyVisit;
   }
 }
 

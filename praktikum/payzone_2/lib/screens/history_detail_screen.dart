@@ -135,7 +135,8 @@ class _HistoryDetailScreenState extends State<HistoryDetailScreen> {
             Center(
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/home");
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, "/home", (route) => false);
                   },
                   style: ButtonStyle(
                       // foregroundColor:

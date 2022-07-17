@@ -120,14 +120,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     Text("${email}", style: title8Ubuntu),
                     const SizedBox(height: 5),
-                    // Text(
-                    //   "087864420972",
-                    //   style: TextStyle(
-                    //       fontFamily: GoogleFonts.ptSans().fontFamily,
-                    //       fontWeight: FontWeight.w400,
-                    //       fontSize: 12,
-                    //       color: onSurface),
-                    // ),
+                    Text(
+                      "087864420972",
+                      style: TextStyle(
+                          fontFamily: GoogleFonts.ptSans().fontFamily,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: onSurface),
+                    ),
                   ],
                 ),
               ),
@@ -144,9 +144,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 _menuDanInfo(),
                 ListTile(
                   onTap: () {
-                    deleteData();
-                    // logindata.clear();
-                    Navigator.pushNamed(context, "/login");
+                    // deleteData();
+                    // Navigator.pushNamed(context, "/login");
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5.0))),
+                              title: Align(
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Konfirmasi Keluar ",
+                                  style: title10Ubuntu,
+                                ),
+                              ),
+                              content: Text(
+                                "Apakah anda yakin ingin keluar?",
+                                textAlign: TextAlign.center,
+                                style: title7Sans,
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                    onPressed: () => Navigator.pop(context),
+                                    style: ButtonStyle(
+                                        // foregroundColor:
+                                        //     MaterialStateProperty.all<Color>(Colors.white),
+                                        padding: MaterialStateProperty.all<
+                                            EdgeInsets>(
+                                          const EdgeInsets.fromLTRB(
+                                              43, 12, 43, 12),
+                                        ),
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                                putih),
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                side: BorderSide(
+                                                    color: primaryKuning1)))),
+                                    child: Text(
+                                      "Batal",
+                                      style: register2,
+                                    )),
+                                const SizedBox(width: 10),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                      deleteData();
+                                      Navigator.pushNamedAndRemoveUntil(
+                                          context, "/login", (route) => false);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: primaryKuning1,
+                                      padding: const EdgeInsets.fromLTRB(
+                                          43, 12, 43, 12),
+                                    ),
+                                    child: Text(
+                                      "Keluar",
+                                      style: keluar,
+                                    )),
+                              ],
+                            ));
                   },
                   leading: Icon(
                     Icons.logout,
@@ -249,11 +310,11 @@ List<CustomIcon> customIcon = [
   ),
   CustomIcon(
     nama: "Syarat dan Ketentuan",
-    icon: Icons.account_circle,
+    icon: Icons.sticky_note_2,
   ),
   CustomIcon(
     nama: "Kebijakan dan Privasi",
-    icon: Icons.account_circle,
+    icon: Icons.local_police,
   ),
   // CustomIcon(
   //   nama: "Keluar",

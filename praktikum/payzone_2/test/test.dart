@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:payzone_2/main.dart';
+import 'package:payzone_2/service/client_daftar_produk_api_services.dart';
 import 'package:payzone_2/service/list_produk_kategori_api_services.dart';
 import 'package:payzone_2/service/metode_pembayaran_api_services.dart';
 import 'package:payzone_2/service/user_api_services.dart';
@@ -40,6 +41,14 @@ void main() {
     test('Metode Pembayaran Api Test', () async {
       var metodePembayaran = await MetodePembayaranApiServices().getMetode();
       expect(metodePembayaran, isNotEmpty);
+    });
+    test('Daftar Produk Paket Data', () async {
+      var produkPaket = await DaftarProdukApiServices().daftarProdukPaketData();
+      expect(produkPaket, isNotEmpty);
+    });
+    test('Daftar Produk EWallet', () async {
+      var produkEWallet = await DaftarProdukApiServices().daftarProdukEWallet();
+      expect(produkEWallet, isNotEmpty);
     });
   });
 }

@@ -208,7 +208,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           // saveData();
                           saveData("${viewModel.resultRegis.id}");
 
-                          Navigator.pushNamed(context, "/login");
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, "/login", (route) => false);
                         } else {
                           showDialog(
                             context: context,

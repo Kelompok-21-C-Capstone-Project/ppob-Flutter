@@ -22,41 +22,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
     super.initState();
   }
 
-  // void checkLogin(String id) async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   final token = logindata.getString('token') ?? 'No token';
-  //   final id = logindata.getString('id') ?? 'No id';
-
-  //   if (id != 0 && id != null) {
-  //     Navigator.pushNamed(context, "/home");
-  //     print("ini id : $id");
-  //   } else {
-  //     Navigator.pushNamed(context, "/login");
-  //   }
-  //   // logindata.getBool("login");
-  //   // final token = logindata.getString("token");
-  //   // Navigator.pushNamed(context, '/history');
-  // }
-
-  // checkUser(String identifier) async {
-  //   logindata = await SharedPreferences.getInstance();
-  //   final token = logindata.getString('token') ?? 'No token';
-  //   final id = logindata.getString('identifier') ?? 'No id';
-
-  //   if (id != 0 && id != null) {
-  //     Navigator.pushNamed(context, "/home");
-  //     print("ini id : $id");
-  //   } else {
-  //     Navigator.pushNamed(context, "/login");
-  //   }
-  // }
-
-  // checkLogin() async {
-  //   SharedPreferences sher = await SharedPreferences.getInstance();
-  //   final token = sher.getString('token') ?? 'No token';
-  //   final id = sher.getString('id') ?? 'No id';
-  // }
-
   getData() async {
     String token = "";
     String akunId = "";
@@ -72,8 +37,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<HistoryViewModel>(context);
-    print("print user id : ${widget.userById}");
+    // final viewModel = Provider.of<HistoryViewModel>(context);
+    // print("print user id : ${widget.userById}");
     return Scaffold(
         backgroundColor: putih,
         appBar: AppBar(
@@ -81,120 +46,124 @@ class _HistoryScreenState extends State<HistoryScreen> {
           title: Text("Riwayat Transaksi", style: appBar),
           centerTitle: true,
         ),
-        body: FutureBuilder<void>(
-            future: viewModel.getAllResultHistory(
-                widget.userById.toString(), widget.token.toString()),
-            builder: (context, AsyncSnapshot<void> snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else {
-                final result = viewModel.resultsHistoryId;
-                print("print result : $result");
-                var index;
-                return SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
+        body:
+            // FutureBuilder<void>(
+            //     future: viewModel.getAllResultHistory(
+            //         widget.userById.toString(), widget.token.toString()),
+            //     builder: (context, AsyncSnapshot<void> snapshot) {
+            //       if (snapshot.connectionState == ConnectionState.waiting) {
+            //         return const Center(
+            //           child: CircularProgressIndicator(),
+            //         );
+            //       } else {
+            //         final result = viewModel.resultsHistoryId;
+            //         print("print result : $result");
+            //         var index;
+            //         return
+            SingleChildScrollView(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text("Status : ", style: title10Sans),
+                  Row(
+                    children: [_buildStatusCard()],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/historyDetail");
+                },
+                child: Container(
+                  height: 98,
+                  width: 312,
+                  decoration: BoxDecoration(
+                      color: putih,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.grey, blurRadius: 3)
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        children: [
-                          Text("Status : ", style: title10Sans),
-                          Row(
-                            children: [_buildStatusCard()],
-                          ),
-                        ],
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, "/historyDetail");
-                        },
-                        child: Container(
-                          height: 98,
-                          width: 312,
-                          decoration: BoxDecoration(
-                              color: putih,
-                              borderRadius: BorderRadius.circular(10),
-                              boxShadow: const [
-                                BoxShadow(color: Colors.grey, blurRadius: 3)
-                              ]),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(8),
-                                width: 41,
-                                height: 41,
-                                decoration: BoxDecoration(
-                                    color: primaryKuning1,
-                                    borderRadius: BorderRadius.circular(3),
-                                    boxShadow: const [
-                                      BoxShadow(
-                                          color: Colors.grey, blurRadius: 2)
-                                    ]),
-                                child: Icon(
-                                  Icons.account_balance_wallet_outlined,
-                                  size: 25,
-                                  color: onPrimary,
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 7),
-                                  Container(
-                                    width: 61,
-                                    height: 21,
-                                    padding: const EdgeInsets.all(2),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: variant),
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
-                                    child: Text(
-                                      "${result[index].status}",
-                                      style: selesai,
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    // child: Text(
-                                    //   "Selesai",
-                                    //   style: selesai,
-                                    //   textAlign: TextAlign.center,
-                                    // ),
-                                  ),
-                                  const SizedBox(height: 2),
-                                  Text("${result[index].createdAt}",
-                                      style: title3Sans),
-                                  Text("${result[index].label}",
-                                      style: title11Sans),
-                                  Text("${result[index].id}",
-                                      style: title3Sans),
-                                  Text("${result[index].price}",
-                                      style: title11Sans),
-                                  // Text("30/MEI/2022  19.40 WIB", style: title3Sans),
-                                  // Text("OVO 20.000 (08313298343)", style: title11Sans),
-                                  // Text("Order ID : Payzone_71203829",
-                                  //     style: title3Sans),
-                                  // Text("Rp. 21.500", style: title11Sans),
-                                ],
-                              ),
-                            ],
-                          ),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 41,
+                        height: 41,
+                        decoration: BoxDecoration(
+                            color: primaryKuning1,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.grey, blurRadius: 2)
+                            ]),
+                        child: Icon(
+                          Icons.account_balance_wallet_outlined,
+                          size: 25,
+                          color: onPrimary,
                         ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 7),
+                          Container(
+                            width: 61,
+                            height: 21,
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: primaryKuning1),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Text(
+                              // "${result[index].status}",
+                              "Pending",
+                              style: pending,
+                              textAlign: TextAlign.center,
+                            ),
+                            // child: Text(
+                            //   "Selesai",
+                            //   style: selesai,
+                            //   textAlign: TextAlign.center,
+                            // ),
+                          ),
+                          const SizedBox(height: 2),
+                          // Text("${result[index].createdAt}",
+                          //     style: title3Sans),
+                          // Text("${result[index].label}",
+                          //     style: title11Sans),
+                          // Text("${result[index].id}",
+                          //     style: title3Sans),
+                          // Text("${result[index].price}",
+                          //     style: title11Sans),
+                          Text("30/MEI/2022  19.40 WIB", style: title3Sans),
+                          Text("OVO 20.000 (08313298343)", style: title11Sans),
+                          Text("Order ID : Payzone_71203829",
+                              style: title3Sans),
+                          Text("Rp. 21.500", style: title11Sans),
+                        ],
                       ),
                     ],
                   ),
-                );
-              }
-            }));
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 }
+//             ));
+//   }
+// }
 
 Widget _buildStatusCard() {
   return Container(
     margin: const EdgeInsets.symmetric(vertical: 12),
     height: 30,
-    width: 280,
+    width: 267,
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
@@ -254,7 +223,6 @@ Widget _buildStatusCard() {
     ),
   );
 }
-
 
 // class HistoryScreen extends StatefulWidget {
 //   final int? userTransactionId;
