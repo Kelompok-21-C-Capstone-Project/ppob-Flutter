@@ -360,7 +360,7 @@ class _PembayaranPdamScreenState extends State<PembayaranPdamScreen> {
                 children: [
                   Text("OVO 25", style: title3Sans),
                   // const SizedBox(height: 5),
-                  Text("08xxxxxxxxx", style: title3Sans),
+                  Text("087864420972", style: title3Sans),
                   // const SizedBox(height: 5),
                   Text("Rp. 21.500", style: title3Sans),
                   // const SizedBox(height: 5),

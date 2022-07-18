@@ -102,7 +102,7 @@ class _PembayaranEWalletScreenState extends State<PembayaranEWalletScreen> {
                               ),
                               // const SizedBox(height: 5),
                               Text(
-                                "08xxxxxxxxx",
+                                "087864420972",
                                 style: title3Sans,
                               ),
                               // const SizedBox(height: 5),
@@ -393,7 +393,7 @@ Widget _buildBottomSheet() {
               children: [
                 Text("OVO 25", style: title3Sans),
                 // const SizedBox(height: 5),
-                Text("08xxxxxxxxx", style: title3Sans),
+                Text("087864420972", style: title3Sans),
                 // const SizedBox(height: 5),
                 Text("Rp. 21.500", style: title3Sans),
                 // const SizedBox(height: 5),
