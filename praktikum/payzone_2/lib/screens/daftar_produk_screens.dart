@@ -25,6 +25,8 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
       const DaftarProdukEWalletScreen(),
       const DaftarProdukPdamScreen(),
       const DaftarProdukPaketDataScreen(),
+      // pulsa, pln, tvKabel hanya Dummy, dikarenakan
+      // Produk Utama dari payzone hanya E-Wallet, Pdam, Paket Data
       const DaftarProdukPulsa(),
       const DaftarProdukPln(),
       const DaftarProdukTvkabel(),
