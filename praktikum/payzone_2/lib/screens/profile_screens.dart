@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/screens/kebijakan_dan_privacy.dart';
+import 'package:payzone_2/screens/profile_detail_screen.dart';
+import 'package:payzone_2/screens/syarat_dan_ketentuan.dart';
 import 'package:payzone_2/view%20model/user_view_model.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -120,14 +123,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                     Text("${email}", style: title8Ubuntu),
                     const SizedBox(height: 5),
-                    Text(
-                      "087864420972",
-                      style: TextStyle(
-                          fontFamily: GoogleFonts.ptSans().fontFamily,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          color: onSurface),
-                    ),
+                    // Text(
+                    //   "087864420972",
+                    //   style: TextStyle(
+                    //       fontFamily: GoogleFonts.ptSans().fontFamily,
+                    //       fontWeight: FontWeight.w400,
+                    //       fontSize: 12,
+                    //       color: onSurface),
+                    // ),
                   ],
                 ),
               ),
@@ -277,6 +280,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget _menuDanInfo() {
+    final screen = [
+      const ProfileDetail(),
+      const SyaratdanKetentuan(),
+      const KebijakandanPrivacy()
+    ];
     return Container(
       height: 200,
       child: ListView.builder(
@@ -287,7 +295,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             title: Text("${customIcon[index].nama}", style: title3Sans),
             trailing: Icon(Icons.arrow_forward_ios, color: onSurface, size: 12),
             onTap: () {
-              Navigator.pushNamed(context, "/profileDetail");
+              // Navigator.pushNamed(context, "/profileDetail");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => screen[index],
+                  ));
             },
           );
         },

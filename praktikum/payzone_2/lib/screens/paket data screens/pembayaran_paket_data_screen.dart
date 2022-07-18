@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
 import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PembayaranPaketDataScreen extends StatefulWidget {
+  // final String? paketId;
   const PembayaranPaketDataScreen({Key? key}) : super(key: key);
 
   @override
@@ -12,13 +14,10 @@ class PembayaranPaketDataScreen extends StatefulWidget {
 }
 
 class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   dynamic val = -1;
 
   @override
   Widget build(BuildContext context) {
-    // final result =
-    //     Provider.of<MetodePembayaranViewModel>(context).resultMetodePembayaran;
     return Scaffold(
       backgroundColor: putih,
       appBar: AppBar(
@@ -40,6 +39,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
               style: title9Sans,
             ),
             // const SizedBox(height: 12),
+
             Consumer<DaftarProdukViewModel>(
               builder: (context, value, child) => Container(
                 padding: const EdgeInsets.only(
@@ -82,7 +82,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                           children: [
                             Text(
                               "OVO 25",
-                              // "${value.listProdukEWallet.products?[index].label}",
+                              // "${result.products![index].label}",
                               style: title3Sans,
                             ),
                             // const SizedBox(height: 5),
@@ -93,7 +93,7 @@ class _PembayaranPaketDataScreenState extends State<PembayaranPaketDataScreen> {
                             // const SizedBox(height: 5),
                             Text(
                               "Rp. 21.500",
-                              // "${value.listProdukEWallet.products?[index].price}",
+                              // "${result.products![index].price}",
                               style: title3Sans,
                             ),
                             // const SizedBox(height: 5),

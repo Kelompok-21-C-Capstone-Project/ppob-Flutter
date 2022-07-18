@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/screens/paket%20data%20screens/pembayaran_paket_data_screen.dart';
 import 'package:payzone_2/view%20model/client_daftar_produk_view_model..dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DaftarProdukPaketDataScreen extends StatefulWidget {
   const DaftarProdukPaketDataScreen({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class _DaftarProdukPaketDataScreenState
     extends State<DaftarProdukPaketDataScreen> {
   final formKey = GlobalKey<FormState>();
   TextEditingController inputNomorHp = TextEditingController();
+  late SharedPreferences logindata;
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +86,9 @@ class _DaftarProdukPaketDataScreenState
 // }
 
 Widget _buildPaket(context) {
+  final formKey = GlobalKey<FormState>();
+  TextEditingController inputNomorHp = TextEditingController();
+  SharedPreferences logindata;
 // Container yang menampung opsi Voucher
   return FutureBuilder<void>(
       future: Provider.of<DaftarProdukViewModel>(context, listen: false)
@@ -124,8 +130,33 @@ Widget _buildPaket(context) {
                         ),
                         itemBuilder: (context, index) {
                           return InkWell(
+                              // onTap: () async {
+                              //   final isValidForm =
+                              //       formKey.currentState!.validate();
+                              //   String nomor = inputNomorHp.text;
+
+                              //   if (isValidForm) {
+                              //     SharedPreferences sher =
+                              //         await SharedPreferences.getInstance();
+                              //     sher.setString("nomor", nomor);
+                              //     Navigator.pushNamed(
+                              //         context, "/pembayaranPaketData");
+
+                              //     // Navigator.pushNamedAndRemoveUntil(context,
+                              //     //     HomeScreen.route, (route) => false);
+                              //   }
+                              // },
                               onTap: () => Navigator.pushNamed(
                                   context, "/pembayaranPaketData"),
+                              // onTap: () {
+                              //   Navigator.push(
+                              //       context,
+                              //       MaterialPageRoute(
+                              //           builder: (context) =>
+                              //               PembayaranPaketDataScreen(
+                              //                 paketId: result.id,
+                              //               )));
+                              // },
                               child: Container(
                                 padding: const EdgeInsets.only(
                                     top: 32, left: 12, bottom: 32, right: 12),

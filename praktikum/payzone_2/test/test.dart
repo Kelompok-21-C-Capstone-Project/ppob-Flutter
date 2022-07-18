@@ -50,5 +50,9 @@ void main() {
       var produkEWallet = await DaftarProdukApiServices().daftarProdukEWallet();
       expect(produkEWallet, isNotEmpty);
     });
+    test('Daftar Produk PDAM', () async {
+      var produkPdam = await DaftarProdukApiServices().daftarProdukPdam();
+      expect(produkPdam, isNotEmpty);
+    });
   });
 }

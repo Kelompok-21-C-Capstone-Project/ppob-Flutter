@@ -1,6 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:payzone_2/components/constant.dart';
+import 'package:payzone_2/screens/daftar_produk_pln.dart';
+import 'package:payzone_2/screens/daftar_produk_pulsa.dart';
+import 'package:payzone_2/screens/daftar_produk_tv_kabel.dart';
 import 'package:payzone_2/screens/paket%20data%20screens/daftar_produk_paket_data_screen.dart';
 import 'package:payzone_2/screens/pdam%20screens/daftar_produk_pdam_screen.dart';
 import 'package:payzone_2/view%20model/list_produk_kategori_view_model.dart';
@@ -17,35 +20,14 @@ class DaftarProdukScreens extends StatefulWidget {
 
 class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
   @override
-  void initState() {
-    checkLogin();
-    super.initState();
-  }
-
-  checkLogin() async {
-    // SharedPreferences prefs = await SharedPreferences.getInstance();
-    // String? token = prefs.getString('token');
-    // if (token != null) {
-    //   // Navigator.pushReplacementNamed(context, "/home");
-    // }
-
-    // bool visit = await getVisit();
-    // setVisit();
-    // if (visit == true) {
-    //   // case ketika not the first time user datang
-    //   // Navigator.of(context).pushNamed('/home');
-    // } else {
-    //   // case ketika user pertama kali datang
-    //   Navigator.pushNamed(context, "/profile");
-    // }
-  }
-
-  @override
   Widget build(BuildContext context) {
     final _screen = [
-      const DaftarProdukPaketDataScreen(),
-      const DaftarProdukPdamScreen(),
       const DaftarProdukEWalletScreen(),
+      const DaftarProdukPdamScreen(),
+      const DaftarProdukPaketDataScreen(),
+      const DaftarProdukPulsa(),
+      const DaftarProdukPln(),
+      const DaftarProdukTvkabel(),
     ];
 
     return Scaffold(
@@ -77,83 +59,67 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
               ],
             ),
             Positioned(
-              left: 5,
-              right: 5,
-              top: 10,
-              child: Container(
-                padding: const EdgeInsets.all(15),
-                margin: const EdgeInsets.all(20),
-                height: 200,
-                width: 312,
-                decoration: BoxDecoration(
-                    color: putih,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const [
-                      BoxShadow(color: Colors.grey, blurRadius: 5)
-                    ]),
-                child: FutureBuilder<void>(
-                    future: Provider.of<ListKategoriProdukViewModel>(context,
-                            listen: false)
-                        .getAllKategori(),
-                    builder: (context, AsyncSnapshot<void> snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Center(child: CircularProgressIndicator());
-                      } else {
-                        final result = Provider.of<ListKategoriProdukViewModel>(
-                                context,
-                                listen: false)
-                            .listKategoriProduk;
-                        return GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                          ),
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => _screen[index]));
-                              },
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 35,
-                                    width: 35,
-                                    decoration: BoxDecoration(
-                                        color: primaryKuning1,
-                                        borderRadius: BorderRadius.circular(5),
-                                        boxShadow: const [
-                                          BoxShadow(
-                                              color: Colors.grey, blurRadius: 2)
-                                        ]),
-                                    // child: Image.network(
-                                    //   "${result[index].icon}",
-                                    //   fit: BoxFit.fill,
-                                    // ),
-                                    child: Icon(
-                                      produks[index].icon,
-                                      size: 25,
-                                      color: onPrimary,
-                                    ),
+                left: 5,
+                right: 5,
+                top: 10,
+                child: Container(
+                    padding: const EdgeInsets.all(15),
+                    margin: const EdgeInsets.all(20),
+                    height: 200,
+                    width: 312,
+                    decoration: BoxDecoration(
+                        color: putih,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(color: Colors.grey, blurRadius: 5)
+                        ]),
+                    child: GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                        ),
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => _screen[index]));
+                            },
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: primaryKuning1,
+                                      borderRadius: BorderRadius.circular(5),
+                                      boxShadow: const [
+                                        BoxShadow(
+                                            color: Colors.grey, blurRadius: 2)
+                                      ]),
+                                  // child: Image.network(
+                                  //   "${result[index].icon}",
+                                  //   fit: BoxFit.fill,
+                                  // ),
+                                  child: Icon(
+                                    produks[index].icon,
+                                    size: 25,
+                                    color: onPrimary,
                                   ),
-                                  const SizedBox(height: 11),
-                                  Text(
-                                    result[index].name.toString(),
-                                    style: title3Sans,
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                          itemCount: result.length,
-                        );
-                      }
-                    }),
-              ),
-            ),
+                                ),
+                                const SizedBox(height: 11),
+                                Text(
+                                  "${produks[index].name}",
+                                  // result[index].name.toString(),
+                                  style: title3Sans,
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        itemCount: produks.length))),
             Positioned(
               left: 24,
               right: 24,
@@ -167,17 +133,6 @@ class _DaftarProdukScreensState extends State<DaftarProdukScreens> {
             ),
           ],
         ));
-  }
-
-  setVisit() async {
-    SharedPreferences visit = await SharedPreferences.getInstance();
-    visit.setBool("alreadyVisit", true);
-  }
-
-  getVisit() async {
-    SharedPreferences visit = await SharedPreferences.getInstance();
-    bool? alreadyVisit = visit.getBool("alreadyVisit") ?? false;
-    return alreadyVisit;
   }
 }
 
@@ -295,17 +250,18 @@ Widget _buildHistory(context) {
 // }
 
 class Produk {
+  final String? name;
   final IconData icon;
-  const Produk({required this.icon});
+  const Produk({this.name, required this.icon});
 }
 
 List<Produk> produks = <Produk>[
-  Produk(icon: Icons.account_balance_wallet_outlined),
-  Produk(icon: Icons.water_drop),
-  Produk(icon: Icons.language),
-  Produk(icon: Icons.phonelink_ring),
-  Produk(icon: Icons.flash_on),
-  Produk(icon: Icons.monitor),
+  Produk(name: "Uang Elektronik", icon: Icons.account_balance_wallet_outlined),
+  Produk(name: "Air PDAM", icon: Icons.water_drop),
+  Produk(name: "Paket Data", icon: Icons.language),
+  Produk(name: "Pulsa ", icon: Icons.phonelink_ring),
+  Produk(name: "PLN", icon: Icons.flash_on),
+  Produk(name: "TV Kabel", icon: Icons.monitor),
 ];
 
 // class CardItem extends StatelessWidget {

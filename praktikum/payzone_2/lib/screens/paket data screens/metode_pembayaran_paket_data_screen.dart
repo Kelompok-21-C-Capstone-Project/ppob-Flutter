@@ -74,8 +74,8 @@ class _MetodePembayaranPaketDataScreenState
               height: 36,
               width: 360,
               color: bgTotal,
-              padding:
-                  EdgeInsets.only(left: 23, top: 12, bottom: 12, right: 23),
+              padding: const EdgeInsets.only(
+                  left: 23, top: 12, bottom: 12, right: 23),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -98,10 +98,13 @@ class _MetodePembayaranPaketDataScreenState
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: Text(
-                              //tengah
-                              "Pembayaran Berhasil",
-                              style: title4Ubuntu,
+                            title: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Pembayaran Berhasil",
+                                style: title4Ubuntu,
+                                textAlign: TextAlign.center,
+                              ),
                             ),
                             content: Text(
                               "Pembayaran telah terverifikasi, Silahkan lihat status pemesananmu di History Transaksi",

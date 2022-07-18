@@ -150,6 +150,162 @@ class _HistoryScreenState extends State<HistoryScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/historyDetail");
+                },
+                child: Container(
+                  height: 98,
+                  width: 312,
+                  decoration: BoxDecoration(
+                      color: putih,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.grey, blurRadius: 3)
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 41,
+                        height: 41,
+                        decoration: BoxDecoration(
+                            color: primaryKuning1,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.grey, blurRadius: 2)
+                            ]),
+                        child: Icon(
+                          Icons.account_balance_wallet_outlined,
+                          size: 25,
+                          color: onPrimary,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 7),
+                          Container(
+                            width: 61,
+                            height: 21,
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: primaryKuning1),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Text(
+                              // "${result[index].status}",
+                              "Pending",
+                              style: pending,
+                              textAlign: TextAlign.center,
+                            ),
+                            // child: Text(
+                            //   "Selesai",
+                            //   style: selesai,
+                            //   textAlign: TextAlign.center,
+                            // ),
+                          ),
+                          const SizedBox(height: 2),
+                          // Text("${result[index].createdAt}",
+                          //     style: title3Sans),
+                          // Text("${result[index].label}",
+                          //     style: title11Sans),
+                          // Text("${result[index].id}",
+                          //     style: title3Sans),
+                          // Text("${result[index].price}",
+                          //     style: title11Sans),
+                          Text("30/MEI/2022  19.40 WIB", style: title3Sans),
+                          Text("OVO 20.000 (08313298343)", style: title11Sans),
+                          Text("Order ID : Payzone_71203829",
+                              style: title3Sans),
+                          Text("Rp. 21.500", style: title11Sans),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, "/historyDetail");
+                },
+                child: Container(
+                  height: 98,
+                  width: 312,
+                  decoration: BoxDecoration(
+                      color: putih,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.grey, blurRadius: 3)
+                      ]),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    // crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        width: 41,
+                        height: 41,
+                        decoration: BoxDecoration(
+                            color: primaryKuning1,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: const [
+                              BoxShadow(color: Colors.grey, blurRadius: 2)
+                            ]),
+                        child: Icon(
+                          Icons.account_balance_wallet_outlined,
+                          size: 25,
+                          color: onPrimary,
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 7),
+                          Container(
+                            width: 61,
+                            height: 21,
+                            padding: const EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: primaryKuning1),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Text(
+                              // "${result[index].status}",
+                              "Pending",
+                              style: pending,
+                              textAlign: TextAlign.center,
+                            ),
+                            // child: Text(
+                            //   "Selesai",
+                            //   style: selesai,
+                            //   textAlign: TextAlign.center,
+                            // ),
+                          ),
+                          const SizedBox(height: 2),
+                          // Text("${result[index].createdAt}",
+                          //     style: title3Sans),
+                          // Text("${result[index].label}",
+                          //     style: title11Sans),
+                          // Text("${result[index].id}",
+                          //     style: title3Sans),
+                          // Text("${result[index].price}",
+                          //     style: title11Sans),
+                          Text("30/MEI/2022  19.40 WIB", style: title3Sans),
+                          Text("OVO 20.000 (08313298343)", style: title11Sans),
+                          Text("Order ID : Payzone_71203829",
+                              style: title3Sans),
+                          Text("Rp. 21.500", style: title11Sans),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ));
